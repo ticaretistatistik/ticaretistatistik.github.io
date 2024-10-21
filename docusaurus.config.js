@@ -16,12 +16,12 @@ const config = {
   url: 'https://ticaretistatistik.github.io',
   // Set the /<baseUrl>/ pathname under which your site is served
   // For GitHub pages deployment, it is often '/<projectName>/'
-  baseUrl: '/docs/',
+  baseUrl: '/',
 
   // GitHub pages deployment config.
   // If you aren't using GitHub pages, you don't need these.
   organizationName: 'ticaretistatistik', // Usually your GitHub org/user name.
-  projectName: 'docs', // Usually your repo name.
+  projectName: 'ticaretistatistik.github.io', // Usually your repo name.
   trailingSlash: false,
 
   onBrokenLinks: 'throw',
@@ -45,14 +45,14 @@ const config = {
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
           editUrl:
-            'https://github.com/ticaretistatistik/docs/tree/main/',
+            'https://github.com/ticaretistatistik/ticaretistatistik.github.io/tree/main/',
         },
         blog: {
           showReadingTime: true,
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
           editUrl:
-            'https://github.com/ticaretistatistik/docs/tree/main/',
+            'https://github.com/ticaretistatistik/ticaretistatistik.github.io/tree/main/',
         },
         theme: {
           customCss: './src/css/custom.css',
@@ -203,11 +203,11 @@ const config = {
               },
               {
                 label: 'Python',
-                to: '/docs/docs/python/',
+                to: '/docs/python/',
               },
               {
                 label: 'R lang',
-                to: '/docs/docs/r/',
+                to: '/docs/r/',
               },
               {
                 href: "#",
@@ -241,7 +241,7 @@ const config = {
             items: [
               {
                 label: 'Blog',
-                to: '/docs/blog',
+                to: '/blog',
               },
               {
                 label: 'Instagram',
@@ -249,7 +249,7 @@ const config = {
               },
               {
                 label: 'GitHub',
-                href: 'https://github.com/ticaretistatistik/docs',
+                href: 'https://github.com/ticaretistatistik',
               },
             ],
           },
