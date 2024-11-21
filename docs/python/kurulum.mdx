@@ -1,0 +1,92 @@
+---
+slug: kurulum
+title: Python nasıl kurulur?
+authors: yigit433
+tags: [python,kurulum,programlama]
+---
+
+## Kurulum Aşamaları
+
+- MiniConda (Python dahil)
+- Visual Studio Code (VSCode)
+
+<div style={{ display: 'flex', gap: '10px', marginBottom: "10px" }}>
+  <DownloadFileFeature 
+    content="İndir" 
+    file={{
+      name: "miniconda-vscode-windows.ps1",
+      url: "https://gist.githubusercontent.com/yigit433/dad44f953742f4858362696514a8475e/raw/8ec1a197a948efb0419b33997a63c2369798ca71/miniconda-vscode-windows.ps1"
+    }} 
+    icon="windows" />
+  
+  <DownloadFileFeature 
+    content="İndir" 
+    file={{
+      name: "miniconda-vscode-macos.sh",
+      url: "https://gist.githubusercontent.com/mertssmnoglu/dbb4546ba9924b142ac42203deb41e06/raw/54c3e7e748bdb636fc5d2047da723f8c3f672fac/miniconda-vscode-macos.sh"
+    }} 
+    icon="macos" />
+</div>
+
+<Tabs>
+  <TabItem value="windows" label="Windows" default>
+    :::info
+    Kurulum dosyasının çalıştırılabilmesi için bilgisayarınız **Windows 10 ve üzeri olması** gerekmektedir.
+    :::
+
+    1. `miniconda-vscode-windows.ps1` kurulum dosyasını indirin.
+        ![Windows Script Download](/docs/python/windows/miniconda-vscode-windows-download.gif)
+    2. Powershell'i **yönetici** olarak çalıştırın ve ilgili komutu yazın.
+      ```powershell
+      Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass
+      ```
+      ![Windows Script Download](/docs/python/windows/powershell-permission.gif)
+    3. İndirdiğiniz powershell dosyasının konumunu kopyalayıp **yönetici** olarak çalıştırılan terminale yapıştırın.
+      <ReactPlayer 
+        playing={false} 
+        controls 
+        height="600px"
+        width="100%"
+        url="https://youtu.be/I7HGV6RgVH8" />
+  </TabItem>
+  <TabItem value="macos" label="Macos">
+    1. `miniconda-vscode-macos.sh` kurulum dosyasını indirin.
+        ![Macos Script Download](/docs/python/macos/miniconda-vscode-macos-download.gif)
+    2. Bilgisayarınızındaki `Dosyalar` uygulamasına girin ve `İndirilenler` klasörünü açın.
+    3. Bilgisayarınızdaan Finder'a veya Spotlight'a girin ve `Terminal` uygulamasını açın
+        ![MacOS Finder/Spotlight üzerinden Terminal Uygulamasını Açma](/docs/python/macos/mac-terminal-finder-spotlight.jpeg) 
+    4. Terminal uygulaması açıldığında karşınıza aşağıdaki gibi bir ekran çıktığından emin olun.
+        ![MacOS Terminal Arayüzü](/docs/python/macos/mac-terminal-interface.jpeg)
+    5. Açılan terminal ekranında, konumunuzu değiştirmek için aşağıdaki komutlardan sistem diliniz ile uyuşanı seçin.
+        ```shell
+        cd İndirilenler
+        ```
+
+        ```shell
+        cd Downloads
+        ```
+
+    7. İndirilenler klasörüne geçiş yaptıktan sonra aşağıdaki komutu çalıştırın ve komut dosyasının yönlendirmelerini takip edin. (Yönetici şifrenizi girmeniz gerekebilir.)
+        ```shell
+        sh ./miniconda-vscode-macos.sh
+        ```
+  </TabItem>
+</Tabs>
+
+:::note
+Eğer bir hata mesajı görmediyseniz işlemler başarı ile gerçekleşmiş demektir. Kodları çalıştırabileceğiniz ortam hazır, şimdi ise bir editöre ihtiyacınız olacak. Visual Studio Code yapılandırmasına erişmek için [tıklayın](#visual-studio-code)
+:::
+
+### Visual Studio Code
+Eğer üst kısımda anlatılan işletim sistemine göre kurulum adımlarını takip ettiyseniz ve herhangi bir hata almadıysanız Visual Studio Code kurulumunuz gerçekleşmiş demektir. Python programlama dili ile kodlama yaparken işimize yarayacak olan bir takım eklentileri kurabilmemiz için gereken `Profil` dosyasının  editöre uygulanmasını sağlayacağız.
+
+Aşağıdaki profillinki kopyalayın.
+    ```
+    https://gist.githubusercontent.com/mertssmnoglu/7a82ec0e7a26c88b7adf6116e62ae80b/raw/3bf99820fafa3596ca7eddcdfb5f06f3b6de4e7d/ticaretistatistik.code-profile
+    ```
+<ReactPlayer 
+  playing={false} 
+  controls 
+  height="600px"
+  width="100%"
+  url="https://youtu.be/89USfXbeaX0" />

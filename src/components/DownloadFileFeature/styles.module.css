@@ -1,0 +1,25 @@
+.btn {
+    display: flex;
+    align-items: center;
+    /* Dikey hizalama */
+    gap: 10px;
+    /* İkon ile metin arası boşluk */
+    padding: 10px 20px;
+    border: none;
+    border-radius: 8px;
+    background-color: #414141;
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn:hover {
+    background-color: #f5cf06;
+}
+
+.button-icon {
+    width: 24px;
+    height: 24px;
+}
