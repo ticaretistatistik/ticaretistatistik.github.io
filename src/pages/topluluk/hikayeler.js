@@ -2,39 +2,29 @@ import { useState } from 'react';
 import ReactPlayer from 'react-player';
 import Layout from '@theme/Layout';
 
-import styles from './etkinliklerimiz.module.css';
+import styles from './hikayeler.module.css';
 
-export default function EtkinliklerimizPage() {
+export default function HikayelerPage() {
     const videos = [
         {
-            "title": "İstatistik Bölüm Tanıtım Programı",
-            "url": "https://www.youtube.com/watch?v=zLkbLQyRO_E",
-            "thumbnail": "https://img.youtube.com/vi/zLkbLQyRO_E/maxresdefault.jpg"
+            "title": "Begüm Öner",
+            "url": "https://www.youtube.com/watch?v=fV0slQWpyJg",
+            "thumbnail": "https://img.youtube.com/vi/fV0slQWpyJg/maxresdefault.jpg"
         },
         {
-            "title": "Dijital Çağda İstatistiğin Gücü",
-            "url": "https://www.youtube.com/watch?v=rLR2a843wK0",
-            "thumbnail": "https://img.youtube.com/vi/rLR2a843wK0/maxresdefault.jpg"
+            "title": "Başak Gizem Çalışkan",
+            "url": "https://www.youtube.com/watch?v=AzWx6l8Ia28",
+            "thumbnail": "https://img.youtube.com/vi/AzWx6l8Ia28/maxresdefault.jpg"
         },
         {
-            "title": "1 Bölüm 3 Bakış | İstatistik Bölümü",
-            "url": "https://www.youtube.com/watch?v=5_6__0P0m50",
-            "thumbnail": "https://img.youtube.com/vi/5_6__0P0m50/maxresdefault.jpg"
+            "title": "Nuralp Öztürk",
+            "url": "https://www.youtube.com/watch?v=lYHA8wgn-zE",
+            "thumbnail": "https://img.youtube.com/vi/lYHA8wgn-zE/maxresdefault.jpg"
         },
         {
-            "title": "İstatistik Topluluğu-İstatistik ve Bankacılık",
-            "url": "https://www.youtube.com/watch?v=o35yIj932zk",
-            "thumbnail": "https://img.youtube.com/vi/o35yIj932zk/maxresdefault.jpg"
-        },
-        {
-            "title": "İstatistik Topluluğu / SHELL Türkiye CEO’su Emre Turanlı ile Soru - Cevap",
-            "url": "https://www.youtube.com/watch?v=TxGxjlVH4xQ",
-            "thumbnail": "https://img.youtube.com/vi/TxGxjlVH4xQ/maxresdefault.jpg"
-        },
-        {
-            "title": "İstatistiklerle, Nereden Nereye? Korona Sürecine Farklı Bir Bakış",
-            "url": "https://www.youtube.com/watch?v=a5lk8IUUzGk",
-            "thumbnail": "https://img.youtube.com/vi/a5lk8IUUzGk/maxresdefault.jpg"
+            "title": "Serdar Türedi",
+            "url": "https://www.youtube.com/watch?v=mMhiVwohuOM",
+            "thumbnail": "https://img.youtube.com/vi/mMhiVwohuOM/maxresdefault.jpg"
         }
     ];
 
@@ -42,7 +32,7 @@ export default function EtkinliklerimizPage() {
     const [videoStatus, setVideoStatus] = useState(false);
 
     return (
-        <Layout title="Mezunlarımız" description="İstanbul Ticaret Üniversitesi İstatistik bölümünün etkinlikleri">
+        <Layout title="Mezunlarımız" description="İstanbul Ticaret Üniversitesi İstatistik bölümü mezunlarımızdan sizlere mesaj var!">
             <div className={styles.container}>
                 <div className={styles.videoContainer}>
                     <h1>{videos[currentIndex].title}</h1>
