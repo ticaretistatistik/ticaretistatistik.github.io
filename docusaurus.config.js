@@ -84,6 +84,7 @@ const config = {
           alt: 'Ticaret İstatistik Logo',
           src: 'img/logo.png',
         },
+        hideOnScroll: true,
         items: [
           {
             type: 'dropdown',
@@ -122,23 +123,27 @@ const config = {
               }
             ]
           },
+  
+          {
+            type: 'dropdown',
+            position: 'left',
+            label: 'Topluluk',
+            items: [
+              {
+                to: '/topluluk/etkinliklerimiz',
+                label: 'Etkinlikler',
+              },
+              {
+                to: '/topluluk/hikayeler',
+                label: 'Hikayeler',
+              },
+              {
+                to: '/topluluk/uyeler',
+                label: 'Üyeler',
+              },
+            ]
+          },
 
-          {
-            to: '/etkinliklerimiz',
-            position: 'left',
-            label: 'Etkinlikler'
-          },
-          
-          {
-            to: '#',
-            position: "left",
-            label: 'Kulübümüz'
-          },
-          {
-            to: '/mezunlarimiz',
-            position: 'left',
-            label: 'Mezunlarımız'
-          },
           {
             type: 'dropdown',
             position: 'left',
@@ -174,16 +179,19 @@ const config = {
             label: 'Akademik Kadro',
             position: 'right',
           },
+
           {
             href: 'mailto:istatistik@ticaret.edu.tr',
             label: 'Email',
             position: 'right',
           },
+
           {
             href: 'https://ticaret.edu.tr/istatistik/wp-content/uploads/sites/30/2022/09/2022-2023_Istatistik_Ders-Icerikleri.pdf',
             label: 'Müfredat',
             position: 'right',
           },
+
           {
             href: 'https://github.com/ticaretistatistik/docs',
             label: 'GitHub',
@@ -246,6 +254,10 @@ const config = {
               {
                 label: 'Instagram',
                 href: 'https://instagram.com/ticaretistatistik'
+              },
+              {
+                label: 'Linkedin',
+                href: 'https://www.linkedin.com/company/i%CC%87statistik-toplulu%C4%9Futic'
               },
               {
                 label: 'GitHub',

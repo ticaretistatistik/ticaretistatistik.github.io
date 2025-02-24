@@ -52,7 +52,7 @@ export default function IndexPage() {
             <a
               className="button button--secondary button--lg"
               href="#">
-              Yayınlarımızı Keşfedin
+              Topluluğumuzu Keşfedin
             </a>
           </div>
         </div>
