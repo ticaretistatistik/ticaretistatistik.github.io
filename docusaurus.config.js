@@ -137,10 +137,6 @@ const config = {
                 to: '/topluluk/hikayeler',
                 label: 'Hikayeler',
               },
-              {
-                to: '/topluluk/uyeler',
-                label: 'Üyeler',
-              },
             ]
           },
 
