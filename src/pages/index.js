@@ -43,7 +43,7 @@ export default function IndexPage() {
   return (
     <Layout
       title={`Ana Sayfa`}
-      description="İstanbul Ticaret Üniversitesi İstatistik bölümü öğrencileri için hazırlanan yardımcı döküman sitesi.">
+      description="İstanbul Ticaret Üniversitesi İstatistik bölümü öğrencileri için hazırlanan yardımcı doküman sitesi.">
       <header className={styles.heroBanner}>
         <div className={styles.container}>
           <h1 className={styles.title}>{siteConfig.title}</h1>
