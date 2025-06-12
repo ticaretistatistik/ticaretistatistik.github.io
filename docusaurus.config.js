@@ -189,7 +189,7 @@ const config = {
           },
 
           {
-            href: 'https://github.com/ticaretistatistik/docs',
+            href: 'https://github.com/ticaretistatistik/ticaretistatistik.github.io',
             label: 'GitHub',
             position: 'right',
           },
