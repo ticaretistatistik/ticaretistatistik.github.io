@@ -1,6 +1,6 @@
-# Ticaret İstatistik Yardımcı Döküman Sitesi
+# Ticaret İstatistik Yardımcı Doküman Sitesi
 
-Bu repository, İstanbul Ticaret Üniversitesi İstatistik bölümü öğrencileri için hazırlananmış yardımcı döküman sitesinin kaynak kodlarını barındırır.
+Bu repository, İstanbul Ticaret Üniversitesi İstatistik bölümü öğrencileri için hazırlananmış yardımcı doküman sitesinin kaynak kodlarını barındırır.
 
 ## İçindekiler
 

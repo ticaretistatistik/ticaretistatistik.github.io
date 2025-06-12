@@ -199,7 +199,7 @@ const config = {
         style: 'dark',
         links: [
           {
-            title: 'Dökümanlar',
+            title: 'Dokümanlar',
             items: [
               {
                 href: "#",

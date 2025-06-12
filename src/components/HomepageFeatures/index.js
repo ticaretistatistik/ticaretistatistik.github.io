@@ -8,7 +8,7 @@ const FeatureList = [
     Svg: require('@site/static/img/undraw_docusaurus_mountain.svg').default,
     description: (
       <>
-        Bu sitedeki dökümanlara her yerden kolayca erişebilirsin, aklına takılan bir şey olduğunda hemen bakabilirsin.
+        Bu sitedeki dokümanlara her yerden kolayca erişebilirsin, aklına takılan bir şey olduğunda hemen bakabilirsin.
       </>
     ),
   },
@@ -17,7 +17,7 @@ const FeatureList = [
     Svg: require('@site/static/img/undraw_docusaurus_mountain.svg').default,
     description: (
       <>
-        Bu sitede bulunan dökümanlara sen de kolayca katkıda bulunabilirsin.
+        Bu sitede bulunan dokümanlara sen de kolayca katkıda bulunabilirsin.
       </>
     ),
   },
@@ -26,7 +26,7 @@ const FeatureList = [
     Svg: require('@site/static/img/undraw_docusaurus_mountain.svg').default,
     description: (
       <>
-        Bu sitede bulunan dökümanlar topluluk tarafından oluşturulur ve güncellenir.
+        Bu sitede bulunan dokümanlar topluluk tarafından oluşturulur ve güncellenir.
       </>
     ),
   }
