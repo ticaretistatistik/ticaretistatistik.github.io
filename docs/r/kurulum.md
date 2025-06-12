@@ -7,7 +7,7 @@ description: R ile Çalışmak çin Gerekli Kurulumlar
 
 R ile çalışmak için bilgisayarımıza birkaç kurulum yapmamız gerekiyor. R, bir programlama dili ve yazılım ortamıdır. R Studio ise R ile çalışmak için geliştirilmiş bir IDE'dir.
 
-İki yazılım da açık kaynak kodlu ve özgür yazılımlardır. Kullanım ücreti ödemeden, ekstra lisanslama ile uğraşmadan kullanabilirsiniz. Bunun yanında R Studio'nun ücretli versiyonu da bulunmaktadır ancak bu dökümanda ücretsiz olan versiyonu anlatılacaktır.
+İki yazılım da açık kaynak kodlu ve özgür yazılımlardır. Kullanım ücreti ödemeden, ekstra lisanslama ile uğraşmadan kullanabilirsiniz. Bunun yanında R Studio'nun ücretli versiyonu da bulunmaktadır ancak bu dokümanda ücretsiz olan versiyonu anlatılacaktır.
 
 ## R Kurulumu
 

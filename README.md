@@ -1,6 +1,6 @@
-# Ticaret İstatistik Yardımcı Döküman Sitesi
+# Ticaret İstatistik Yardımcı Doküman Sitesi
 
-Bu repository, İstanbul Ticaret Üniversitesi İstatistik bölümü öğrencileri için hazırlananmış yardımcı döküman sitesinin kaynak kodlarını barındırır.
+Bu repository, İstanbul Ticaret Üniversitesi İstatistik bölümü öğrencileri için hazırlananmış yardımcı doküman sitesinin kaynak kodlarını barındırır.
 
 ## İçindekiler
 
@@ -30,13 +30,13 @@ Kurulum aşamalarını tamamlamak için bilgisayarınızın terminaline gidip s�
 1. Bu repository'yi bilgisayarınıza git clone aracılığıyla klonlayın.
 
     ```shell
-    git clone git@github.com:ticaretistatistik/docs.git
+    git clone git@github.com:ticaretistatistik/ticaretistatistik.github.io.git
     ```
 
 2. Terminalinizden ana dizine gidin.
 
     ```shell
-    cd docs
+    cd ticaretistatistik.github.io
     ```
 
 3. Uygulamanın çalışabilmesi için gerekli paketleri indirin
@@ -57,8 +57,8 @@ npm start
 
 ## Katkıda Bulunanlar
 
-<a href="https://github.com/ticaretistatistik/docs/graphs/contributors">
-  <img alt="List of the contributors with every contributor's github profile picture" src="https://contrib.rocks/image?repo=ticaretistatistik/docs" />
+<a href="https://github.com/ticaretistatistik/ticaretistatistik.github.io/graphs/contributors">
+  <img alt="List of the contributors with every contributor's github profile picture" src="https://contrib.rocks/image?repo=ticaretistatistik/ticaretistatistik.github.io" />
 </a>
 
 ## Katkıda Bulunma Rehberi
