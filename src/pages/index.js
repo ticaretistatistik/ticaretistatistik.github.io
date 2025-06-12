@@ -1,7 +1,8 @@
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import Layout from '@theme/Layout';
 
-import HomepageFeatures from '@site/src/components/HomepageFeatures';
+import IstatistikNedir from '../components/HomepageFeatures/IstatistikNedir';
+import DersIcerikleri from '../components/HomepageFeatures/DersIcerikleri';
 
 import { useRef, useState } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
@@ -86,7 +87,8 @@ export default function IndexPage() {
         </Swiper>
       </header>
       <main>
-        <HomepageFeatures />
+        <IstatistikNedir />
+        <DersIcerikleri />
       </main>
     </Layout>
   );
