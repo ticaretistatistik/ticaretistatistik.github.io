@@ -42,6 +42,20 @@ const constants = {
   logoSizeRatio: 0.6
 };
 
+/**
+ * @typedef {Object} BlogPreviewParams
+ * @property {string} title - The title of the blog post
+ * @property {string} description - The description or excerpt of the blog post
+ * @property {Array<string|Object>} tags - Array of tags, each can be a string or object with label property
+ * @property {string|Date} date - The publication date of the blog post
+ */
+
+/**
+ * Generates a preview image for a blog post
+ * @param {BlogPreviewParams} params - The parameters for generating the preview
+ * @returns {Promise<string>} A Promise that resolves to the data URL of the generated image
+ * @throws {Error} If canvas context cannot be obtained or during image generation
+ */
 export async function generateBlogPreviewImage({
   title,
   description,
@@ -90,6 +104,13 @@ export async function generateBlogPreviewImage({
   }
 }
 
+/**
+ * Draws the logo on the canvas
+ * @param {CanvasRenderingContext2D} ctx - The canvas 2D rendering context
+ * @param {number} width - The width of the canvas
+ * @param {number} headerHeight - The height of the header section
+ * @returns {Promise<void>} A Promise that resolves when the logo is drawn
+ */
 async function drawLogo(ctx, width, headerHeight) {
   return new Promise((resolve) => {
     const logo = new Image();
@@ -115,6 +136,12 @@ async function drawLogo(ctx, width, headerHeight) {
   });
 }
 
+/**
+ * Draws the content (date, title, description, and tags) on the canvas
+ * @param {CanvasRenderingContext2D} ctx - The canvas 2D rendering context
+ * @param {BlogPreviewParams} params - The content parameters to draw
+ * @returns {void}
+ */
 function drawContent(ctx, { title, description, tags, date }) {
   ctx.textBaseline = "top";
   const { paddingX, headerHeight, lineSpacing, fonts, textColors } = constants;
@@ -169,6 +196,13 @@ function drawContent(ctx, { title, description, tags, date }) {
   }
 }
 
+/**
+ * Wraps text to fit within a specified width
+ * @param {CanvasRenderingContext2D} ctx - The canvas 2D rendering context
+ * @param {string} text - The text to wrap
+ * @param {number} maxWidth - The maximum width allowed for the text
+ * @returns {string[]} An array of lines that fit within the specified width
+ */
 function wrapText(ctx, text, maxWidth) {
   const words = text.split(" ");
   const lines = [];
