@@ -1,77 +1,172 @@
+const constants = {
+  // Dimensions for the blog preview image
+  width: 1080,
+  height: 1920,
+
+  // 3:9 Layout calculations
+  headerHeight: 480, // 25% of height
+  mainHeight: 1440, // 75% of height
+
+  // Spacing and padding
+  paddingX: 80,
+  headerPadding: 60,
+  lineSpacing: {
+    date: 70,
+    title: 80,
+    description: 60,
+    tags: 50,
+    section: 40
+  },
+
+  // Typography
+  fonts: {
+    date: "36px sans-serif",
+    title: "bold 60px sans-serif",
+    description: "42px sans-serif",
+    tags: "36px sans-serif"
+  },
+
+  // Colors
+  lightBackgroundColor: "#f0f0f0",
+  darkBackgroundColor: "#333333",
+  textColors: {
+    date: "#cccccc",
+    title: "#ffffff",
+    description: "#e0e0e0",
+    tags: "#ff4081"
+  },
+
+  // Logo settings
+  logoImageSrc: "/img/logo.png",
+  logoMaxSize: 200,
+  logoSizeRatio: 0.6
+};
+
 export async function generateBlogPreviewImage({
   title,
   description,
-  tags,
-  permalink,
+  tags = [],
   date,
 }) {
-  const canvas = document.createElement("canvas");
-  const ctx = canvas.getContext("2d");
+  try {
+    const canvas = document.createElement("canvas");
+    const ctx = canvas.getContext("2d");
 
-  const width = 1080;
-  const height = 1920;
-  canvas.width = width;
-  canvas.height = height;
+    if (!ctx) {
+      throw new Error("Could not get canvas context");
+    }
 
-  // Arka plan
-  ctx.fillStyle = "#111111";
-  ctx.fillRect(0, 0, width, height);
+    const {
+      width,
+      height,
+      headerHeight,
+      mainHeight,
+      lightBackgroundColor,
+      darkBackgroundColor,
+    } = constants;
+    canvas.width = width;
+    canvas.height = height;
 
-  // Ayarlar
+    ctx.fillStyle = lightBackgroundColor;
+    ctx.fillRect(0, 0, width, headerHeight);
+
+    ctx.fillStyle = darkBackgroundColor;
+    ctx.fillRect(0, headerHeight, width, mainHeight);
+
+    // Load and draw logo
+    await drawLogo(ctx, width, headerHeight);
+
+    drawContent(ctx, {
+      title,
+      description,
+      tags,
+      date,
+    });
+
+    return canvas.toDataURL("image/png");
+  } catch (error) {
+    console.error("Error generating blog preview image:", error);
+    throw error;
+  }
+}
+
+async function drawLogo(ctx, width, headerHeight) {
+  return new Promise((resolve) => {
+    const logo = new Image();
+
+    logo.onload = () => {
+      const logoSize = Math.min(
+        headerHeight * constants.logoSizeRatio,
+        constants.logoMaxSize,
+      );
+      const logoX = (width - logoSize) / 2;
+      const logoY = (headerHeight - logoSize) / 2;
+
+      ctx.drawImage(logo, logoX, logoY, logoSize, logoSize);
+      resolve();
+    };
+
+    logo.onerror = () => {
+      console.warn("Failed to load logo image");
+      resolve(); // Continue without logo
+    };
+
+    logo.src = constants.logoImageSrc;
+  });
+}
+
+function drawContent(ctx, { title, description, tags, date }) {
   ctx.textBaseline = "top";
-  const paddingX = 80;
-  let y = 100;
+  const { paddingX, headerHeight, lineSpacing, fonts, textColors } = constants;
+  let y = headerHeight + constants.headerPadding;
 
-  // Tarih
-  ctx.fillStyle = "#bbbbbb";
-  ctx.font = "36px sans-serif";
-  ctx.fillText(new Date(date).toLocaleDateString("tr-TR"), paddingX, y);
-  y += 70;
+  // Date
+  if (date) {
+    ctx.fillStyle = textColors.date;
+    ctx.font = fonts.date;
+    ctx.fillText(new Date(date).toLocaleDateString("tr-TR"), paddingX, y);
+    y += lineSpacing.date;
+  }
 
-  // Başlık
-  ctx.fillStyle = "#ffffff";
-  ctx.font = "bold 60px sans-serif";
-  wrapText(ctx, title, width - 2 * paddingX).forEach((line) => {
-    ctx.fillText(line, paddingX, y);
-    y += 80;
-  });
+  // Title
+  if (title) {
+    ctx.fillStyle = textColors.title;
+    ctx.font = fonts.title;
+    const titleLines = wrapText(ctx, title, constants.width - 2 * paddingX);
+    titleLines.forEach((line) => {
+      ctx.fillText(line, paddingX, y);
+      y += lineSpacing.title;
+    });
+    y += lineSpacing.section;
+  }
 
-  y += 40;
+  // Description
+  if (description) {
+    ctx.fillStyle = textColors.description;
+    ctx.font = fonts.description;
+    const descLines = wrapText(
+      ctx,
+      description,
+      constants.width - 2 * paddingX,
+    );
+    descLines.forEach((line) => {
+      ctx.fillText(line, paddingX, y);
+      y += lineSpacing.description;
+    });
+    y += lineSpacing.section;
+  }
 
-  // Açıklama
-  ctx.fillStyle = "#cccccc";
-  ctx.font = "42px sans-serif";
-  wrapText(ctx, description, width - 2 * paddingX).forEach((line) => {
-    ctx.fillText(line, paddingX, y);
-    y += 60;
-  });
-
-  y += 40;
-
-  // Etiketler
-  ctx.fillStyle = "#ff4081";
-  ctx.font = "36px sans-serif";
-  const tagText = tags.map((t) => `#${t.label}`).join("  ");
-  wrapText(ctx, tagText, width - 2 * paddingX).forEach((line) => {
-    ctx.fillText(line, paddingX, y);
-    y += 50;
-  });
-
-  // URL
-  const fullUrl =
-    typeof window !== "undefined"
-      ? window.location.href
-      : `https://ticaretistatistik.github.io${permalink}`;
-
-  ctx.fillStyle = "#00e676";
-  ctx.font = "36px monospace";
-  const urlLines = wrapText(ctx, fullUrl, width - 2 * paddingX);
-  const urlY = height - 40 * urlLines.length - 50; 
-  urlLines.forEach((line, i) => {
-    ctx.fillText(line, paddingX, urlY + i * 40);
-  });
-
-  return canvas.toDataURL("image/png");
+  // Tags
+  if (tags && tags.length > 0) {
+    ctx.fillStyle = textColors.tags;
+    ctx.font = fonts.tags;
+    const tagText = tags.map((t) => `#${t.label || t}`).join("  ");
+    const tagLines = wrapText(ctx, tagText, constants.width - 2 * paddingX);
+    tagLines.forEach((line) => {
+      ctx.fillText(line, paddingX, y);
+      y += lineSpacing.tags;
+    });
+  }
 }
 
 function wrapText(ctx, text, maxWidth) {
@@ -91,6 +186,9 @@ function wrapText(ctx, text, maxWidth) {
     }
   }
 
-  lines.push(line.trim());
+  if (line.trim()) {
+    lines.push(line.trim());
+  }
+
   return lines;
 }
