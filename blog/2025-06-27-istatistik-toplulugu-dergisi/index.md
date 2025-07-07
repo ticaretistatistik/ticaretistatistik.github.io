@@ -1,7 +1,7 @@
 ---
 slug: istatistik-toplulugu-dergisi-2025
 title: İstatistik Topluluğu Dergisi 2025
-authors: [yigitefeavci, mertsismanoglu, yakupvatansever]
+authors: [yakupvatansever, mertsismanoglu]
 tags: [istatistik-topluluğu]
 ---
 

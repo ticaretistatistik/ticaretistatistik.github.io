@@ -1,7 +1,7 @@
 ---
 slug: istatistik-sayilarin-anlattigi-hikayeler
 title: 'İstatistik: Sayıların Anlattığı Hikâyeler'
-authors: [yigitefeavci, mertsismanoglu]
+authors: [yigitefeavci]
 tags: [istatistik, hayat, yapayzeka, analiz]
 ---
 
