@@ -6,7 +6,7 @@ export default function BlogPostPageWrapper(props) {
   const metadata = props.content.metadata;
   const [isClient, setIsClient] = useState(false);
 
-  const { title, description, tags, permalink, date } = metadata;
+  const { title, description, tags, date } = metadata;
 
   useEffect(() => {
     setIsClient(true);
@@ -17,7 +17,6 @@ export default function BlogPostPageWrapper(props) {
       title,
       description,
       tags,
-      permalink,
       date,
     });
 
