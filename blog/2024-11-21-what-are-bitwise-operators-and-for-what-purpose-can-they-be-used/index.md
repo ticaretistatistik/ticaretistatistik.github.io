@@ -1,7 +1,7 @@
 ---
 slug: what-are-bitwise-operators-and-for-what-purpose-can-they-be-used
 title: Bitwise operatörler nelerdir ve kullanım amacı nedir?
-authors: [yigitefeavci, mertsismanoglu]
+authors: [yigitefeavci]
 tags: [python, programlama, bitwise]
 ---
 
