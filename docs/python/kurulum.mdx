@@ -15,7 +15,7 @@ tags: [python,kurulum,programlama]
     content="İndir" 
     file={{
       name: "miniconda-vscode-windows.ps1",
-      url: "https://gist.githubusercontent.com/yigit433/dad44f953742f4858362696514a8475e/raw/8ec1a197a948efb0419b33997a63c2369798ca71/miniconda-vscode-windows.ps1"
+      url: "https://gist.githubusercontent.com/yigit433/dad44f953742f4858362696514a8475e/raw/a447edee8596307866d6a43821d97da9fa47c5e4/miniconda-vscode-windows.ps1"
     }} 
     icon="windows" />
   
@@ -34,14 +34,23 @@ tags: [python,kurulum,programlama]
     Kurulum dosyasının çalıştırılabilmesi için bilgisayarınız **Windows 10 ve üzeri olması** gerekmektedir.
     :::
 
-    1. `miniconda-vscode-windows.ps1` kurulum dosyasını indirin.
+    1. `miniconda-vscode-windows.ps1` kurulum dosyasını indirin.  
         ![Windows Script Download](/docs/python/windows/miniconda-vscode-windows-download.gif)
-    2. Powershell'i **yönetici** olarak çalıştırın ve ilgili komutu yazın.
+
+    2. Powershell'i **yönetici** olarak çalıştırın ve aşağıdaki komutu girerek komut çalıştırma kısıtlamasını geçici olarak kaldırın:
       ```powershell
       Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass
       ```
       ![Windows Script Download](/docs/python/windows/powershell-permission.gif)
-    3. İndirdiğiniz powershell dosyasının konumunu kopyalayıp **yönetici** olarak çalıştırılan terminale yapıştırın.
+
+    3. Ardından aşağıdaki komutu terminale yapıştırarak kurulum dosyasını çalıştırın:
+      ```powershell
+      powershell -ExecutionPolicy Bypass -File "C:\Users\User\Desktop\miniconda-vscode-windows.ps1"
+      ```
+
+    4. Eğer dosyanın farklı bir klasörde olduğunu biliyorsanız, komuttaki `"C:\Users\User\Desktop\..."` kısmını o konuma göre düzenleyin.  
+       Aşağıdaki videoda adımlar detaylı bir şekilde gösterilmiştir:
+
       <ReactPlayer 
         playing={false} 
         controls 
@@ -49,6 +58,7 @@ tags: [python,kurulum,programlama]
         width="100%"
         url="https://youtu.be/I7HGV6RgVH8" />
   </TabItem>
+
   <TabItem value="macos" label="Macos">
     1. `miniconda-vscode-macos.sh` kurulum dosyasını indirin.
         ![Macos Script Download](/docs/python/macos/miniconda-vscode-macos-download.gif)
