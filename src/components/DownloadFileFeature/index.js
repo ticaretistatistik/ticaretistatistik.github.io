@@ -1,5 +1,6 @@
-import { SiWindows, SiApple, SiLinux } from "react-icons/si";
+import { SiApple, SiLinux } from "react-icons/si";
 import { VscVscode } from "react-icons/vsc";
+import { FaWindows } from "react-icons/fa";
 
 import styles from "./styles.module.css";
 
@@ -26,7 +27,7 @@ const DownloadFileFeature = ({ content, file, icon }) => {
         <button
             className={styles.btn}
             onClick={downloadFile}>
-            {icon === "windows" ? <SiWindows /> : icon === "macos" ? <SiApple /> : icon === "linux" ? <SiLinux /> : <VscVscode />}
+            {icon === "windows" ? <FaWindows /> : icon === "macos" ? <SiApple /> : icon === "linux" ? <SiLinux /> : <VscVscode />}
             {content}
         </button>
     );
