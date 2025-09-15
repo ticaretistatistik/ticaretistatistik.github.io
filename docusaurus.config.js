@@ -262,7 +262,7 @@ const config = {
             ],
           },
         ],
-        copyright: `Copyright © 2024 Ticaret İstatistik | Built with <a target="_blank" rel="noopener noreferrer" href="https://docusaurus.io/">Docusaurus</a>.`,
+        copyright: `Copyright © ${new Date().getFullYear()} Ticaret İstatistik | Built with <a target="_blank" rel="noopener noreferrer" href="https://docusaurus.io/">Docusaurus</a>.`,
       },
       prism: {
         theme: prismThemes.github,
