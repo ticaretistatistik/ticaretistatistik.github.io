@@ -1,5 +1,5 @@
 {
-  "name": "iticu-istatistik",
+  "name": "ticaret-istatistik",
   "version": "0.0.0",
   "private": true,
   "scripts": {
@@ -28,6 +28,7 @@
   },
   "devDependencies": {
     "@docusaurus/module-type-aliases": "^3.5.2",
+    "@docusaurus/plugin-content-docs": "^3.8.1",
     "@docusaurus/types": "^3.5.2"
   },
   "browserslist": {
