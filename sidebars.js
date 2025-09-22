@@ -39,6 +39,14 @@ const sidebars = {
       items: ["r/index", "r/kurulum"],
     }
   ],
+
+  jaspSidebar: [
+    {
+      type: "category",
+      label: "JASP",
+      items: ["jasp/index", "jasp/kurulum"],
+    }
+  ],
 };
 
 export default sidebars;

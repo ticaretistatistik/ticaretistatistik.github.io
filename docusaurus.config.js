@@ -96,6 +96,10 @@ const config = {
                 label: 'Jamovi',
               },
               {
+                href: "/docs/jasp",
+                label: 'Jasp',
+              },
+              {
                 href: "#",
                 label: 'Spss',
               },
