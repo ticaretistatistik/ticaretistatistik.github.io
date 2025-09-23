@@ -5,6 +5,8 @@
 // See: https://docusaurus.io/docs/api/docusaurus-config
 
 import {themes as prismThemes} from 'prism-react-renderer';
+import remarkMath from 'remark-math';
+import rehypeKatex from 'rehype-katex';
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
@@ -35,6 +37,16 @@ const config = {
     locales: ['tr'],
   },
 
+  stylesheets: [
+    {
+      href: 'https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css',
+      type: 'text/css',
+      integrity:
+        'sha384-9Y3bqD0qWQH3q4gVv5Stm9J9t6pTZQJ9hG1nq3o2vV9q2b2o0qkqC0R1f2qf7k2P',
+      crossorigin: 'anonymous',
+    },
+  ],
+
   presets: [
     [
       'classic',
@@ -49,6 +61,8 @@ const config = {
         },
         blog: {
           showReadingTime: true,
+          remarkPlugins: [remarkMath],
+          rehypePlugins: [rehypeKatex],
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
           editUrl:
@@ -59,6 +73,16 @@ const config = {
         },
       }),
     ],
+    // [
+    //   '@docusaurus/preset-classic',
+    //   {
+    //     docs: {
+    //       path: 'blog',
+    //       remarkPlugins: [remarkMath],
+    //       rehypePlugins: [rehypeKatex],
+    //     },
+    //   },
+    // ],
   ],
 
   themeConfig:
