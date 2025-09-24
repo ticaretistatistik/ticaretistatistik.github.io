@@ -18,6 +18,8 @@ Kulağa çarpıcı geliyor, değil mi? Ama ya bu rakam gerçeği tam olarak yans
 ## Ortalama (Mean) Nedir?
 Ortalama, tüm değerlerin toplanıp gözlem sayısına bölünmesiyle hesaplanır. Matematiksel olarak basittir ve çoğu zaman bize "geneli" göstermek için yeterlidir.
 
+<!-- truncate -->
+
 ![Mean Equation](./mean-equation.png)
 
 - Burada xi her bir gözlemi,
