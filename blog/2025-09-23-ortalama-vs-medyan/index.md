@@ -13,12 +13,12 @@ Kulağa çarpıcı geliyor, değil mi? Ama ya bu rakam gerçeği tam olarak yans
 
 İstatistikte en çok kullanılan ölçülerden biri “ortalama”dır. Basit ve anlaşılır olduğu için çoğu zaman tercih edilir. Fakat özellikle uç değerler (örneğin birkaç aşırı pahalı ev) işin içine girdiğinde, ortalama tek başına gerçeği çarpıtarak farklı bir tablo sunabilir.
 
+<!-- truncate -->
+
 İşte bu noktada medyan devreye girer. Peki ortalama ile medyan arasındaki fark nedir, hangisi daha güvenilirdir ve neden bu ayrım bu kadar önemlidir?
 
 ## Ortalama (Mean) Nedir?
 Ortalama, tüm değerlerin toplanıp gözlem sayısına bölünmesiyle hesaplanır. Matematiksel olarak basittir ve çoğu zaman bize "geneli" göstermek için yeterlidir.
-
-<!-- truncate -->
 
 ![Mean Equation](./mean-equation.png)
 
