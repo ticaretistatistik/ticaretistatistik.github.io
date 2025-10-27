@@ -14,14 +14,17 @@ Bu repository, İstanbul Ticaret Üniversitesi İstatistik bölümü öğrencile
 
 ## Başlangıç
 
-Bu web sitesi [NodeJS](https://nodejs.org/en/download) ve [Docusaurus](https://docusaurus.io/) kullanılarak oluşturulmuştur. Eğer bu siteyi kendi bilgisayarınızda barındırmak ve erişmek istiyorsanız kurulum aşamasına geçebilir ve yönergeleri takip ederek bilgisayarınızda da siteyi çalıştırabilirsiniz.
+Bu web sitesi [Node.js](https://nodejs.org/en/download) ve [Docusaurus](https://docusaurus.io/) kullanılarak oluşturulmuştur. Eğer bu siteyi kendi bilgisayarınızda barındırmak ve erişmek istiyorsanız kurulum aşamasına geçebilir ve yönergeleri takip ederek bilgisayarınızda da siteyi çalıştırabilirsiniz.
 
 ## Gereksinimler
 
 Web sitesinin kaynak kodlarını bilgisayarınıza çekebilmeniz ve gerekli paketleri kurabilmek için birkaç ön kurulum adımının izlenmesi gerekir. Aşağıdaki bağlantılardan kurulum dosyalarını indirerek kurulumlarını gerçekleştirebilirsiniz.
 
 - [Git](https://git-scm.com/downloads)
-- [NodeJS & Npm](https://nodejs.org/en/download/)
+- [Node.js & Npm](https://nodejs.org/en/download/)
+
+> [!NOTE]
+> Node.js sürümünüzün en az `20` olduğundan emin olunuz. Mevcut Node.js sürümünüzü terminalden `node -v` komutunu kullanarak kontrol edebilirsiniz.
 
 ## Kurulum
 
