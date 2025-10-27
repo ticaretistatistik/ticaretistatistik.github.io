@@ -290,7 +290,7 @@ const config = {
             ],
           },
         ],
-        copyright: `Copyright © ${new Date().getFullYear()} Ticaret İstatistik | Built with <a target="_blank" rel="noopener noreferrer" href="https://docusaurus.io/">Docusaurus</a>.`,
+        copyright: `Copyright © ${new Date().getFullYear()} Ticaret İstatistik<br/>Licensed under the GNU General Public License v3.0 or later.<br/>Built with <a target="_blank" rel="noopener noreferrer" href="https://docusaurus.io/">Docusaurus</a>.`,
       },
       prism: {
         theme: prismThemes.github,
