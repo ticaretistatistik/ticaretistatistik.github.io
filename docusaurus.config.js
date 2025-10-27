@@ -215,7 +215,7 @@ const config = {
           },
 
           {
-            href: 'https://ticaret.edu.tr/istatistik/wp-content/uploads/sites/30/2022/09/2022-2023_Istatistik_Ders-Icerikleri.pdf',
+            href: 'https://ticaret.edu.tr/istatistik/wp-content/uploads/sites/30/2024/10/2024-2025-Istatistik-Ders-Icerigi.pdf',
             label: 'Müfredat',
             position: 'right',
           },
