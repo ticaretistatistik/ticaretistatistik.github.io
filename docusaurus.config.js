@@ -215,9 +215,41 @@ const config = {
           },
 
           {
-            href: 'https://ticaret.edu.tr/istatistik/wp-content/uploads/sites/30/2024/10/2024-2025-Istatistik-Ders-Icerigi.pdf',
+            type: 'dropdown',
             label: 'Müfredat',
             position: 'right',
+            items: [
+              {
+                href: 'https://ticaret.edu.tr/istatistik/wp-content/uploads/sites/30/2025/10/2025-2026-Istatistik-Bolumu-Mufredat.pdf',
+                label: '2025-2026',
+                target: '_blank',
+                rel: 'noopener noreferrer',
+              },
+              {
+                href: 'https://ticaret.edu.tr/istatistik/wp-content/uploads/sites/30/2024/10/2024-2025-Istatistik-Mufredat.pdf',
+                label: '2024-2025',
+                target: '_blank',
+                rel: 'noopener noreferrer',
+              },
+              {
+                href: 'https://ticaret.edu.tr/istatistik/wp-content/uploads/sites/30/2023/09/Istatislik.pdf',
+                label: '2023-2024',
+                target: '_blank',
+                rel: 'noopener noreferrer',
+              },
+              {
+                href: 'https://ticaret.edu.tr/istatistik/wp-content/uploads/sites/30/2022/09/2022-2023_Istatistik_Mufredati.pdf',
+                label: '2022-2023',
+                target: '_blank',
+                rel: 'noopener noreferrer',
+              },
+              {
+                href: 'https://ticaret.edu.tr/istatistik/wp-content/uploads/sites/30/2022/01/2021-2022_ISTATISTIK_Mufredat.pdf',
+                label: '2021-2022',
+                target: '_blank',
+                rel: 'noopener noreferrer',
+              }
+            ],
           },
 
           {
