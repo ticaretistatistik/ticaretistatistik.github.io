@@ -151,7 +151,7 @@ const config = {
               {
                 type: 'docSidebar',
                 sidebarId: 'rSidebar',
-                label: 'R lang',
+                label: 'R',
               }
             ]
           },
@@ -274,7 +274,7 @@ const config = {
                 to: '/docs/python/',
               },
               {
-                label: 'R lang',
+                label: 'R',
                 to: '/docs/r/',
               },
               {
