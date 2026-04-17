@@ -87,7 +87,7 @@ export default function ContributingPage() {
                     <h2 id="kod-katk-s-">Kod Katkısı</h2>
                     <p>Web sitesinin koduna katkıda bulunmak istiyorsanız, standart GitHub iş akışını takip etmelisiniz:</p>
                     <ol>
-                        <li>Öncelikle <a href="https://github.com/ticaretistatistik/ticaretistatistik.github.io/issues">issues</a> sayfasını kontrol edin</li>
+                        <li>Öncelikle <a href="https://github.com/ticaretistatistik/ticaretistatistik.com/issues">issues</a> sayfasını kontrol edin</li>
                         <li>Yapmak istediğiniz değişiklik için yeni bir issue açın<ul>
                             <li>Değişikliğin amacını açıklayın</li>
                             <li>Nasıl implemente edeceğinizi kısaca anlatın</li>
@@ -111,7 +111,7 @@ export default function ContributingPage() {
                         </li>
                         <li><p>Bağımlılıkları yükleyin:</p>
                             <pre>
-                                <code class="lang-shell">cd ticaretistatistik.github.io</code>
+                                <code class="lang-shell">cd ticaretistatistik.com</code>
                             </pre>
                             <pre>
                                 <code class="lang-shell">npm install</code>
@@ -123,7 +123,7 @@ export default function ContributingPage() {
                         </li>
                     </ol>
                     <h2 id="yard-m-ve-i-leti-im">Yardım ve İletişim</h2>
-                    <p>Herhangi bir sorunuz olursa <a href="https://github.com/ticaretistatistik/ticaretistatistik.github.io/issues">issues</a> sayfasında yeni bir issue açabilirsiniz.</p>
+                    <p>Herhangi bir sorunuz olursa <a href="https://github.com/ticaretistatistik/ticaretistatistik.com/issues">issues</a> sayfasında yeni bir issue açabilirsiniz.</p>
 
                 </div>
             </div>

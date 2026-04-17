@@ -72,7 +72,7 @@ Eğer markdown formatında yazmayı tercih ederseniz:
 
 Web sitesinin koduna katkıda bulunmak istiyorsanız, standart GitHub iş akışını takip etmelisiniz:
 
-1. Öncelikle [issues](https://github.com/ticaretistatistik/ticaretistatistik.github.io/issues) sayfasını kontrol edin
+1. Öncelikle [issues](https://github.com/ticaretistatistik/ticaretistatistik.com/issues) sayfasını kontrol edin
 2. Yapmak istediğiniz değişiklik için yeni bir issue açın
    - Değişikliğin amacını açıklayın
    - Nasıl implemente edeceğinizi kısaca anlatın
@@ -90,13 +90,13 @@ Lokal geliştirme ortamını kurmak için:
 1. Repository'yi klonlayın:
 
    ```shell
-   git clone git@github.com:ticaretistatistik/ticaretistatistik.github.io.git
+   git clone git@github.com:ticaretistatistik/ticaretistatistik.com.git
    ```
 
 2. Bağımlılıkları yükleyin:
 
    ```shell
-   cd ticaretistatistik.github.io
+   cd ticaretistatistik.com
    npm install
    ```
 
@@ -108,4 +108,4 @@ Lokal geliştirme ortamını kurmak için:
 
 ## Yardım ve İletişim
 
-Herhangi bir sorunuz olursa [issues](https://github.com/ticaretistatistik/ticaretistatistik.github.io/issues) sayfasında yeni bir issue açabilirsiniz.
+Herhangi bir sorunuz olursa [issues](https://github.com/ticaretistatistik/ticaretistatistik.com/issues) sayfasında yeni bir issue açabilirsiniz.

@@ -33,13 +33,13 @@ Kurulum aşamalarını tamamlamak için bilgisayarınızın terminaline gidip s�
 1. Bu repository'yi bilgisayarınıza git clone aracılığıyla klonlayın.
 
     ```shell
-    git clone git@github.com:ticaretistatistik/ticaretistatistik.github.io.git
+    git clone git@github.com:ticaretistatistik/ticaretistatistik.com.git
     ```
 
 2. Terminalinizden ana dizine gidin.
 
     ```shell
-    cd ticaretistatistik.github.io
+    cd ticaretistatistik.com
     ```
 
 3. Uygulamanın çalışabilmesi için gerekli paketleri indirin
@@ -60,8 +60,8 @@ npm start
 
 ## Katkıda Bulunanlar
 
-<a href="https://github.com/ticaretistatistik/ticaretistatistik.github.io/graphs/contributors">
-  <img alt="List of the contributors with every contributor's github profile picture" src="https://contrib.rocks/image?repo=ticaretistatistik/ticaretistatistik.github.io" />
+<a href="https://github.com/ticaretistatistik/ticaretistatistik.com/graphs/contributors">
+  <img alt="List of the contributors with every contributor's github profile picture" src="https://contrib.rocks/image?repo=ticaretistatistik/ticaretistatistik.com" />
 </a>
 
 ## Katkıda Bulunma Rehberi

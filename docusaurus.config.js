@@ -15,7 +15,7 @@ const config = {
   favicon: 'img/logo.png',
 
   // Set the production url of your site here
-  url: 'https://ticaretistatistik.github.io',
+  url: 'https://ticaretistatistik.com',
   // Set the /<baseUrl>/ pathname under which your site is served
   // For GitHub pages deployment, it is often '/<projectName>/'
   baseUrl: '/',
@@ -23,7 +23,7 @@ const config = {
   // GitHub pages deployment config.
   // If you aren't using GitHub pages, you don't need these.
   organizationName: 'ticaretistatistik', // Usually your GitHub org/user name.
-  projectName: 'ticaretistatistik.github.io', // Usually your repo name.
+  projectName: 'ticaretistatistik.com', // Usually your repo name.
   trailingSlash: false,
   markdown: {
     hooks: {
@@ -61,7 +61,7 @@ const config = {
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
           editUrl:
-            'https://github.com/ticaretistatistik/ticaretistatistik.github.io/tree/main/',
+            'https://github.com/ticaretistatistik/ticaretistatistik.com/tree/main/',
         },
         blog: {
           showReadingTime: true,
@@ -70,7 +70,7 @@ const config = {
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
           editUrl:
-            'https://github.com/ticaretistatistik/ticaretistatistik.github.io/tree/main/',
+            'https://github.com/ticaretistatistik/ticaretistatistik.com/tree/main/',
         },
         theme: {
           customCss: './src/css/custom.css',
@@ -253,7 +253,7 @@ const config = {
           },
 
           {
-            href: 'https://github.com/ticaretistatistik/ticaretistatistik.github.io',
+            href: 'https://github.com/ticaretistatistik/ticaretistatistik.com',
             label: 'GitHub',
             position: 'right',
           },
