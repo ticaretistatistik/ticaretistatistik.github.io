@@ -51,7 +51,7 @@ Eğer markdown formatında yazmayı tercih ederseniz:
 
    ```markdown
    ---
-   slug: yasinizin-url-adresi
+   slug: yazinizin-url-adresi
    title: Yazınızın Başlığı
    authors: [kullanici-adiniz]
    tags: [etiket1, etiket2]

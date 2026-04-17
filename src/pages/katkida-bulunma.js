@@ -60,21 +60,28 @@ export default function ContributingPage() {
                         <li><code>blog</code> klasörü altında yeni bir klasör oluşturun (klasör adı formatı: <code>YYYY-MM-DD-yazinizin-basligi</code>)</li>
                         <li>Klasörün içine <code>index.md</code> dosyası oluşturun</li>
                         <li><p>Yazınızın başına aşağıdaki metadatayı ekleyin:</p>
-                            <pre><code class="lang-markdown"><span class="hljs-meta">---</span>
-                                <span class="hljs-attr">slug:</span> yasinizin-url-adresi
-                                <span class="hljs-attr">title:</span> Yazınızın Başlığı
-                                <span class="hljs-attr">authors:</span> [kullanici-adiniz]
-                                <span class="hljs-attr">tags:</span> [etiket1, etiket2]
+                            <pre><code class="lang-markdown"><span class="hljs-meta">---</span><br/>
+                                <span class="hljs-attr">slug:</span> yazinizin-url-adresi<br/>
+                                <span class="hljs-attr">title:</span> Yazınızın Başlığı<br/>
+                                <span class="hljs-attr">authors:</span> [kullanici-adiniz]<br/>
+                                <span class="hljs-attr">tags:</span> [etiket1, etiket2]<br/>
                                 <span class="hljs-meta">---</span>
                             </code></pre>
                         </li>
-                        <li><p><code>blog/authors.yml</code> dosyasına yazar bilgilerinizi ekleyin:</p>
-                            <pre><code class="lang-yaml"><span class="hljs-attribute">kullanici-adiniz</span>:
-                                <span class="hljs-attribute">name</span>: İsim Soyisim
-                                <span class="hljs-attribute">title</span>: Unvanınız/Rolünüz (ö<span class="hljs-attribute">rn</span>: İstatistik Bölümü Öğrencisi)
-                                <span class="hljs-attribute">url</span>: <span class="hljs-attribute">https</span>:<span class="hljs-comment">//github.com/github-kullanici-adiniz</span>
-                                <span class="hljs-attribute">image_url</span>: /img/authors/kullanici-adiniz.jpg
-                            </code></pre>
+                        <li>
+                            <p>
+                                <code>blog/authors.yml</code>
+                                dosyasına yazar bilgilerinizi ekleyin:
+                            </p>
+                            <pre>
+                                <code class="lang-yaml">
+                                    <span class="hljs-attribute">kullanici-adiniz</span>:<br/>
+                                    <span class="hljs-attribute">name</span>: İsim Soyisim<br/>
+                                    <span class="hljs-attribute">title</span>: Unvanınız/Rolünüz (örn: İstatistik Bölümü Öğrencisi)<br/>
+                                    <span class="hljs-attribute">url</span>: <span class="hljs-attribute">https</span>:<span class="hljs-comment">//github.com/github-kullanici-adiniz</span><br/>
+                                    <span class="hljs-attribute">image_url</span>: /img/authors/kullanici-adiniz.jpg
+                                </code>
+                            </pre>
                         </li>
                     </ol>
                     <h2 id="kod-katk-s-">Kod Katkısı</h2>
@@ -103,9 +110,12 @@ export default function ContributingPage() {
                             </code></pre>
                         </li>
                         <li><p>Bağımlılıkları yükleyin:</p>
-                            <pre><code class="lang-shell">cd ticaretistatistik<span class="hljs-selector-class">.github</span><span class="hljs-selector-class">.io</span>
-                                npm install
-                            </code></pre>
+                            <pre>
+                                <code class="lang-shell">cd ticaretistatistik.github.io</code>
+                            </pre>
+                            <pre>
+                                <code class="lang-shell">npm install</code>
+                            </pre>
                         </li>
                         <li><p>Geliştirme sunucusunu başlatın:</p>
                             <pre><code class="lang-shell"><span class="hljs-built_in">npm</span> start
