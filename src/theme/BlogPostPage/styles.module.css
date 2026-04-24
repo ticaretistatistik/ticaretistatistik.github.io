@@ -1,0 +1,89 @@
+.shareButton {
+  position: fixed;
+  right: clamp(16px, 3vw, 32px);
+  bottom: clamp(20px, 3vw, 36px);
+  z-index: 100;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 18px;
+  background: var(--brand-ink);
+  color: var(--brand-surface);
+  border: 1px solid var(--brand-ink);
+  border-radius: var(--radius-pill);
+  font-family: var(--ifm-font-family-base);
+  font-size: 0.92rem;
+  font-weight: 600;
+  letter-spacing: -0.005em;
+  cursor: pointer;
+  box-shadow:
+    0 10px 24px rgba(15, 23, 41, 0.22),
+    0 2px 6px rgba(15, 23, 41, 0.12);
+  transition:
+    transform var(--dur-base) var(--ease-out),
+    box-shadow var(--dur-base) var(--ease-out),
+    background-color var(--dur-base) var(--ease-out),
+    color var(--dur-base) var(--ease-out);
+}
+
+.shareButton:hover:not(:disabled) {
+  transform: translateY(-2px);
+  background: #1e2a45;
+  box-shadow:
+    0 14px 32px rgba(15, 23, 41, 0.3),
+    0 4px 10px rgba(15, 23, 41, 0.18);
+}
+
+.shareButton:active:not(:disabled) {
+  transform: translateY(0);
+}
+
+.shareButton:focus-visible {
+  outline: none;
+  box-shadow:
+    0 0 0 3px var(--brand-yellow),
+    0 10px 24px rgba(15, 23, 41, 0.22);
+}
+
+.shareButton:disabled {
+  opacity: 0.78;
+  cursor: default;
+}
+
+[data-theme='dark'] .shareButton {
+  background: var(--brand-yellow);
+  color: var(--brand-ink);
+  border-color: var(--brand-yellow);
+  box-shadow:
+    0 10px 24px rgba(0, 0, 0, 0.5),
+    0 2px 6px rgba(0, 0, 0, 0.35);
+}
+
+[data-theme='dark'] .shareButton:hover:not(:disabled) {
+  background: var(--brand-yellow-deep, #c9a804);
+  color: var(--brand-ink);
+}
+
+.shareLabel {
+  line-height: 1;
+}
+
+.spinner {
+  animation: shareSpin 0.9s linear infinite;
+}
+
+@keyframes shareSpin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (max-width: 520px) {
+  .shareButton {
+    padding: 12px;
+    gap: 0;
+  }
+  .shareLabel {
+    display: none;
+  }
+}
