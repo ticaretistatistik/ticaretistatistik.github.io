@@ -6,7 +6,8 @@
     "docusaurus": "docusaurus",
     "start": "docusaurus start",
     "generate:og": "node scripts/generate-og-images.mjs",
-    "prebuild": "node scripts/generate-og-images.mjs",
+    "fetch:events": "node scripts/fetch-events.mjs",
+    "prebuild": "npm run generate:og && npm run fetch:events",
     "build": "docusaurus build",
     "swizzle": "docusaurus swizzle",
     "deploy": "docusaurus deploy",
@@ -40,7 +41,8 @@
     "@fontsource/inter": "^5.2.8",
     "@napi-rs/canvas": "^0.1.99",
     "baseline-browser-mapping": "^2.9.11",
-    "gray-matter": "^4.0.3"
+    "gray-matter": "^4.0.3",
+    "node-ical": "^0.26.0"
   },
   "browserslist": {
     "production": [

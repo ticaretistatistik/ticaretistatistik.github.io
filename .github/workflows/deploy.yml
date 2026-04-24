@@ -4,8 +4,22 @@ on:
   push:
     branches:
       - main
-    # Review gh actions docs if you want to further define triggers, paths, etc
-    # https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions#on
+
+  # Daily rebuild at 06:00 UTC (09:00 Europe/Istanbul). Picks up any new
+  # events added to the public Google Calendar since the last build,
+  # which scripts/fetch-events.mjs reads during `npm run prebuild`.
+  schedule:
+    - cron: '0 6 * * *'
+
+  # Manual trigger from the Actions tab — handy for pushing calendar
+  # updates before the next scheduled run.
+  workflow_dispatch:
+
+# Only one deploy at a time. A cron run and a push landing together
+# would otherwise race each other on the github-pages environment.
+concurrency:
+  group: pages
+  cancel-in-progress: false
 
 jobs:
   build:
