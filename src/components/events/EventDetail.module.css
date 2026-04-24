@@ -1,0 +1,218 @@
+.page {
+  max-width: 820px;
+  margin: 0 auto;
+  padding: clamp(2.5rem, 5vw, 4.5rem) var(--space-6) var(--space-20);
+}
+
+.breadcrumbs {
+  margin-bottom: var(--space-6);
+}
+
+.back {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  font-size: var(--fs-sm);
+  color: var(--brand-ink-muted);
+  text-decoration: none;
+  transition: color var(--dur-fast) var(--ease-out);
+}
+
+.back:hover {
+  color: var(--brand-ink);
+  text-decoration: none;
+}
+
+.back svg {
+  transition: transform var(--dur-fast) var(--ease-out);
+}
+
+.back:hover svg {
+  transform: translateX(-2px);
+}
+
+.head {
+  position: relative;
+  padding-bottom: var(--space-8);
+  margin-bottom: var(--space-8);
+  border-bottom: 1px solid var(--brand-border);
+}
+
+.datePill {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: fit-content;
+  padding: var(--space-3) var(--space-4);
+  background: var(--brand-yellow-soft);
+  border: 1px solid var(--brand-yellow-deep);
+  border-radius: var(--radius-md);
+  font-family: var(--ifm-heading-font-family);
+  color: var(--brand-ink);
+  margin-bottom: var(--space-6);
+  min-width: 96px;
+}
+
+.datePillPast {
+  background: var(--brand-surface-sunken);
+  border-color: var(--brand-border);
+  opacity: 0.95;
+}
+
+[data-theme='dark'] .datePill {
+  background: rgba(245, 207, 6, 0.14);
+  border-color: rgba(245, 207, 6, 0.35);
+}
+
+[data-theme='dark'] .datePillPast {
+  background: var(--brand-surface-sunken);
+  border-color: var(--brand-border);
+}
+
+.pillMonth {
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  line-height: 1;
+  opacity: 0.85;
+}
+
+.pillDay {
+  font-size: 2.25rem;
+  font-weight: 600;
+  line-height: 1;
+  letter-spacing: -0.04em;
+  margin: 4px 0 2px;
+}
+
+.pillYear {
+  font-size: 0.72rem;
+  font-family: var(--ifm-font-family-base);
+  color: var(--brand-ink-subtle);
+  font-weight: 500;
+}
+
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  padding: 4px 12px;
+  background: var(--brand-surface-raised);
+  border: 1px solid var(--brand-border);
+  border-radius: var(--radius-pill);
+  font-size: var(--fs-xs);
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--brand-ink-muted);
+  margin: 0 0 var(--space-4);
+}
+
+.title {
+  font-family: var(--ifm-heading-font-family);
+  font-size: clamp(2rem, 1.4rem + 2.2vw, 3rem);
+  font-weight: 600;
+  letter-spacing: -0.03em;
+  line-height: 1.12;
+  color: var(--brand-ink);
+  margin: 0 0 var(--space-6);
+}
+
+.facts {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 var(--space-6);
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2) var(--space-5);
+}
+
+.fact {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  font-size: 0.95rem;
+  color: var(--brand-ink-muted);
+  line-height: 1.5;
+}
+
+.fact svg {
+  color: var(--brand-ink-subtle);
+  flex-shrink: 0;
+}
+
+.fact a {
+  color: var(--brand-ink);
+  text-decoration: underline;
+  text-decoration-color: var(--brand-yellow);
+  text-underline-offset: 3px;
+  text-decoration-thickness: 2px;
+}
+
+.fact a:hover {
+  text-decoration-color: var(--brand-ink);
+}
+
+.cta {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: var(--space-3) var(--space-5);
+  background: var(--brand-ink);
+  color: var(--brand-surface);
+  border: 1px solid var(--brand-ink);
+  border-radius: var(--radius-md);
+  font-weight: 600;
+  font-size: 0.95rem;
+  text-decoration: none;
+  transition:
+    transform var(--dur-base) var(--ease-out),
+    box-shadow var(--dur-base) var(--ease-out);
+}
+
+.cta:hover {
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-md);
+  color: var(--brand-surface);
+  text-decoration: none;
+}
+
+[data-theme='dark'] .cta {
+  background: var(--brand-yellow);
+  color: var(--brand-ink);
+  border-color: var(--brand-yellow);
+}
+
+[data-theme='dark'] .cta:hover {
+  color: var(--brand-ink);
+}
+
+.body {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-6);
+}
+
+.prose p {
+  font-size: 1.05rem;
+  line-height: 1.75;
+  color: var(--brand-ink);
+  margin: 0 0 var(--space-4);
+  max-width: 68ch;
+}
+
+.prose p:last-child {
+  margin-bottom: 0;
+}
+
+.emptyText {
+  padding: var(--space-8);
+  background: var(--brand-surface-raised);
+  border: 1px dashed var(--brand-border);
+  border-radius: var(--radius-lg);
+  color: var(--brand-ink-muted);
+  font-size: 0.95rem;
+  line-height: 1.65;
+  margin: 0;
+}

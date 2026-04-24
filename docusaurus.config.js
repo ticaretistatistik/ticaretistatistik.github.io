@@ -70,6 +70,10 @@ const config = {
     },
   ],
 
+  plugins: [
+    './plugins/events',
+  ],
+
   presets: [
     [
       'classic',

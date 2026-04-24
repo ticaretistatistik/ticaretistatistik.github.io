@@ -3,95 +3,122 @@
     {
       "uid": "5c4drd94n2as804d11bhaspoes@google.com",
       "title": "İstatistik Günü Festivali",
-      "description": "",
+      "summary": "Sayılar tek başına susar; istatistik onlara ses verir. Her yıl 25 Nisan'da kutlanan Türkiye İstatistik Günü'nü, bu yıl İstanbul Ticaret Üniversitesi İstatistik Topluluğu olarak bir festivalle taçlandırıyoruz. Panel, söyl",
+      "description": "Sayılar tek başına susar; istatistik onlara ses verir. Her yıl 25 Nisan'da kutlanan Türkiye İstatistik Günü'nü, bu yıl İstanbul Ticaret Üniversitesi İstatistik Topluluğu olarak bir festivalle taçlandırıyoruz. Panel, söyleşi, atölye ve sürprizlerle dolu bir gün boyunca; istatistiğin akademiden sahaya, veri biliminden kamu politikalarına uzanan hikâyesini konuşacağız. TÜİK'in kurumsal mirasından modern veri çağına uzanan bu yolculukta öğrenciyi, akademisyeni ve sektörü aynı çatı altında buluşturmayı amaçlıyoruz. Veriyle düşünen, sayılarla üreten ve istatistiği bir yaşam becerisi olarak gören herkesi aramızda görmek isteriz. Detaylı program önümüzdeki haftalarda paylaşılacak — kayıt bilgileri için sosyal medyamızı takipte kalın.",
       "location": "İstanbul Ticaret Üniversitesi, Örnektepe, İmrahor Cd. No: 88/2, 34445 Beyoğlu/İstanbul, Türkiye",
       "start": "2026-05-20T09:00:00.000Z",
       "end": "2026-05-20T12:00:00.000Z",
       "url": null,
-      "allDay": false
+      "allDay": false,
+      "slug": "istatistik-gunu-festivali-2026-05-20",
+      "detailPath": "/topluluk/etkinlikler/istatistik-gunu-festivali-2026-05-20"
     }
   ],
   "past": [
     {
       "uid": "7n6ajfiutu16l5tqn3sbqaq8il@google.com",
       "title": "Data & Stat Talks'25",
+      "summary": "",
       "description": "",
       "location": "İstanbul Ticaret Üniversitesi Sütlüce Yerleşkesi Kütüphanesi, Numara:, Sütlüce, İmrahor Cd. No:90, 34445 Beyoğlu/İstanbul, Türkiye",
       "start": "2025-12-04T07:30:00.000Z",
       "end": "2025-12-04T11:30:00.000Z",
       "url": null,
-      "allDay": false
+      "allDay": false,
+      "slug": "data-stat-talks-25-2025-12-04",
+      "detailPath": "/topluluk/etkinlikler/data-stat-talks-25-2025-12-04"
     },
     {
       "uid": "c4om2cpj6lj30bb1cdhjib9k6pj34bb16lh62b9h70sj8dj470oj2or474@google.com",
       "title": "(E502) 21 Filmi - Sinema Topluluğu Ortak Etkinlik",
+      "summary": "",
       "description": "",
       "location": "İstanbul Ticaret Üniversitesi, Örnektepe, İmrahor Cd. No: 88/2, 34445 Beyoğlu/İstanbul, Türkiye",
       "start": "2025-11-17T14:00:00.000Z",
       "end": "2025-11-17T17:00:00.000Z",
       "url": null,
-      "allDay": false
+      "allDay": false,
+      "slug": "e502-21-filmi-sinema-toplulugu-ortak-etkinlik-2025-11-17",
+      "detailPath": "/topluluk/etkinlikler/e502-21-filmi-sinema-toplulugu-ortak-etkinlik-2025-11-17"
     },
     {
       "uid": "7ab04sv8vqifibn0e6bqm4ul4f@google.com",
       "title": "One Of Us | Seda Alacan Kavi",
-      "description": "📢 One of Us etkinliğimizde Yapı Kredi Lead Data Scientist’i Seda Alacan Kavi bizlerle!📅 13 Kasım 2025 Perşembe, 13.00📍 Sadabad Toplantı SalonuVeri bilimi alanındaki deneyimlerini ve kariyer yolculuğunu bizimle paylaşa",
+      "summary": "📢 One of Us etkinliğimizde Yapı Kredi Lead Data Scientist’i Seda Alacan Kavi bizlerle!📅 13 Kasım 2025 Perşembe, 13.00📍 Sadabad Toplantı SalonuVeri bilimi alanındaki deneyimlerini ve kariyer yolculuğunu bizimle paylaşa",
+      "description": "📢 One of Us etkinliğimizde Yapı Kredi Lead Data Scientist’i Seda Alacan Kavi bizlerle!📅 13 Kasım 2025 Perşembe, 13.00📍 Sadabad Toplantı SalonuVeri bilimi alanındaki deneyimlerini ve kariyer yolculuğunu bizimle paylaşacağı bu söyleşiye herkesi bekliyoruz.",
       "location": "İstanbul Ticaret Üniversitesi, Örnektepe, İmrahor Cd. No: 88/2, 34445 Beyoğlu/İstanbul, Türkiye",
       "start": "2025-11-13T10:00:00.000Z",
       "end": "2025-11-13T12:00:00.000Z",
       "url": null,
-      "allDay": false
+      "allDay": false,
+      "slug": "one-of-us-seda-alacan-kavi-2025-11-13",
+      "detailPath": "/topluluk/etkinlikler/one-of-us-seda-alacan-kavi-2025-11-13"
     },
     {
       "uid": "50kjb574vtl9sm0fb4e45b4erl@google.com",
       "title": "TÜİK 99 Yaşında - İstanbul Bölge Müdürlüğü ve İstanbul Ticaret Üniversitesi Türkiye İstatistik Günü'nde Buluşuyor",
-      "description": "Türkiye İstatistik Kurumu'nun 99. yaşı kapsamında, İstanbul Ticaret Üniversitesi İstatistik Topluluğu olarak anlamlı bir etkinliğe ev sahipliği yapıyoruz!TÜİK İstanbul Bölge Müdürlüğü ile birlikte gerçekleştireceğimiz bu",
+      "summary": "Türkiye İstatistik Kurumu'nun 99. yaşı kapsamında, İstanbul Ticaret Üniversitesi İstatistik Topluluğu olarak anlamlı bir etkinliğe ev sahipliği yapıyoruz!TÜİK İstanbul Bölge Müdürlüğü ile birlikte gerçekleştireceğimiz bu",
+      "description": "Türkiye İstatistik Kurumu'nun 99. yaşı kapsamında, İstanbul Ticaret Üniversitesi İstatistik Topluluğu olarak anlamlı bir etkinliğe ev sahipliği yapıyoruz!TÜİK İstanbul Bölge Müdürlüğü ile birlikte gerçekleştireceğimiz bu özel günde; Doç Dr. İbrahim Demir, Ali İhsan Yücedağ ve Canan Demirel'i ağırlayacağımız panelimize tüm ilgilileri bekliyoruz!Tarih: 2 Mayıs 2025Saat: 10.00 - 12.00Yer: İstanbul Ticaret Üniversitesi Sütlüce Yerleşkesi - Konferans Salonu",
       "location": "İstanbul Ticaret Üniversitesi",
       "start": "2025-05-02T07:00:00.000Z",
       "end": "2025-05-02T09:00:00.000Z",
       "url": null,
-      "allDay": false
+      "allDay": false,
+      "slug": "tuik-99-yasinda-istanbul-bolge-mudurlugu-ve-istanbul-ticaret-universitesi-turkiy-2025-05-02",
+      "detailPath": "/topluluk/etkinlikler/tuik-99-yasinda-istanbul-bolge-mudurlugu-ve-istanbul-ticaret-universitesi-turkiy-2025-05-02"
     },
     {
       "uid": "1sjt4pnu1vf1c8p88aqthb3hgd@google.com",
       "title": "Shestatics Data Summit",
-      "description": "🔎 SHESTATICS DATA SUMMIT 💜 Kadın İstatistikçilerin Gücüyle Geleceği Şekillendiriyoruz! 8 Mart Dünya Kadınlar Günü’ne ithafen düzenlediğimiz Shestatics Data Summit, istatistik alanında kadınların katkılarını ön plana çı",
+      "summary": "🔎 SHESTATICS DATA SUMMIT 💜 Kadın İstatistikçilerin Gücüyle Geleceği Şekillendiriyoruz! 8 Mart Dünya Kadınlar Günü’ne ithafen düzenlediğimiz Shestatics Data Summit, istatistik alanında kadınların katkılarını ön plana çı",
+      "description": "🔎 SHESTATICS DATA SUMMIT 💜 Kadın İstatistikçilerin Gücüyle Geleceği Şekillendiriyoruz! 8 Mart Dünya Kadınlar Günü’ne ithafen düzenlediğimiz Shestatics Data Summit, istatistik alanında kadınların katkılarını ön plana çıkaran ve onların başarı hikayelerine ışık tutan bir etkinlik! 📊 İstatistik bilimi iş dünyasında nasıl bir rol oynuyor? 🤖 Yapay zeka, veri bilimi ve iş dünyasında kadınların yeri nedir? 💼 Kariyer yollarımızı nasıl aydınlatabiliriz? Bu soruların cevaplarını birbirinden değerli konuşmacılarımızla birlikte keşfedeceğiz. Farklı sektörlerde yer alan başarılı kadın istatistikçiler, kendi deneyimlerini ve alanlarındaki gelişmeleri paylaşarak sizlere ilham verecek. 📅 Tarih: 6 Mart 2025 📍 Yer: İstanbul Ticaret Üniversitesi Sütlüce Kampüsü Konferans Salonu Geleceğinize yön vermek, kadın istatistikçilerin gücünü ve etkisini görmek için sizleri de aramızda görmekten mutluluk duyarız! 📌 Etkinliğimiz katılım sertifikalıdır.",
       "location": "İstanbul Ticaret Üniversitesi, Örnektepe, İmrahor Cd. No: 88/2, 34445 Beyoğlu/İstanbul, Türkiye",
       "start": "2025-03-06T07:30:00.000Z",
       "end": "2025-03-06T12:30:00.000Z",
       "url": null,
-      "allDay": false
+      "allDay": false,
+      "slug": "shestatics-data-summit-2025-03-06",
+      "detailPath": "/topluluk/etkinlikler/shestatics-data-summit-2025-03-06"
     },
     {
       "uid": "0fido6bhp5uu7hrg1e8ec2mdsr@google.com",
       "title": "Data & Stat Talks '24",
-      "description": "İstanbul Ticaret Üniversitesi İstatistik Topluluğu olarak, düzenlediğimiz Data &amp; Stat Talks'24 etkinliğiyle alanında uzman veri analistleri ve veri bilimcilerini öğrencilerimizle bir araya getiriyoruz. Bu etkinlik, ö",
+      "summary": "İstanbul Ticaret Üniversitesi İstatistik Topluluğu olarak, düzenlediğimiz Data &amp; Stat Talks'24 etkinliğiyle alanında uzman veri analistleri ve veri bilimcilerini öğrencilerimizle bir araya getiriyoruz. Bu etkinlik, ö",
+      "description": "İstanbul Ticaret Üniversitesi İstatistik Topluluğu olarak, düzenlediğimiz Data &amp; Stat Talks'24 etkinliğiyle alanında uzman veri analistleri ve veri bilimcilerini öğrencilerimizle bir araya getiriyoruz. Bu etkinlik, öğrencilerimizin sektörden doğrudan bilgi edinmelerine olanak tanırken, profesyonel dünyada veri ve istatistiğin önemini kavramalarına yardımcı olacaktır. Aynı zamanda mezuniyet sonrası kariyer planlamalarında daha net bir yol haritası çizmelerine katkı sağlamayı hedefliyoruz.Bu yıl etkinliğimizde ağırlayacağımız konuşmacılar: Emre YazıcıBatuhan Bilge Elersu Mert Veznikli Sercan Yeşilöz Bu eşsiz fırsatı kaçırmamak için sizleri de etkinliğimize bekliyoruz! 🌟 🔗 Web Sitemiz🔗 LinkedIn🔗 Instagram",
       "location": "İstanbul Ticaret Üniversitesi, Örnektepe, İmrahor Cd. No: 88/2, 34445 Beyoğlu/İstanbul, Türkiye",
       "start": "2024-12-24T08:00:00.000Z",
       "end": "2024-12-24T12:00:00.000Z",
       "url": "https://ticaretistatistik.github.io/",
-      "allDay": false
+      "allDay": false,
+      "slug": "data-stat-talks-24-2024-12-24",
+      "detailPath": "/topluluk/etkinlikler/data-stat-talks-24-2024-12-24"
     },
     {
       "uid": "6gjipgjvpbrpjtlb852qpn1jmq@google.com",
       "title": "Moneyball Sinema Etkinliği",
-      "description": "Sinema Topluluğu ve İstatistik Topluluğu olarak 20 Kasım Çarşamba saat 17.00’de E-502’de bir araya geliyoruz! Beyzbol ve istatistik analizinin buluştuğu, gerçek bir hikayeden uyarlanan “Moneyball” filmiyle, spor dünyasın",
+      "summary": "Sinema Topluluğu ve İstatistik Topluluğu olarak 20 Kasım Çarşamba saat 17.00’de E-502’de bir araya geliyoruz! Beyzbol ve istatistik analizinin buluştuğu, gerçek bir hikayeden uyarlanan “Moneyball” filmiyle, spor dünyasın",
+      "description": "Sinema Topluluğu ve İstatistik Topluluğu olarak 20 Kasım Çarşamba saat 17.00’de E-502’de bir araya geliyoruz! Beyzbol ve istatistik analizinin buluştuğu, gerçek bir hikayeden uyarlanan “Moneyball” filmiyle, spor dünyasında verilerin gücünü keşfedeceğiz. Kaçırmayın! 🧢⚾️ Herkesi bekliyoruz! 🎞️",
       "location": "E-502",
       "start": "2024-11-20T14:00:00.000Z",
       "end": "2024-11-20T17:00:00.000Z",
       "url": null,
-      "allDay": false
+      "allDay": false,
+      "slug": "moneyball-sinema-etkinligi-2024-11-20",
+      "detailPath": "/topluluk/etkinlikler/moneyball-sinema-etkinligi-2024-11-20"
     },
     {
       "uid": "5mi1bgtj7cctup4mg0trms1je0@google.com",
       "title": "Tanışma Etkinliği",
+      "summary": "Tanışma Etkinliği",
       "description": "Tanışma Etkinliği",
       "location": "Atölye Kafası, Yavuz Sultan Selim, Kadir Has Kavşağı 75/D, 34083 Fatih/İstanbul, Türkiye",
       "start": "2024-10-14T10:00:00.000Z",
       "end": "2024-10-14T13:00:00.000Z",
       "url": null,
-      "allDay": false
+      "allDay": false,
+      "slug": "tanisma-etkinligi-2024-10-14",
+      "detailPath": "/topluluk/etkinlikler/tanisma-etkinligi-2024-10-14"
     }
   ],
-  "updatedAt": "2026-04-24T12:46:15.820Z"
+  "updatedAt": "2026-04-24T15:23:12.663Z"
 }

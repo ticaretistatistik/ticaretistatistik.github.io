@@ -33,8 +33,12 @@ function formatDate(iso) {
 
 function EventRow({event, kind}) {
   const d = formatDate(event.start);
-  const hasUrl = event.url && /^https?:/i.test(event.url);
+  const detailHref = event.detailPath || (event.slug ? `/topluluk/etkinlikler/${event.slug}` : null);
+  const externalHref = event.url && /^https?:/i.test(event.url) ? event.url : null;
+  const href = detailHref || externalHref;
+  const isExternal = !detailHref && Boolean(externalHref);
   const loc = event.location || '';
+  const blurb = event.summary || event.description;
 
   const inner = (
     <>
@@ -60,12 +64,10 @@ function EventRow({event, kind}) {
             </span>
           )}
         </div>
-        {event.description && (
-          <p className={styles.desc}>{event.description}</p>
-        )}
+        {blurb && <p className={styles.desc}>{blurb}</p>}
       </div>
 
-      {hasUrl && (
+      {href && (
         <span className={styles.arrow} aria-hidden="true">
           <FiArrowUpRight size={20} />
         </span>
@@ -73,18 +75,19 @@ function EventRow({event, kind}) {
     </>
   );
 
-  if (hasUrl) {
-    return (
-      <Link
-        href={event.url}
-        target="_blank"
-        rel="noopener noreferrer"
-        className={styles.card}>
-        {inner}
-      </Link>
-    );
+  if (!href) {
+    return <article className={styles.card}>{inner}</article>;
   }
-  return <article className={styles.card}>{inner}</article>;
+
+  const linkProps = isExternal
+    ? {href, target: '_blank', rel: 'noopener noreferrer'}
+    : {to: href};
+
+  return (
+    <Link {...linkProps} className={styles.card}>
+      {inner}
+    </Link>
+  );
 }
 
 export default function EtkinliklerPage() {
