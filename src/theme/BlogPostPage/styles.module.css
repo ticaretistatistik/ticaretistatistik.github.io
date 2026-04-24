@@ -1,3 +1,24 @@
+.progressTrack {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: transparent;
+  z-index: 201;
+  pointer-events: none;
+}
+
+.progressBar {
+  height: 100%;
+  width: 100%;
+  background: var(--brand-yellow);
+  transform: scaleX(0);
+  transform-origin: left center;
+  transition: transform 80ms linear;
+  box-shadow: 0 0 8px rgba(245, 207, 6, 0.45);
+}
+
 .shareButton {
   position: fixed;
   right: clamp(16px, 3vw, 32px);

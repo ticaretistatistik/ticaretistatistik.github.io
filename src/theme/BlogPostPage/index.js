@@ -1,7 +1,49 @@
-import React, {useCallback, useEffect, useState} from 'react';
+import React, {useCallback, useEffect, useRef, useState} from 'react';
+import Head from '@docusaurus/Head';
+import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import BlogPostPage from '@theme-original/BlogPostPage';
 import {generateBlogPreviewImage} from '@site/src/utils/generatePreview';
 import styles from './styles.module.css';
+
+function ReadingProgress() {
+  const barRef = useRef(null);
+
+  useEffect(() => {
+    let ticking = false;
+
+    const update = () => {
+      ticking = false;
+      const el = barRef.current;
+      if (!el) return;
+      const doc = document.documentElement;
+      const scrollTop = window.scrollY || doc.scrollTop;
+      const max = doc.scrollHeight - doc.clientHeight;
+      const ratio = max > 0 ? Math.min(1, Math.max(0, scrollTop / max)) : 0;
+      el.style.transform = `scaleX(${ratio})`;
+    };
+
+    const onScroll = () => {
+      if (!ticking) {
+        requestAnimationFrame(update);
+        ticking = true;
+      }
+    };
+
+    update();
+    window.addEventListener('scroll', onScroll, {passive: true});
+    window.addEventListener('resize', onScroll);
+    return () => {
+      window.removeEventListener('scroll', onScroll);
+      window.removeEventListener('resize', onScroll);
+    };
+  }, []);
+
+  return (
+    <div className={styles.progressTrack} aria-hidden="true">
+      <div ref={barRef} className={styles.progressBar} />
+    </div>
+  );
+}
 
 function DownloadIcon() {
   return (
@@ -47,8 +89,14 @@ function SpinnerIcon() {
 export default function BlogPostPageWrapper(props) {
   const {title, description, tags, date, permalink} =
     props.content.metadata;
+  const {siteConfig} = useDocusaurusContext();
   const [isClient, setIsClient] = useState(false);
   const [loading, setLoading] = useState(false);
+
+  const slug = (permalink || '').split('/').filter(Boolean).pop() || '';
+  const ogImageAbsolute = slug
+    ? `${siteConfig.url.replace(/\/$/, '')}/img/og/${slug}.png`
+    : null;
 
   useEffect(() => {
     setIsClient(true);
@@ -80,6 +128,16 @@ export default function BlogPostPageWrapper(props) {
 
   return (
     <>
+      {ogImageAbsolute && (
+        <Head>
+          <meta property="og:image" content={ogImageAbsolute} />
+          <meta property="og:image:width" content="1200" />
+          <meta property="og:image:height" content="630" />
+          <meta name="twitter:card" content="summary_large_image" />
+          <meta name="twitter:image" content={ogImageAbsolute} />
+        </Head>
+      )}
+      {isClient && <ReadingProgress />}
       <BlogPostPage {...props} />
       {isClient && (
         <button
