@@ -110,6 +110,16 @@
   /* Layout helpers */
   --content-max: 1200px;
   --prose-max: 68ch;
+
+  /* Footer tokens — absolute (don't flip with theme). Dark footer in both modes,
+     but dark-mode gets a deeper navy so it clearly demarcates from the page. */
+  --footer-bg: #0f1729;
+  --footer-border-top: transparent;
+  --footer-text: #cbd5e1;
+  --footer-text-strong: #ffffff;
+  --footer-text-muted: #94a3b8;
+  --footer-divider: rgba(255, 255, 255, 0.08);
+  --footer-link-hover: var(--brand-yellow);
 }
 
 /* ============================================================
@@ -152,6 +162,15 @@
     0 24px 48px rgba(0, 0, 0, 0.55);
 
   --docusaurus-highlighted-code-line-bg: rgba(245, 207, 6, 0.14);
+
+  /* Footer in dark mode: go *deeper* than the page bg so it reads as a
+     clear closing band, plus a hairline border for definition. */
+  --footer-bg: #060b15;
+  --footer-border-top: rgba(255, 255, 255, 0.06);
+  --footer-text: #cbd5e1;
+  --footer-text-strong: #f8fafc;
+  --footer-text-muted: #8392a9;
+  --footer-divider: rgba(255, 255, 255, 0.06);
 }
 
 /* ============================================================
@@ -321,18 +340,21 @@ div[class^="announcementBar"] {
 }
 
 /* ============================================================
-   Footer (keeps themeConfig style: 'dark' but restyles)
+   Footer (keeps themeConfig style: 'dark' but restyles in both modes
+   via absolute --footer-* tokens, so dark mode stays dark.)
    ============================================================ */
 .footer {
-  background: var(--brand-ink);
-  color: #cbd5e1;
+  background: var(--footer-bg);
+  color: var(--footer-text);
   padding: var(--space-16) 0 var(--space-10);
+  border-top: 1px solid var(--footer-border-top);
 }
 .footer--dark {
-  --ifm-footer-background-color: var(--brand-ink);
-  --ifm-footer-color: #cbd5e1;
-  --ifm-footer-link-color: #e2e8f0;
-  --ifm-footer-title-color: #ffffff;
+  --ifm-footer-background-color: var(--footer-bg);
+  --ifm-footer-color: var(--footer-text);
+  --ifm-footer-link-color: var(--footer-text);
+  --ifm-footer-title-color: var(--footer-text-strong);
+  --ifm-footer-link-hover-color: var(--footer-link-hover);
 }
 .footer__title {
   font-family: var(--ifm-heading-font-family);
@@ -340,7 +362,7 @@ div[class^="announcementBar"] {
   letter-spacing: -0.01em;
   font-size: 0.95rem;
   text-transform: none;
-  color: #fff;
+  color: var(--footer-text-strong);
   position: relative;
   padding-bottom: var(--space-2);
   margin-bottom: var(--space-4);
@@ -357,20 +379,26 @@ div[class^="announcementBar"] {
 }
 .footer__link-item {
   font-size: 0.9rem;
-  color: #cbd5e1;
+  color: var(--footer-text);
   transition: color var(--dur-fast) var(--ease-out);
 }
 .footer__link-item:hover {
-  color: var(--brand-yellow);
+  color: var(--footer-link-hover);
   text-decoration: none;
 }
 .footer__copyright {
-  color: #94a3b8;
+  color: var(--footer-text-muted);
   font-size: 0.82rem;
   line-height: 1.7;
   margin-top: var(--space-10);
   padding-top: var(--space-6);
-  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  border-top: 1px solid var(--footer-divider);
+}
+.footer__copyright a {
+  color: var(--footer-text);
+}
+.footer__copyright a:hover {
+  color: var(--footer-link-hover);
 }
 
 /* ============================================================
