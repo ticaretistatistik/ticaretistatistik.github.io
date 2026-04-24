@@ -1,16 +1,97 @@
 {
-  "mode": "upcoming",
-  "events": [
+  "upcoming": [
     {
       "uid": "5c4drd94n2as804d11bhaspoes@google.com",
       "title": "İstatistik Günü Festivali",
       "description": "",
       "location": "İstanbul Ticaret Üniversitesi, Örnektepe, İmrahor Cd. No: 88/2, 34445 Beyoğlu/İstanbul, Türkiye",
-      "start": "2026-05-20T07:00:00.000Z",
+      "start": "2026-05-20T09:00:00.000Z",
       "end": "2026-05-20T12:00:00.000Z",
       "url": null,
       "allDay": false
     }
   ],
-  "updatedAt": "2026-04-24T12:30:19.673Z"
+  "past": [
+    {
+      "uid": "7n6ajfiutu16l5tqn3sbqaq8il@google.com",
+      "title": "Data & Stat Talks'25",
+      "description": "",
+      "location": "İstanbul Ticaret Üniversitesi Sütlüce Yerleşkesi Kütüphanesi, Numara:, Sütlüce, İmrahor Cd. No:90, 34445 Beyoğlu/İstanbul, Türkiye",
+      "start": "2025-12-04T07:30:00.000Z",
+      "end": "2025-12-04T11:30:00.000Z",
+      "url": null,
+      "allDay": false
+    },
+    {
+      "uid": "c4om2cpj6lj30bb1cdhjib9k6pj34bb16lh62b9h70sj8dj470oj2or474@google.com",
+      "title": "(E502) 21 Filmi - Sinema Topluluğu Ortak Etkinlik",
+      "description": "",
+      "location": "İstanbul Ticaret Üniversitesi, Örnektepe, İmrahor Cd. No: 88/2, 34445 Beyoğlu/İstanbul, Türkiye",
+      "start": "2025-11-17T14:00:00.000Z",
+      "end": "2025-11-17T17:00:00.000Z",
+      "url": null,
+      "allDay": false
+    },
+    {
+      "uid": "7ab04sv8vqifibn0e6bqm4ul4f@google.com",
+      "title": "One Of Us | Seda Alacan Kavi",
+      "description": "📢 One of Us etkinliğimizde Yapı Kredi Lead Data Scientist’i Seda Alacan Kavi bizlerle!📅 13 Kasım 2025 Perşembe, 13.00📍 Sadabad Toplantı SalonuVeri bilimi alanındaki deneyimlerini ve kariyer yolculuğunu bizimle paylaşa",
+      "location": "İstanbul Ticaret Üniversitesi, Örnektepe, İmrahor Cd. No: 88/2, 34445 Beyoğlu/İstanbul, Türkiye",
+      "start": "2025-11-13T10:00:00.000Z",
+      "end": "2025-11-13T12:00:00.000Z",
+      "url": null,
+      "allDay": false
+    },
+    {
+      "uid": "50kjb574vtl9sm0fb4e45b4erl@google.com",
+      "title": "TÜİK 99 Yaşında - İstanbul Bölge Müdürlüğü ve İstanbul Ticaret Üniversitesi Türkiye İstatistik Günü'nde Buluşuyor",
+      "description": "Türkiye İstatistik Kurumu'nun 99. yaşı kapsamında, İstanbul Ticaret Üniversitesi İstatistik Topluluğu olarak anlamlı bir etkinliğe ev sahipliği yapıyoruz!TÜİK İstanbul Bölge Müdürlüğü ile birlikte gerçekleştireceğimiz bu",
+      "location": "İstanbul Ticaret Üniversitesi",
+      "start": "2025-05-02T07:00:00.000Z",
+      "end": "2025-05-02T09:00:00.000Z",
+      "url": null,
+      "allDay": false
+    },
+    {
+      "uid": "1sjt4pnu1vf1c8p88aqthb3hgd@google.com",
+      "title": "Shestatics Data Summit",
+      "description": "🔎 SHESTATICS DATA SUMMIT 💜 Kadın İstatistikçilerin Gücüyle Geleceği Şekillendiriyoruz! 8 Mart Dünya Kadınlar Günü’ne ithafen düzenlediğimiz Shestatics Data Summit, istatistik alanında kadınların katkılarını ön plana çı",
+      "location": "İstanbul Ticaret Üniversitesi, Örnektepe, İmrahor Cd. No: 88/2, 34445 Beyoğlu/İstanbul, Türkiye",
+      "start": "2025-03-06T07:30:00.000Z",
+      "end": "2025-03-06T12:30:00.000Z",
+      "url": null,
+      "allDay": false
+    },
+    {
+      "uid": "0fido6bhp5uu7hrg1e8ec2mdsr@google.com",
+      "title": "Data & Stat Talks '24",
+      "description": "İstanbul Ticaret Üniversitesi İstatistik Topluluğu olarak, düzenlediğimiz Data &amp; Stat Talks'24 etkinliğiyle alanında uzman veri analistleri ve veri bilimcilerini öğrencilerimizle bir araya getiriyoruz. Bu etkinlik, ö",
+      "location": "İstanbul Ticaret Üniversitesi, Örnektepe, İmrahor Cd. No: 88/2, 34445 Beyoğlu/İstanbul, Türkiye",
+      "start": "2024-12-24T08:00:00.000Z",
+      "end": "2024-12-24T12:00:00.000Z",
+      "url": "https://ticaretistatistik.github.io/",
+      "allDay": false
+    },
+    {
+      "uid": "6gjipgjvpbrpjtlb852qpn1jmq@google.com",
+      "title": "Moneyball Sinema Etkinliği",
+      "description": "Sinema Topluluğu ve İstatistik Topluluğu olarak 20 Kasım Çarşamba saat 17.00’de E-502’de bir araya geliyoruz! Beyzbol ve istatistik analizinin buluştuğu, gerçek bir hikayeden uyarlanan “Moneyball” filmiyle, spor dünyasın",
+      "location": "E-502",
+      "start": "2024-11-20T14:00:00.000Z",
+      "end": "2024-11-20T17:00:00.000Z",
+      "url": null,
+      "allDay": false
+    },
+    {
+      "uid": "5mi1bgtj7cctup4mg0trms1je0@google.com",
+      "title": "Tanışma Etkinliği",
+      "description": "Tanışma Etkinliği",
+      "location": "Atölye Kafası, Yavuz Sultan Selim, Kadir Has Kavşağı 75/D, 34083 Fatih/İstanbul, Türkiye",
+      "start": "2024-10-14T10:00:00.000Z",
+      "end": "2024-10-14T13:00:00.000Z",
+      "url": null,
+      "allDay": false
+    }
+  ],
+  "updatedAt": "2026-04-24T12:40:49.902Z"
 }

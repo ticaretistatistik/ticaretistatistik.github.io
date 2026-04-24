@@ -12,6 +12,9 @@ const TR_WEEKDAYS = [
   'Perşembe', 'Cuma', 'Cumartesi',
 ];
 
+const MAX_UPCOMING = 2;
+const MAX_PAST = 3;
+
 function formatDate(iso) {
   const d = new Date(iso);
   return {
@@ -29,30 +32,85 @@ function formatDate(iso) {
 
 function shortLocation(loc) {
   if (!loc) return '';
-  // Full addresses are verbose; pick the venue name (first comma segment)
-  // but keep it reasonable even if there's no venue.
   const first = loc.split(',')[0]?.trim();
   return first && first.length > 4 ? first : loc.slice(0, 60);
 }
 
-export default function Events() {
-  const {events = [], mode = 'upcoming'} = data || {};
-  if (!events.length) return null;
+function EventCard({event, kind}) {
+  const d = formatDate(event.start);
+  const hasUrl = event.url && /^https?:/i.test(event.url);
+  const loc = shortLocation(event.location);
 
-  const heading = mode === 'upcoming' ? 'Yaklaşan etkinlikler' : 'Son etkinlikler';
-  const lead =
-    mode === 'upcoming'
-      ? 'Topluluğumuzun yaklaşan buluşmaları, paneller ve söyleşiler.'
-      : 'Son düzenlenen topluluk etkinlikleri ve konuklarımız.';
+  const inner = (
+    <>
+      <div className={`${styles.date} ${kind === 'past' ? styles.datePast : ''}`} aria-hidden="true">
+        <span className={styles.month}>{d.month}</span>
+        <span className={styles.day}>{d.day}</span>
+        <span className={styles.year}>{d.year}</span>
+      </div>
+
+      <div className={styles.body}>
+        <h3 className={styles.cardTitle}>{event.title}</h3>
+        <div className={styles.meta}>
+          <span className={styles.metaItem}>
+            <FiClock size={14} aria-hidden="true" />
+            {d.weekday} · {d.time}
+          </span>
+          {loc && (
+            <span className={styles.metaItem}>
+              <FiMapPin size={14} aria-hidden="true" />
+              {loc}
+            </span>
+          )}
+        </div>
+        {event.description && (
+          <p className={styles.desc}>{event.description}</p>
+        )}
+      </div>
+
+      {hasUrl && (
+        <span className={styles.arrow} aria-hidden="true">
+          <FiArrowUpRight size={18} />
+        </span>
+      )}
+    </>
+  );
+
+  if (hasUrl) {
+    return (
+      <Link
+        href={event.url}
+        target="_blank"
+        rel="noopener noreferrer"
+        className={styles.card}>
+        {inner}
+      </Link>
+    );
+  }
+  return <article className={styles.card}>{inner}</article>;
+}
+
+export default function Events() {
+  const {upcoming = [], past = []} = data || {};
+  if (upcoming.length === 0 && past.length === 0) return null;
+
+  const visibleUpcoming = upcoming.slice(0, MAX_UPCOMING);
+  const visiblePast = past.slice(0, MAX_PAST);
 
   return (
     <section className={styles.section}>
       <div className={styles.inner}>
         <header className={styles.head}>
-          <div>
+          <div className={styles.headCopy}>
             <p className={styles.eyebrow}>Topluluk</p>
-            <h2 className={styles.title}>{heading}</h2>
-            <p className={styles.lead}>{lead}</p>
+            <h2 className={styles.title}>Etkinlikler</h2>
+            <p className={styles.lead}>
+              {visibleUpcoming.length > 0 && visiblePast.length > 0
+                ? 'Yaklaşan buluşmalarımız ve yakın zamanda düzenlenen etkinlikler.'
+                : visibleUpcoming.length > 0
+                  ? 'Önümüzdeki dönemde sizi bekleyen buluşmalar.'
+                  : 'Son düzenlediğimiz topluluk etkinlikleri.'}
+            </p>
           </div>
           <Link to="/topluluk/etkinliklerimiz" className={styles.viewAll}>
             Tüm etkinlikler
@@ -60,64 +118,46 @@ export default function Events() {
           </Link>
         </header>
 
-        <ul className={styles.list}>
-          {events.map((ev, i) => {
-            const d = formatDate(ev.start);
-            const hasUrl = ev.url && /^https?:/i.test(ev.url);
-            const loc = shortLocation(ev.location);
+        {visibleUpcoming.length > 0 && (
+          <div className={styles.group}>
+            <h3 className={styles.groupLabel}>
+              <span className={styles.groupDot} aria-hidden="true" />
+              Yaklaşan
+              <span className={styles.groupCount}>
+                {upcoming.length > MAX_UPCOMING
+                  ? `${MAX_UPCOMING}/${upcoming.length}`
+                  : upcoming.length}
+              </span>
+            </h3>
+            <ul className={styles.list}>
+              {visibleUpcoming.map((ev) => (
+                <li key={ev.uid || ev.start + ev.title}>
+                  <EventCard event={ev} kind="upcoming" />
+                </li>
+              ))}
+            </ul>
+          </div>
+        )}
 
-            const inner = (
-              <>
-                <div className={styles.date} aria-hidden="true">
-                  <span className={styles.month}>{d.month}</span>
-                  <span className={styles.day}>{d.day}</span>
-                  <span className={styles.year}>{d.year}</span>
-                </div>
-
-                <div className={styles.body}>
-                  <h3 className={styles.cardTitle}>{ev.title}</h3>
-                  <div className={styles.meta}>
-                    <span className={styles.metaItem}>
-                      <FiClock size={14} aria-hidden="true" />
-                      {d.weekday} · {d.time}
-                    </span>
-                    {loc && (
-                      <span className={styles.metaItem}>
-                        <FiMapPin size={14} aria-hidden="true" />
-                        {loc}
-                      </span>
-                    )}
-                  </div>
-                  {ev.description && (
-                    <p className={styles.desc}>{ev.description}</p>
-                  )}
-                </div>
-
-                {hasUrl && (
-                  <span className={styles.arrow} aria-hidden="true">
-                    <FiArrowUpRight size={18} />
-                  </span>
-                )}
-              </>
-            );
-
-            return (
-              <li key={ev.uid || i}>
-                {hasUrl ? (
-                  <Link
-                    href={ev.url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className={styles.card}>
-                    {inner}
-                  </Link>
-                ) : (
-                  <article className={styles.card}>{inner}</article>
-                )}
-              </li>
-            );
-          })}
-        </ul>
+        {visiblePast.length > 0 && (
+          <div className={styles.group}>
+            <h3 className={styles.groupLabel}>
+              <span
+                className={`${styles.groupDot} ${styles.groupDotPast}`}
+                aria-hidden="true"
+              />
+              Geçmiş etkinlikler
+              <span className={styles.groupCount}>{past.length}</span>
+            </h3>
+            <ul className={styles.list}>
+              {visiblePast.map((ev) => (
+                <li key={ev.uid || ev.start + ev.title}>
+                  <EventCard event={ev} kind="past" />
+                </li>
+              ))}
+            </ul>
+          </div>
+        )}
       </div>
     </section>
   );

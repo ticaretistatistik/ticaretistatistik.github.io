@@ -1,101 +1,196 @@
-import { useState } from 'react';
-import ReactPlayer from 'react-player';
+import {useMemo, useState} from 'react';
 import Layout from '@theme/Layout';
+import Link from '@docusaurus/Link';
+import {FiCalendar, FiMapPin, FiClock, FiArrowUpRight} from 'react-icons/fi';
+
+import data from '@site/src/data/events.json';
 import styles from './etkinliklerimiz.module.css';
 
-export default function EtkinliklerimizPage() {
-    const videos = [
-        {
-            "title": "İstatistik Bölüm Tanıtım Programı",
-            "url": "https://www.youtube.com/watch?v=zLkbLQyRO_E",
-            "thumbnail": "https://img.youtube.com/vi/zLkbLQyRO_E/maxresdefault.jpg"
-        },
-        {
-            "title": "Dijital Çağda İstatistiğin Gücü",
-            "url": "https://www.youtube.com/watch?v=rLR2a843wK0",
-            "thumbnail": "https://img.youtube.com/vi/rLR2a843wK0/maxresdefault.jpg"
-        },
-        {
-            "title": "1 Bölüm 3 Bakış | İstatistik Bölümü",
-            "url": "https://www.youtube.com/watch?v=5_6__0P0m50",
-            "thumbnail": "https://i.ytimg.com/vi/5_6__0P0m50/sddefault.jpg"
-        },
-        {
-            "title": "İstatistik Topluluğu-İstatistik ve Bankacılık",
-            "url": "https://www.youtube.com/watch?v=o35yIj932zk",
-            "thumbnail": "https://img.youtube.com/vi/o35yIj932zk/maxresdefault.jpg"
-        },
-        {
-            "title": "İstatistik Topluluğu / SHELL Türkiye CEO’su Emre Turanlı ile Soru - Cevap",
-            "url": "https://www.youtube.com/watch?v=TxGxjlVH4xQ",
-            "thumbnail": "https://img.youtube.com/vi/TxGxjlVH4xQ/maxresdefault.jpg"
-        },
-        {
-            "title": "İstatistiklerle, Nereden Nereye? Korona Sürecine Farklı Bir Bakış",
-            "url": "https://www.youtube.com/watch?v=a5lk8IUUzGk",
-            "thumbnail": "https://img.youtube.com/vi/a5lk8IUUzGk/maxresdefault.jpg"
-        }
-    ];
+const TR_MONTHS = [
+  'Ocak', 'Şubat', 'Mart', 'Nisan', 'Mayıs', 'Haziran',
+  'Temmuz', 'Ağustos', 'Eylül', 'Ekim', 'Kasım', 'Aralık',
+];
+const TR_WEEKDAYS = [
+  'Pazar', 'Pazartesi', 'Salı', 'Çarşamba',
+  'Perşembe', 'Cuma', 'Cumartesi',
+];
 
-    const [currentIndex, setCurrentIndex] = useState(0);
-    const [videoStatus, setVideoStatus] = useState(false);
-    const [currentPage, setCurrentPage] = useState(1);
-    const videosPerPage = 3; 
+function formatDate(iso) {
+  const d = new Date(iso);
+  return {
+    day: d.getDate(),
+    monthShort: TR_MONTHS[d.getMonth()].slice(0, 3),
+    month: TR_MONTHS[d.getMonth()],
+    year: d.getFullYear(),
+    weekday: TR_WEEKDAYS[d.getDay()],
+    time: d.toLocaleTimeString('tr-TR', {
+      hour: '2-digit',
+      minute: '2-digit',
+      timeZone: 'Europe/Istanbul',
+    }),
+  };
+}
 
-    const indexOfLastVideo = currentPage * videosPerPage;
-    const indexOfFirstVideo = indexOfLastVideo - videosPerPage;
-    const currentVideos = videos.slice(indexOfFirstVideo, indexOfLastVideo);
+function EventRow({event, kind}) {
+  const d = formatDate(event.start);
+  const hasUrl = event.url && /^https?:/i.test(event.url);
+  const loc = event.location || '';
 
-    const paginate = (pageNumber) => setCurrentPage(pageNumber);
+  const inner = (
+    <>
+      <div
+        className={`${styles.date} ${kind === 'past' ? styles.datePast : ''}`}
+        aria-hidden="true">
+        <span className={styles.month}>{d.monthShort}</span>
+        <span className={styles.day}>{d.day}</span>
+        <span className={styles.year}>{d.year}</span>
+      </div>
 
-    const pageNumbers = [];
-    for (let i = 1; i <= Math.ceil(videos.length / videosPerPage); i++) {
-        pageNumbers.push(i);
-    }
+      <div className={styles.body}>
+        <h3 className={styles.cardTitle}>{event.title}</h3>
+        <div className={styles.meta}>
+          <span className={styles.metaItem}>
+            <FiClock size={14} aria-hidden="true" />
+            {d.weekday}, {d.day} {d.month} {d.year} · {d.time}
+          </span>
+          {loc && (
+            <span className={styles.metaItem}>
+              <FiMapPin size={14} aria-hidden="true" />
+              {loc}
+            </span>
+          )}
+        </div>
+        {event.description && (
+          <p className={styles.desc}>{event.description}</p>
+        )}
+      </div>
 
+      {hasUrl && (
+        <span className={styles.arrow} aria-hidden="true">
+          <FiArrowUpRight size={20} />
+        </span>
+      )}
+    </>
+  );
+
+  if (hasUrl) {
     return (
-        <Layout title="Mezunlarımız" description="İstanbul Ticaret Üniversitesi İstatistik bölümünün etkinlikleri">
-            <div className={styles.container}>
-                <div className={styles.videoContainer}>
-                    <h1>{currentVideos[currentIndex]?.title}</h1>
-                    <ReactPlayer
-                        url={currentVideos[currentIndex]?.url}
-                        controls
-                        playing={videoStatus}
-                        width="100%"
-                        height="100%"
-                    />
-                </div>
-                <div className={styles.playlist}>
-                    {currentVideos.map((video, index) => (
-                        <div
-                            key={index}
-                            className={currentIndex === index ? styles.playlistItemActive : styles.playlistItem}
-                            onClick={() => {
-                                setCurrentIndex(index);
-                                setVideoStatus(false);
-                            }}>
-                            <img src={video.thumbnail} alt={video.title} className={styles.thumbnail} />
-                            <div className={styles.videoInfo}>
-                                <h2>{video.title}</h2>
-                            </div>
-                        </div>
-                    ))}
-                    
-                    {/* Pagination Butonları */}
-                    <div className={styles.pagination}>
-                        {pageNumbers.map(number => (
-                            <button
-                                key={number}
-                                className={`${styles.pageItem} ${currentPage === number ? styles.active : ''}`}
-                                onClick={() => paginate(number)}
-                            >
-                                {number}
-                            </button>
-                        ))}
-                    </div>
-                </div>
-            </div>
-        </Layout>
+      <Link
+        href={event.url}
+        target="_blank"
+        rel="noopener noreferrer"
+        className={styles.card}>
+        {inner}
+      </Link>
     );
+  }
+  return <article className={styles.card}>{inner}</article>;
+}
+
+export default function EtkinliklerPage() {
+  const {upcoming = [], past = []} = data || {};
+  const [tab, setTab] = useState(
+    upcoming.length > 0 ? 'upcoming' : 'past',
+  );
+
+  const visibleEvents = useMemo(
+    () => (tab === 'upcoming' ? upcoming : past),
+    [tab, upcoming, past],
+  );
+
+  return (
+    <Layout
+      title="Etkinlikler"
+      description="İstatistik Topluluğu'nun yaklaşan ve geçmiş etkinlikleri — panel, söyleşi ve buluşmaları takip edin.">
+      <div className={styles.page}>
+        <header className={styles.head}>
+          <p className={styles.eyebrow}>Topluluk</p>
+          <h1 className={styles.title}>
+            <span className={styles.titleAccent}>Etkinlikler</span>
+          </h1>
+          <p className={styles.lead}>
+            Panel, söyleşi, workshop ve kariyer buluşmaları — İstatistik
+            Topluluğu'nun yaklaşan ve geçmiş etkinliklerine buradan ulaş.
+          </p>
+
+          <div className={styles.calendarCta}>
+            <FiCalendar size={18} aria-hidden="true" />
+            <span>
+              Etkinlikler Google Takvim'den otomatik güncellenir.{' '}
+              <Link
+                href="https://calendar.google.com/calendar/u/0?cid=MzM1ODY1NGE2M2ExZTRjN2Q5NzU3OTliNzJhYjdmMmVmNzg1NTRkMTIyNDNmOTI4Zjg4ODYwMTJmYTZmZjI3MUBncm91cC5jYWxlbmRhci5nb29nbGUuY29t"
+                target="_blank"
+                rel="noopener noreferrer"
+                className={styles.calendarLink}>
+                Kendi takvimine ekle →
+              </Link>
+            </span>
+          </div>
+
+          <div className={styles.tabs} role="tablist">
+            <button
+              type="button"
+              role="tab"
+              aria-selected={tab === 'upcoming'}
+              onClick={() => setTab('upcoming')}
+              className={`${styles.tab} ${tab === 'upcoming' ? styles.tabActive : ''}`}>
+              Yaklaşan
+              <span className={styles.tabCount}>{upcoming.length}</span>
+            </button>
+            <button
+              type="button"
+              role="tab"
+              aria-selected={tab === 'past'}
+              onClick={() => setTab('past')}
+              className={`${styles.tab} ${tab === 'past' ? styles.tabActive : ''}`}>
+              Geçmiş
+              <span className={styles.tabCount}>{past.length}</span>
+            </button>
+          </div>
+        </header>
+
+        <main className={styles.main}>
+          {visibleEvents.length === 0 ? (
+            <div className={styles.empty}>
+              {tab === 'upcoming' ? (
+                <>
+                  <p className={styles.emptyTitle}>
+                    Yaklaşan etkinlik yok.
+                  </p>
+                  <p className={styles.emptyText}>
+                    Şu an planlanmış bir etkinliğimiz yok. Takvim güncellendiğinde
+                    burada listelenir —{' '}
+                    <Link
+                      to="#"
+                      onClick={(e) => {
+                        e.preventDefault();
+                        setTab('past');
+                      }}>
+                      geçmiş etkinliklere göz at
+                    </Link>
+                    .
+                  </p>
+                </>
+              ) : (
+                <>
+                  <p className={styles.emptyTitle}>Henüz etkinlik yok.</p>
+                  <p className={styles.emptyText}>
+                    İlk etkinliğimiz takvime eklendiğinde burada görünecek.
+                  </p>
+                </>
+              )}
+            </div>
+          ) : (
+            <ul className={styles.list}>
+              {visibleEvents.map((ev, i) => (
+                <li key={ev.uid || `${ev.start}-${i}`}>
+                  <EventRow event={ev} kind={tab} />
+                </li>
+              ))}
+            </ul>
+          )}
+        </main>
+      </div>
+    </Layout>
+  );
 }

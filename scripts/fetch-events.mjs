@@ -20,8 +20,8 @@ const DEFAULT_ICAL_URL =
   'https://calendar.google.com/calendar/ical/3358654a63a1e4c7d975799b72ab7f2ef78554d12243f928f8886012fa6ff271%40group.calendar.google.com/public/basic.ics';
 
 const ICAL_URL = process.env.TICAR_ICAL_URL || DEFAULT_ICAL_URL;
-const MAX_EVENTS = 3;
-const LOOK_AHEAD_DAYS = 365; // also used for expanding RRULEs
+const LOOK_AHEAD_DAYS = 365;
+const LOOK_BEHIND_DAYS = 730; // 2 years of past events
 
 async function main() {
   let rawEvents = [];
@@ -45,24 +45,19 @@ async function main() {
   const now = Date.now();
   const upcoming = rawEvents
     .filter((e) => new Date(e.start).getTime() >= now)
-    .sort((a, b) => new Date(a.start) - new Date(b.start))
-    .slice(0, MAX_EVENTS);
+    .sort((a, b) => new Date(a.start) - new Date(b.start));
 
   const past = rawEvents
     .filter((e) => new Date(e.start).getTime() < now)
-    .sort((a, b) => new Date(b.start) - new Date(a.start))
-    .slice(0, MAX_EVENTS);
-
-  const mode = upcoming.length > 0 ? 'upcoming' : 'past';
-  const shown = upcoming.length > 0 ? upcoming : past;
+    .sort((a, b) => new Date(b.start) - new Date(a.start));
 
   mkdirSync(dirname(OUT_PATH), {recursive: true});
   writeFileSync(
     OUT_PATH,
     JSON.stringify(
       {
-        mode,
-        events: shown,
+        upcoming,
+        past,
         updatedAt: new Date().toISOString(),
       },
       null,
@@ -70,12 +65,14 @@ async function main() {
     ),
   );
 
-  console.log(`[events] Wrote ${shown.length} ${mode} event(s) → src/data/events.json`);
+  console.log(
+    `[events] Wrote ${upcoming.length} upcoming + ${past.length} past event(s) → src/data/events.json`,
+  );
 }
 
 function expandEvents(raw) {
   const horizon = Date.now() + LOOK_AHEAD_DAYS * 24 * 3600 * 1000;
-  const horizonPast = Date.now() - 365 * 24 * 3600 * 1000; // 1 year back
+  const horizonPast = Date.now() - LOOK_BEHIND_DAYS * 24 * 3600 * 1000;
   const out = [];
 
   for (const ev of raw) {
@@ -142,7 +139,7 @@ main().catch((err) => {
     mkdirSync(dirname(OUT_PATH), {recursive: true});
     writeFileSync(
       OUT_PATH,
-      JSON.stringify({mode: 'upcoming', events: [], updatedAt: new Date().toISOString()}),
+      JSON.stringify({upcoming: [], past: [], updatedAt: new Date().toISOString()}),
     );
   }
 });
