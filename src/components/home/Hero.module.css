@@ -1,0 +1,115 @@
+.hero {
+  position: relative;
+  padding: clamp(4rem, 10vw, 8rem) var(--space-6) clamp(3rem, 6vw, 5rem);
+  background:
+    radial-gradient(
+      ellipse 70% 60% at 85% 0%,
+      var(--brand-yellow-soft) 0%,
+      transparent 60%
+    ),
+    linear-gradient(180deg, var(--brand-surface) 0%, var(--brand-surface) 100%);
+  overflow: hidden;
+  border-bottom: 1px solid var(--brand-border);
+}
+
+[data-theme='dark'] .hero {
+  background:
+    radial-gradient(
+      ellipse 70% 60% at 85% 0%,
+      rgba(245, 207, 6, 0.14) 0%,
+      transparent 60%
+    ),
+    linear-gradient(180deg, var(--brand-surface) 0%, var(--brand-surface) 100%);
+}
+
+.inner {
+  max-width: var(--content-max);
+  margin: 0 auto;
+}
+
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  font-size: var(--fs-sm);
+  font-weight: 500;
+  color: var(--brand-ink-muted);
+  letter-spacing: 0.02em;
+  margin: 0 0 var(--space-6);
+  padding: 6px 12px;
+  background: var(--brand-surface-raised);
+  border: 1px solid var(--brand-border);
+  border-radius: var(--radius-pill);
+}
+
+.dot {
+  width: 6px;
+  height: 6px;
+  background: var(--brand-yellow);
+  border-radius: 50%;
+  box-shadow: 0 0 0 3px rgba(245, 207, 6, 0.25);
+}
+
+.title {
+  font-family: var(--ifm-heading-font-family);
+  font-size: var(--fs-display);
+  font-weight: 600;
+  line-height: 1.08;
+  letter-spacing: -0.03em;
+  color: var(--brand-ink);
+  margin: 0 0 var(--space-6);
+  max-width: 18ch;
+}
+
+.accent {
+  font-style: italic;
+  font-weight: 500;
+  background: linear-gradient(
+    180deg,
+    transparent 62%,
+    var(--brand-yellow) 62%,
+    var(--brand-yellow) 92%,
+    transparent 92%
+  );
+  padding: 0 0.1em;
+}
+
+.subtitle {
+  font-size: clamp(1rem, 0.95rem + 0.3vw, 1.2rem);
+  color: var(--brand-ink-muted);
+  line-height: 1.65;
+  max-width: 58ch;
+  margin: 0 0 var(--space-8);
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+  align-items: center;
+}
+
+.ghost {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.arrow {
+  transition: transform var(--dur-base) var(--ease-out);
+}
+
+.ghost:hover .arrow {
+  transform: translateX(3px);
+}
+
+@media (max-width: 640px) {
+  .hero {
+    padding-top: 3rem;
+    padding-bottom: 2.5rem;
+  }
+  .actions .button {
+    width: 100%;
+    justify-content: center;
+  }
+}

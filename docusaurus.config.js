@@ -49,6 +49,25 @@ const config = {
         'sha384-9Y3bqD0qWQH3q4gVv5Stm9J9t6pTZQJ9hG1nq3o2vV9q2b2o0qkqC0R1f2qf7k2P',
       crossorigin: 'anonymous',
     },
+    {
+      href: 'https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=JetBrains+Mono:wght@400;500&display=swap',
+      type: 'text/css',
+    },
+  ],
+
+  headTags: [
+    {
+      tagName: 'link',
+      attributes: {rel: 'preconnect', href: 'https://fonts.googleapis.com'},
+    },
+    {
+      tagName: 'link',
+      attributes: {
+        rel: 'preconnect',
+        href: 'https://fonts.gstatic.com',
+        crossorigin: 'anonymous',
+      },
+    },
   ],
 
   presets: [
@@ -92,7 +111,10 @@ const config = {
   themeConfig:
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
-      // Replace with your project's social card
+      colorMode: {
+        defaultMode: 'light',
+        respectPrefersColorScheme: true,
+      },
 
       announcementBar: {
         id: 'support_us',

@@ -1,0 +1,111 @@
+.section {
+  padding: var(--space-20) var(--space-6);
+  background: var(--brand-surface-sunken);
+  border-top: 1px solid var(--brand-border);
+  border-bottom: 1px solid var(--brand-border);
+}
+
+.inner {
+  max-width: var(--content-max);
+  margin: 0 auto;
+}
+
+.head {
+  max-width: 52ch;
+  margin-bottom: var(--space-10);
+}
+
+.eyebrow {
+  font-size: var(--fs-sm);
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--brand-ink-subtle);
+  margin: 0 0 var(--space-3);
+}
+
+.title {
+  font-family: var(--ifm-heading-font-family);
+  font-size: var(--fs-h2);
+  font-weight: 600;
+  letter-spacing: -0.025em;
+  line-height: 1.15;
+  margin: 0 0 var(--space-4);
+  color: var(--brand-ink);
+}
+
+.lead {
+  color: var(--brand-ink-muted);
+  font-size: 1.05rem;
+  line-height: 1.65;
+  margin: 0;
+}
+
+.frame {
+  background: var(--brand-surface-raised);
+  border: 1px solid var(--brand-border);
+  border-radius: var(--radius-lg);
+  padding: var(--space-4);
+  box-shadow: var(--shadow-md);
+  overflow: hidden;
+}
+
+.swiper {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  max-height: 560px;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  background: #000;
+}
+
+.slide {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background: #000;
+}
+
+.caption {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: var(--space-6) var(--space-4) var(--space-4);
+  margin: 0;
+  background: linear-gradient(180deg, transparent 0%, rgba(0, 0, 0, 0.75) 90%);
+  color: #fff;
+  font-family: var(--ifm-heading-font-family);
+  font-weight: 500;
+  font-size: 0.95rem;
+  letter-spacing: -0.01em;
+  pointer-events: none;
+}
+
+.swiper :global(.swiper-button-next),
+.swiper :global(.swiper-button-prev) {
+  color: #fff;
+  background: rgba(0, 0, 0, 0.35);
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  backdrop-filter: blur(6px);
+}
+.swiper :global(.swiper-button-next::after),
+.swiper :global(.swiper-button-prev::after) {
+  font-size: 16px;
+  font-weight: 700;
+}
+.swiper :global(.swiper-pagination-bullet-active) {
+  background: var(--brand-yellow);
+}
+
+@media (max-width: 640px) {
+  .section {
+    padding: var(--space-12) var(--space-4);
+  }
+  .caption {
+    font-size: 0.82rem;
+    padding: var(--space-4) var(--space-3) var(--space-3);
+  }
+}
