@@ -89,6 +89,90 @@
   text-decoration-color: var(--brand-ink);
 }
 
+/* --- Recordings banner --- */
+.recordingsBanner {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+  padding: var(--space-4) var(--space-5);
+  background: var(--brand-ink);
+  color: var(--brand-surface);
+  border: 1px solid var(--brand-ink);
+  border-radius: var(--radius-md);
+  text-decoration: none;
+  margin-bottom: var(--space-6);
+  transition:
+    transform var(--dur-base) var(--ease-out),
+    box-shadow var(--dur-base) var(--ease-out);
+}
+
+.recordingsBanner:hover {
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-md);
+  color: var(--brand-surface);
+  text-decoration: none;
+}
+
+[data-theme='dark'] .recordingsBanner {
+  background: var(--brand-yellow);
+  color: var(--brand-ink);
+  border-color: var(--brand-yellow);
+}
+
+[data-theme='dark'] .recordingsBanner:hover {
+  color: var(--brand-ink);
+}
+
+.recordingsBannerIcon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  background: rgba(245, 207, 6, 0.18);
+  border-radius: var(--radius-md);
+  color: var(--brand-yellow);
+  flex-shrink: 0;
+}
+
+[data-theme='dark'] .recordingsBannerIcon {
+  background: rgba(15, 23, 41, 0.12);
+  color: var(--brand-ink);
+}
+
+.recordingsBannerBody {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  flex: 1;
+  min-width: 0;
+}
+
+.recordingsBannerLabel {
+  font-size: var(--fs-xs);
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  opacity: 0.7;
+}
+
+.recordingsBannerText {
+  font-family: var(--ifm-heading-font-family);
+  font-weight: 600;
+  font-size: 1rem;
+  letter-spacing: -0.01em;
+}
+
+.recordingsBannerArrow {
+  font-size: 1.2rem;
+  transition: transform var(--dur-base) var(--ease-out);
+  flex-shrink: 0;
+}
+
+.recordingsBanner:hover .recordingsBannerArrow {
+  transform: translateX(4px);
+}
+
 /* --- Tabs --- */
 .tabs {
   display: inline-flex;

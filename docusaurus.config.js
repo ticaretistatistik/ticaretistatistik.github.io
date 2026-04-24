@@ -172,6 +172,10 @@ const config = {
                 label: 'Etkinlikler',
               },
               {
+                to: '/topluluk/kayitlar',
+                label: 'Kayıtlar',
+              },
+              {
                 to: '/topluluk/hikayeler',
                 label: 'Hikayeler',
               },

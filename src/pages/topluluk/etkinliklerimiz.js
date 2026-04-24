@@ -1,7 +1,7 @@
 import {useMemo, useState} from 'react';
 import Layout from '@theme/Layout';
 import Link from '@docusaurus/Link';
-import {FiCalendar, FiMapPin, FiClock, FiArrowUpRight} from 'react-icons/fi';
+import {FiCalendar, FiMapPin, FiClock, FiArrowUpRight, FiPlayCircle} from 'react-icons/fi';
 
 import data from '@site/src/data/events.json';
 import styles from './etkinliklerimiz.module.css';
@@ -126,6 +126,19 @@ export default function EtkinliklerPage() {
               </Link>
             </span>
           </div>
+
+          <Link to="/topluluk/kayitlar" className={styles.recordingsBanner}>
+            <span className={styles.recordingsBannerIcon} aria-hidden="true">
+              <FiPlayCircle size={22} />
+            </span>
+            <span className={styles.recordingsBannerBody}>
+              <span className={styles.recordingsBannerLabel}>Arşiv</span>
+              <span className={styles.recordingsBannerText}>
+                Geçmiş etkinliklerin video kayıtlarına göz at
+              </span>
+            </span>
+            <span className={styles.recordingsBannerArrow} aria-hidden="true">→</span>
+          </Link>
 
           <div className={styles.tabs} role="tablist">
             <button
