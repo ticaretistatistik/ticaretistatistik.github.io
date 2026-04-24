@@ -3,6 +3,15 @@ import styles from './RecentPosts.module.css';
 
 const posts = [
   {
+    title: 'Not Hesaplayıcı Yayında',
+    excerpt:
+      'Müfredata göre vize/final ağırlıklarını otomatik yükleyen, tek ders finali ve dönem AGNO hesaplamasını birkaç tıkla yapan yeni aracımız yayında.',
+    date: '24 Nisan 2026',
+    readingTime: '4 dk',
+    to: '/blog/not-hesaplayici',
+    tag: 'Duyuru',
+  },
+  {
     title: 'Ortalama mı, medyan mı?',
     excerpt:
       'Verinin özetlenmesinde merkezi eğilim ölçülerinin hangisini seçmeniz gerektiğini, aykırı değerlerin etkisiyle birlikte inceliyoruz.',
@@ -19,15 +28,6 @@ const posts = [
     readingTime: '5 dk',
     to: '/blog/net-promosyoncu-skoru-nps',
     tag: 'Uygulama',
-  },
-  {
-    title: 'İstatistik Topluluğu Dergisi',
-    excerpt:
-      'Öğrenci topluluğumuzun 2025 dönem sonu dergisi yayında — yazılar, röportajlar ve öğrenci çalışmaları.',
-    date: '27 Haziran 2025',
-    readingTime: '3 dk',
-    to: '/blog/istatistik-toplulugu-dergisi-2025',
-    tag: 'Topluluk',
   },
 ];
 
