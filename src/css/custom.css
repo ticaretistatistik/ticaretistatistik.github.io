@@ -1,33 +1,521 @@
 /**
- * Any CSS included here will be global. The classic template
- * bundles Infima by default. Infima is a CSS framework designed to
- * work well for content-centric websites.
+ * Ticaret İstatistik — editorial design system.
+ * Extends Infima with brand tokens, typography scale, spacing,
+ * shadows, motion, and global element styling.
  */
 
-/* You can override the default Infima variables here. */
-
+/* ============================================================
+   Tokens — light mode
+   ============================================================ */
 :root {
-  --ifm-background-color: #f8f9fa;
+  /* Brand palette */
+  --brand-yellow: #f5cf06;
+  --brand-yellow-soft: #fef3b5;
+  --brand-yellow-deep: #c9a804;
+  --brand-ink: #0f1729;
+  --brand-ink-muted: #475569;
+  --brand-ink-subtle: #64748b;
+  --brand-surface: #fbfaf7;
+  --brand-surface-raised: #ffffff;
+  --brand-surface-sunken: #f4f2ec;
+  --brand-border: #e7e5e0;
+  --brand-border-strong: #d4d2cb;
 
-  --ifm-color-primary: #f5cf06;
-  --ifm-color-primary-dark: #29784c;
-  --ifm-color-primary-darker: #277148;
-  --ifm-color-primary-darkest: #205d3b;
-  --ifm-color-primary-light: #33925d;
-  --ifm-color-primary-lighter: #359962;
-  --ifm-color-primary-lightest: #3cad6e;
-  --ifm-code-font-size: 95%;
-  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.1);
+  /* Infima primary ramp — regenerated from brand yellow so hover/link
+     states no longer bleed the default Docusaurus green. */
+  --ifm-color-primary: #b8930a;
+  --ifm-color-primary-dark: #a6830a;
+  --ifm-color-primary-darker: #9c7b09;
+  --ifm-color-primary-darkest: #806507;
+  --ifm-color-primary-light: #cba40c;
+  --ifm-color-primary-lighter: #d6ad0e;
+  --ifm-color-primary-lightest: #ecc221;
+
+  /* Infima surface + text overrides */
+  --ifm-background-color: var(--brand-surface);
+  --ifm-background-surface-color: var(--brand-surface-raised);
+  --ifm-font-color-base: var(--brand-ink);
+  --ifm-heading-color: var(--brand-ink);
+  --ifm-color-emphasis-300: var(--brand-border);
+  --ifm-color-emphasis-500: var(--brand-ink-subtle);
+  --ifm-color-emphasis-700: var(--brand-ink-muted);
+  --ifm-toc-border-color: var(--brand-border);
+
+  /* Typography */
+  --ifm-font-family-base:
+    "Inter", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto,
+    "Helvetica Neue", Arial, sans-serif;
+  --ifm-heading-font-family:
+    "Fraunces", ui-serif, Georgia, "Times New Roman", serif;
+  --ifm-font-family-monospace:
+    "JetBrains Mono", ui-monospace, "SFMono-Regular", Menlo, Monaco, Consolas,
+    "Liberation Mono", "Courier New", monospace;
+
+  --ifm-font-size-base: 16px;
+  --ifm-line-height-base: 1.65;
+  --ifm-heading-line-height: 1.2;
+  --ifm-heading-font-weight: 600;
+  --ifm-code-font-size: 92%;
+
+  --fs-display: clamp(2.5rem, 2rem + 2.5vw, 4rem);
+  --fs-h1: clamp(2rem, 1.6rem + 1.5vw, 2.75rem);
+  --fs-h2: clamp(1.625rem, 1.4rem + 1vw, 2.125rem);
+  --fs-h3: clamp(1.25rem, 1.1rem + 0.6vw, 1.5rem);
+  --fs-h4: 1.125rem;
+  --fs-sm: 0.875rem;
+  --fs-xs: 0.78rem;
+
+  /* Spacing scale (4px base) */
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-5: 1.25rem;
+  --space-6: 1.5rem;
+  --space-8: 2rem;
+  --space-10: 2.5rem;
+  --space-12: 3rem;
+  --space-16: 4rem;
+  --space-20: 5rem;
+  --space-24: 6rem;
+
+  /* Radii */
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 16px;
+  --radius-xl: 24px;
+  --radius-pill: 999px;
+
+  /* Shadows — soft, multi-layer */
+  --shadow-xs: 0 1px 2px rgba(15, 23, 41, 0.04);
+  --shadow-sm:
+    0 1px 2px rgba(15, 23, 41, 0.05),
+    0 2px 6px rgba(15, 23, 41, 0.04);
+  --shadow-md:
+    0 4px 8px rgba(15, 23, 41, 0.05),
+    0 10px 24px rgba(15, 23, 41, 0.06);
+  --shadow-lg:
+    0 10px 20px rgba(15, 23, 41, 0.06),
+    0 24px 48px rgba(15, 23, 41, 0.1);
+
+  /* Motion */
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+  --dur-fast: 140ms;
+  --dur-base: 220ms;
+  --dur-slow: 360ms;
+
+  /* Code highlight */
+  --docusaurus-highlighted-code-line-bg: rgba(245, 207, 6, 0.18);
+
+  /* Layout helpers */
+  --content-max: 1200px;
+  --prose-max: 68ch;
+
+  /* Footer tokens — absolute (don't flip with theme). Dark footer in both modes,
+     but dark-mode gets a deeper navy so it clearly demarcates from the page. */
+  --footer-bg: #0f1729;
+  --footer-border-top: transparent;
+  --footer-text: #cbd5e1;
+  --footer-text-strong: #ffffff;
+  --footer-text-muted: #94a3b8;
+  --footer-divider: rgba(255, 255, 255, 0.08);
+  --footer-link-hover: var(--brand-yellow);
 }
 
-/* For readability concerns, you should choose a lighter palette in dark mode. */
-[data-theme='dark'] {
+/* ============================================================
+   Tokens — dark mode
+   ============================================================ */
+[data-theme="dark"] {
+  --brand-ink: #f5f5f4;
+  --brand-ink-muted: #cbd1dc;
+  --brand-ink-subtle: #94a3b8;
+  --brand-surface: #0b1120;
+  --brand-surface-raised: #111a2e;
+  --brand-surface-sunken: #0a0f1c;
+  --brand-border: #1f2a44;
+  --brand-border-strong: #2b3957;
+
   --ifm-color-primary: #f5cf06;
-  --ifm-color-primary-dark: #21af90;
-  --ifm-color-primary-darker: #1fa588;
-  --ifm-color-primary-darkest: #1a8870;
-  --ifm-color-primary-light: #29d5b0;
-  --ifm-color-primary-lighter: #32d8b4;
-  --ifm-color-primary-lightest: #4fddbf;
-  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
+  --ifm-color-primary-dark: #d9b705;
+  --ifm-color-primary-darker: #c6a704;
+  --ifm-color-primary-darkest: #997f03;
+  --ifm-color-primary-light: #f7d634;
+  --ifm-color-primary-lighter: #f8db4d;
+  --ifm-color-primary-lightest: #fbe787;
+
+  --ifm-background-color: var(--brand-surface);
+  --ifm-background-surface-color: var(--brand-surface-raised);
+  --ifm-font-color-base: var(--brand-ink);
+  --ifm-heading-color: var(--brand-ink);
+  --ifm-color-emphasis-300: var(--brand-border);
+  --ifm-toc-border-color: var(--brand-border);
+
+  --shadow-xs: 0 1px 2px rgba(0, 0, 0, 0.4);
+  --shadow-sm:
+    0 1px 2px rgba(0, 0, 0, 0.5),
+    0 2px 6px rgba(0, 0, 0, 0.35);
+  --shadow-md:
+    0 4px 8px rgba(0, 0, 0, 0.4),
+    0 10px 24px rgba(0, 0, 0, 0.45);
+  --shadow-lg:
+    0 10px 20px rgba(0, 0, 0, 0.45),
+    0 24px 48px rgba(0, 0, 0, 0.55);
+
+  --docusaurus-highlighted-code-line-bg: rgba(245, 207, 6, 0.14);
+
+  /* Footer in dark mode: go *deeper* than the page bg so it reads as a
+     clear closing band, plus a hairline border for definition. */
+  --footer-bg: #060b15;
+  --footer-border-top: rgba(255, 255, 255, 0.06);
+  --footer-text: #cbd5e1;
+  --footer-text-strong: #f8fafc;
+  --footer-text-muted: #8392a9;
+  --footer-divider: rgba(255, 255, 255, 0.06);
+}
+
+/* ============================================================
+   Global element polish
+   ============================================================ */
+html {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  font-feature-settings: "cv11", "ss01", "ss03";
+  letter-spacing: -0.003em;
+}
+
+h1, h2, h3, h4 {
+  font-family: var(--ifm-heading-font-family);
+  letter-spacing: -0.02em;
+}
+
+h1 { font-size: var(--fs-h1); font-weight: 600; }
+h2 { font-size: var(--fs-h2); font-weight: 600; }
+h3 { font-size: var(--fs-h3); font-weight: 600; }
+h4 { font-size: var(--fs-h4); font-weight: 600; letter-spacing: -0.01em; }
+
+a {
+  transition: color var(--dur-fast) var(--ease-out);
+}
+
+::selection {
+  background: var(--brand-yellow);
+  color: var(--brand-ink);
+}
+
+/* ============================================================
+   Announcement bar
+   ============================================================ */
+div[class^="announcementBar"] {
+  border-bottom: 1px solid var(--brand-yellow-deep);
+  font-weight: 500;
+  letter-spacing: 0.01em;
+}
+
+/* ============================================================
+   Navbar
+   ============================================================ */
+.navbar {
+  background: rgba(251, 250, 247, 0.82);
+  backdrop-filter: saturate(160%) blur(12px);
+  -webkit-backdrop-filter: saturate(160%) blur(12px);
+  border-bottom: 1px solid var(--brand-border);
+  box-shadow: none;
+}
+[data-theme="dark"] .navbar {
+  background: rgba(11, 17, 32, 0.78);
+  border-bottom-color: var(--brand-border);
+}
+
+.navbar__title {
+  font-family: var(--ifm-heading-font-family);
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  font-size: 1.1rem;
+}
+
+.navbar__logo {
+  height: 28px;
+}
+
+.navbar__link {
+  font-size: 0.92rem;
+  font-weight: 500;
+  color: var(--brand-ink-muted);
+  transition:
+    color var(--dur-fast) var(--ease-out),
+    background-color var(--dur-fast) var(--ease-out);
+}
+.navbar__link:hover,
+.navbar__link--active {
+  color: var(--brand-ink);
+}
+.navbar__link--active::after {
+  content: "";
+  display: block;
+  height: 2px;
+  margin-top: 2px;
+  background: var(--brand-yellow);
+  border-radius: 2px;
+}
+
+.dropdown__menu {
+  border-radius: var(--radius-md);
+  border: 1px solid var(--brand-border);
+  box-shadow: var(--shadow-md);
+  padding: var(--space-2);
+  background: var(--brand-surface-raised);
+}
+.dropdown__link {
+  border-radius: var(--radius-sm);
+  font-size: 0.9rem;
+  color: var(--brand-ink-muted);
+  transition: background-color var(--dur-fast) var(--ease-out);
+}
+.dropdown__link:hover {
+  background: var(--brand-surface-sunken);
+  color: var(--brand-ink);
+}
+[data-theme="dark"] .dropdown__link:hover {
+  background: var(--brand-surface-sunken);
+}
+
+/* ============================================================
+   Buttons
+   ============================================================ */
+.button {
+  border-radius: var(--radius-md);
+  font-weight: 600;
+  letter-spacing: 0.005em;
+  transition:
+    transform var(--dur-fast) var(--ease-out),
+    box-shadow var(--dur-base) var(--ease-out),
+    background-color var(--dur-base) var(--ease-out),
+    color var(--dur-base) var(--ease-out),
+    border-color var(--dur-base) var(--ease-out);
+}
+.button:hover { transform: translateY(-1px); }
+.button:active { transform: translateY(0); }
+
+.button--primary,
+.button--secondary {
+  /* Override Infima's default secondary (gray) with the brand ink */
+  background: var(--brand-ink);
+  color: var(--brand-surface);
+  border: 1px solid var(--brand-ink);
+}
+.button--primary:hover,
+.button--secondary:hover {
+  background: #1e2a45;
+  border-color: #1e2a45;
+  color: var(--brand-surface);
+  box-shadow: var(--shadow-md);
+}
+[data-theme="dark"] .button--primary,
+[data-theme="dark"] .button--secondary {
+  background: var(--brand-yellow);
+  color: var(--brand-ink);
+  border-color: var(--brand-yellow);
+}
+[data-theme="dark"] .button--primary:hover,
+[data-theme="dark"] .button--secondary:hover {
+  background: var(--brand-yellow-deep);
+  border-color: var(--brand-yellow-deep);
+  color: var(--brand-ink);
+}
+
+.button--outline,
+.button--ghost {
+  background: transparent;
+  color: var(--brand-ink);
+  border: 1px solid var(--brand-border-strong);
+}
+.button--outline:hover,
+.button--ghost:hover {
+  background: var(--brand-surface-sunken);
+  border-color: var(--brand-ink);
+  color: var(--brand-ink);
+}
+
+/* ============================================================
+   Footer (keeps themeConfig style: 'dark' but restyles in both modes
+   via absolute --footer-* tokens, so dark mode stays dark.)
+   ============================================================ */
+.footer {
+  background: var(--footer-bg);
+  color: var(--footer-text);
+  padding: var(--space-16) 0 var(--space-10);
+  border-top: 1px solid var(--footer-border-top);
+}
+.footer--dark {
+  --ifm-footer-background-color: var(--footer-bg);
+  --ifm-footer-color: var(--footer-text);
+  --ifm-footer-link-color: var(--footer-text);
+  --ifm-footer-title-color: var(--footer-text-strong);
+  --ifm-footer-link-hover-color: var(--footer-link-hover);
+}
+.footer__title {
+  font-family: var(--ifm-heading-font-family);
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  font-size: 0.95rem;
+  text-transform: none;
+  color: var(--footer-text-strong);
+  position: relative;
+  padding-bottom: var(--space-2);
+  margin-bottom: var(--space-4);
+}
+.footer__title::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 28px;
+  height: 2px;
+  background: var(--brand-yellow);
+  border-radius: 2px;
+}
+.footer__link-item {
+  font-size: 0.9rem;
+  color: var(--footer-text);
+  transition: color var(--dur-fast) var(--ease-out);
+}
+.footer__link-item:hover {
+  color: var(--footer-link-hover);
+  text-decoration: none;
+}
+.footer__copyright {
+  color: var(--footer-text-muted);
+  font-size: 0.82rem;
+  line-height: 1.7;
+  margin-top: var(--space-10);
+  padding-top: var(--space-6);
+  border-top: 1px solid var(--footer-divider);
+}
+.footer__copyright a {
+  color: var(--footer-text);
+}
+.footer__copyright a:hover {
+  color: var(--footer-link-hover);
+}
+
+/* ============================================================
+   Blog list + post
+   ============================================================ */
+.blog-wrapper article header h2 a,
+.blog-wrapper article header h1 a,
+article h1 {
+  font-family: var(--ifm-heading-font-family);
+  letter-spacing: -0.02em;
+}
+.blog-wrapper article {
+  padding-bottom: var(--space-10);
+  margin-bottom: var(--space-10);
+  border-bottom: 1px solid var(--brand-border);
+}
+.blog-post-page article header h1 {
+  font-size: clamp(2rem, 3vw, 2.75rem);
+}
+.blog-list-page .container article,
+.blog-post-page .container article {
+  max-width: var(--prose-max);
+}
+.blog-post-page .markdown {
+  font-size: 1.05rem;
+  line-height: 1.75;
+}
+.blog-post-page .markdown > p {
+  color: var(--brand-ink);
+}
+.tag,
+a[class*="tag_"] {
+  border-radius: var(--radius-pill) !important;
+  font-size: 0.75rem !important;
+  padding: 2px 10px !important;
+  border: 1px solid var(--brand-border-strong) !important;
+  color: var(--brand-ink-muted) !important;
+  transition:
+    border-color var(--dur-fast) var(--ease-out),
+    color var(--dur-fast) var(--ease-out),
+    background-color var(--dur-fast) var(--ease-out);
+}
+.tag:hover,
+a[class*="tag_"]:hover {
+  border-color: var(--brand-ink);
+  color: var(--brand-ink);
+  background: var(--brand-yellow-soft);
+  text-decoration: none;
+}
+
+/* ============================================================
+   Docs prose polish
+   ============================================================ */
+.markdown {
+  line-height: 1.75;
+}
+.markdown > h2 { margin-top: var(--space-12); }
+.markdown > h3 { margin-top: var(--space-10); }
+.markdown blockquote {
+  border-left: 3px solid var(--brand-yellow);
+  background: var(--brand-yellow-soft);
+  color: var(--brand-ink);
+  padding: var(--space-4) var(--space-5);
+  border-radius: 0 var(--radius-md) var(--radius-md) 0;
+}
+[data-theme="dark"] .markdown blockquote {
+  background: rgba(245, 207, 6, 0.08);
+  color: var(--brand-ink);
+}
+.markdown code:not([class*="codeBlock"]) {
+  background: var(--brand-surface-sunken);
+  border: 1px solid var(--brand-border);
+  padding: 0.1em 0.4em;
+  border-radius: var(--radius-sm);
+  font-size: 0.88em;
+}
+.markdown table {
+  display: table;
+  width: 100%;
+  border-collapse: collapse;
+}
+.markdown table th {
+  background: var(--brand-surface-sunken);
+  font-family: var(--ifm-heading-font-family);
+  font-weight: 600;
+  text-align: left;
+}
+.markdown table th,
+.markdown table td {
+  border-color: var(--brand-border);
+  padding: var(--space-3) var(--space-4);
+}
+
+/* TOC polish */
+.table-of-contents {
+  border-left: 1px solid var(--brand-border);
+}
+.table-of-contents__link {
+  color: var(--brand-ink-muted);
+  font-size: 0.85rem;
+  transition: color var(--dur-fast) var(--ease-out);
+}
+.table-of-contents__link:hover,
+.table-of-contents__link--active {
+  color: var(--brand-ink);
+  font-weight: 500;
+}
+
+/* Pagination (next/prev) */
+.pagination-nav__link {
+  border: 1px solid var(--brand-border);
+  border-radius: var(--radius-md);
+  transition:
+    border-color var(--dur-fast) var(--ease-out),
+    box-shadow var(--dur-base) var(--ease-out);
+}
+.pagination-nav__link:hover {
+  border-color: var(--brand-ink);
+  box-shadow: var(--shadow-sm);
 }
