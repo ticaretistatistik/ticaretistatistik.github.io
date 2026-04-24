@@ -281,6 +281,18 @@ div[class^="announcementBar"] {
 [data-theme="dark"] .dropdown__link:hover {
   background: var(--brand-surface-sunken);
 }
+.dropdown__section-label {
+  padding: var(--space-3) var(--space-3) var(--space-1);
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--brand-ink-subtle);
+  pointer-events: none;
+}
+.dropdown__menu > li:first-child .dropdown__section-label {
+  padding-top: var(--space-1);
+}
 
 /* ============================================================
    Buttons

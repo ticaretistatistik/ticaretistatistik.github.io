@@ -146,13 +146,22 @@ const config = {
             label: 'Kaynaklar',
             items: [
               {
-                to: '/sozluk',
-                label: 'Sözlük',
+                type: 'html',
+                value: '<div class="dropdown__section-label">Menü tabanlı yazılımlar</div>',
               },
               {
                 type: 'docSidebar',
                 sidebarId: 'jaspSidebar',
                 label: 'JASP',
+              },
+              {
+                type: 'docSidebar',
+                sidebarId: 'spssSidebar',
+                label: 'SPSS',
+              },
+              {
+                type: 'html',
+                value: '<div class="dropdown__section-label">Programlama dilleri</div>',
               },
               {
                 type: 'docSidebar',
@@ -165,9 +174,12 @@ const config = {
                 label: 'R',
               },
               {
-                type: 'docSidebar',
-                sidebarId: 'spssSidebar',
-                label: 'SPSS',
+                type: 'html',
+                value: '<div class="dropdown__section-label">Referans</div>',
+              },
+              {
+                to: '/sozluk',
+                label: 'Sözlük',
               },
             ],
           },
@@ -276,16 +288,16 @@ const config = {
                 to: '/docs/jasp/',
               },
               {
+                label: 'SPSS',
+                to: '/docs/spss/',
+              },
+              {
                 label: 'Python',
                 to: '/docs/python/',
               },
               {
                 label: 'R',
                 to: '/docs/r/',
-              },
-              {
-                label: 'SPSS',
-                to: '/docs/spss/',
               },
               {
                 label: 'Sözlük',
