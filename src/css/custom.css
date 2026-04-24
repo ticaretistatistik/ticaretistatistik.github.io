@@ -283,6 +283,98 @@ div[class^="announcementBar"] {
 }
 
 /* ============================================================
+   Mobile navbar drawer
+   Solid backgrounds + explicit menu styling so the drawer reads
+   clearly without the semi-transparent navbar bleeding through.
+   ============================================================ */
+@media (max-width: 996px) {
+  .navbar {
+    background: var(--brand-surface);
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+  }
+  [data-theme="dark"] .navbar {
+    background: var(--brand-surface);
+  }
+}
+
+.navbar-sidebar {
+  background: var(--brand-surface-raised);
+  border-right: 1px solid var(--brand-border);
+  box-shadow: var(--shadow-lg);
+}
+[data-theme="dark"] .navbar-sidebar {
+  background: var(--brand-surface-raised);
+}
+
+.navbar-sidebar__backdrop {
+  background-color: rgba(15, 23, 41, 0.55);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+}
+
+.navbar-sidebar__brand {
+  background: var(--brand-surface-raised);
+  border-bottom: 1px solid var(--brand-border);
+  box-shadow: none;
+  padding: var(--space-4) var(--space-5);
+}
+
+.navbar-sidebar__items {
+  background: var(--brand-surface-raised);
+  padding: var(--space-2);
+}
+
+.navbar-sidebar__back {
+  color: var(--brand-ink);
+  font-weight: 600;
+  font-family: var(--ifm-heading-font-family);
+  letter-spacing: -0.01em;
+}
+
+.navbar-sidebar .navbar__link,
+.navbar-sidebar .menu__link {
+  color: var(--brand-ink);
+  font-weight: 500;
+  font-size: 0.95rem;
+  border-radius: var(--radius-sm);
+  padding: var(--space-3) var(--space-4);
+  transition: background-color var(--dur-fast) var(--ease-out);
+}
+
+.navbar-sidebar .menu__link:hover,
+.navbar-sidebar .menu__link--active,
+.navbar-sidebar .navbar__link:hover,
+.navbar-sidebar .navbar__link--active {
+  background: var(--brand-surface-sunken);
+  color: var(--brand-ink);
+}
+
+.navbar-sidebar .menu__link--active {
+  position: relative;
+}
+.navbar-sidebar .menu__link--active::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 22%;
+  bottom: 22%;
+  width: 3px;
+  background: var(--brand-yellow);
+  border-radius: 3px;
+}
+
+.navbar-sidebar .menu__list .menu__list {
+  margin-left: var(--space-3);
+  padding-left: var(--space-2);
+  border-left: 1px solid var(--brand-border);
+}
+
+.navbar-sidebar .clean-btn {
+  color: var(--brand-ink);
+}
+
+/* ============================================================
    Buttons
    ============================================================ */
 .button {
