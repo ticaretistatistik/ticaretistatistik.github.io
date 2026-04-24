@@ -28,7 +28,7 @@ const sidebars = {
     {
       type: "category",
       label: "IBM SPSS",
-      items: ["spss/index", "spss/kurulum_kilavuzu"],
+      items: ["spss/index"],
     }
   ],
 

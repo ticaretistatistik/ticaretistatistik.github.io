@@ -150,7 +150,8 @@ const config = {
                 label: 'Sözlük',
               },
               {
-                href: '/docs/jasp',
+                type: 'docSidebar',
+                sidebarId: 'jaspSidebar',
                 label: 'JASP',
               },
               {
@@ -162,6 +163,11 @@ const config = {
                 type: 'docSidebar',
                 sidebarId: 'rSidebar',
                 label: 'R',
+              },
+              {
+                type: 'docSidebar',
+                sidebarId: 'spssSidebar',
+                label: 'SPSS',
               },
             ],
           },
@@ -266,8 +272,8 @@ const config = {
             title: 'Dokümanlar',
             items: [
               {
-                href: "#",
-                label: 'Jamovi',
+                label: 'JASP',
+                to: '/docs/jasp/',
               },
               {
                 label: 'Python',
@@ -278,12 +284,12 @@ const config = {
                 to: '/docs/r/',
               },
               {
-                href: "#",
-                label: 'Spss',
+                label: 'SPSS',
+                to: '/docs/spss/',
               },
               {
-                href: "#",
-                label: 'Tableau',
+                label: 'Sözlük',
+                to: '/sozluk',
               },
             ],
           },
