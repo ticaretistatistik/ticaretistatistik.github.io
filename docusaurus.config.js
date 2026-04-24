@@ -142,6 +142,10 @@ const config = {
             label: 'Kaynaklar',
             items: [
               {
+                to: '/sozluk',
+                label: 'Sözlük',
+              },
+              {
                 href: '/docs/jasp',
                 label: 'JASP',
               },

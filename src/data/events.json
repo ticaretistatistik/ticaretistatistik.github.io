@@ -1,36 +1,16 @@
 {
-  "mode": "past",
+  "mode": "upcoming",
   "events": [
     {
-      "uid": "7n6ajfiutu16l5tqn3sbqaq8il@google.com",
-      "title": "Data & Stat Talks'25",
-      "description": "",
-      "location": "İstanbul Ticaret Üniversitesi Sütlüce Yerleşkesi Kütüphanesi, Numara:, Sütlüce, İmrahor Cd. No:90, 34445 Beyoğlu/İstanbul, Türkiye",
-      "start": "2025-12-04T07:30:00.000Z",
-      "end": "2025-12-04T11:30:00.000Z",
-      "url": null,
-      "allDay": false
-    },
-    {
-      "uid": "c4om2cpj6lj30bb1cdhjib9k6pj34bb16lh62b9h70sj8dj470oj2or474@google.com",
-      "title": "(E502) 21 Filmi - Sinema Topluluğu Ortak Etkinlik",
+      "uid": "5c4drd94n2as804d11bhaspoes@google.com",
+      "title": "İstatistik Günü Festivali",
       "description": "",
       "location": "İstanbul Ticaret Üniversitesi, Örnektepe, İmrahor Cd. No: 88/2, 34445 Beyoğlu/İstanbul, Türkiye",
-      "start": "2025-11-17T14:00:00.000Z",
-      "end": "2025-11-17T17:00:00.000Z",
-      "url": null,
-      "allDay": false
-    },
-    {
-      "uid": "7ab04sv8vqifibn0e6bqm4ul4f@google.com",
-      "title": "One Of Us | Seda Alacan Kavi",
-      "description": "📢 One of Us etkinliğimizde Yapı Kredi Lead Data Scientist’i Seda Alacan Kavi bizlerle!📅 13 Kasım 2025 Perşembe, 13.00📍 Sadabad Toplantı SalonuVeri bilimi alanındaki deneyimlerini ve kariyer yolculuğunu bizimle paylaşa",
-      "location": "İstanbul Ticaret Üniversitesi, Örnektepe, İmrahor Cd. No: 88/2, 34445 Beyoğlu/İstanbul, Türkiye",
-      "start": "2025-11-13T10:00:00.000Z",
-      "end": "2025-11-13T12:00:00.000Z",
+      "start": "2026-05-20T07:00:00.000Z",
+      "end": "2026-05-20T12:00:00.000Z",
       "url": null,
       "allDay": false
     }
   ],
-  "updatedAt": "2026-04-24T12:07:15.284Z"
+  "updatedAt": "2026-04-24T12:30:19.673Z"
 }
