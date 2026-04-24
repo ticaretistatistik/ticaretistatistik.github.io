@@ -139,32 +139,12 @@ const config = {
           {
             type: 'dropdown',
             position: 'left',
-            label: 'Programlar',
+            label: 'Kaynaklar',
             items: [
               {
-                href: "#",
-                label: 'Jamovi',
+                href: '/docs/jasp',
+                label: 'JASP',
               },
-              {
-                href: "/docs/jasp",
-                label: 'Jasp',
-              },
-              {
-                href: "#",
-                label: 'Spss',
-              },
-              {
-                href: "#",
-                label: 'Tableau',
-              },
-            ]
-          },
-
-          {
-            type: 'dropdown',
-            position: 'left',
-            label: 'Yazılım',
-            items: [
               {
                 type: 'docSidebar',
                 sidebarId: 'pythonSidebar',
@@ -174,10 +154,10 @@ const config = {
                 type: 'docSidebar',
                 sidebarId: 'rSidebar',
                 label: 'R',
-              }
-            ]
+              },
+            ],
           },
-  
+
           {
             type: 'dropdown',
             position: 'left',
@@ -191,48 +171,34 @@ const config = {
                 to: '/topluluk/hikayeler',
                 label: 'Hikayeler',
               },
-            ]
+            ],
           },
 
           {
-            type: 'dropdown',
-            position: 'left',
+            // TODO: replace with the Spotify *show* URL
+            // (e.g. https://open.spotify.com/show/<show-id>).
+            // For now this opens an episode page from which the show
+            // is reachable.
+            href: 'https://open.spotify.com/episode/6V0ILCX5RppYRMEFB0JVLd',
             label: 'Podcast',
-            items: [
-              {
-                target: "_blank",
-                to: "https://open.spotify.com/episode/6V0ILCX5RppYRMEFB0JVLd",
-                label: 'İstatistik nedir, Ne değildir',
-              },
-              {
-                target: "_blank",
-                to: "https://open.spotify.com/episode/4wURYTjCeMk3Ec3LLqAp7A",
-                label: 'İstatistik eğitimi zor mudur?',
-              },
-              {
-                target: "_blank",
-                to: "https://open.spotify.com/episode/5fRXoB7AjypToPSbuujgYl",
-                label: 'Yapay Zeka ve İstatistik',
-              },
-              {
-                target: "_blank",
-                to: "https://open.spotify.com/episode/2B9LdSpxOtfh2pMXOQVZxw",
-                label: 'Makine Öğrenmesi mi İstatistiksel Öğrenme mi?',
-              },
-            ]
+            position: 'left',
+            target: '_blank',
+            rel: 'noopener noreferrer',
           },
 
           {to: '/blog', label: 'Blog', position: 'left'},
 
           {
-            href: 'https://ticaret.edu.tr/istatistik/akademik-kadro/',
-            label: 'Akademik Kadro',
-            position: 'right',
+            href: 'https://hesapla.ticaretistatistik.com/',
+            label: 'Hesaplayıcı',
+            position: 'left',
+            target: '_blank',
+            rel: 'noopener noreferrer',
           },
 
           {
-            href: 'mailto:istatistik@ticaret.edu.tr',
-            label: 'Email',
+            href: 'https://ticaret.edu.tr/istatistik/akademik-kadro/',
+            label: 'Akademik Kadro',
             position: 'right',
           },
 
@@ -323,6 +289,10 @@ const config = {
               {
                 label: 'Ders Programları',
                 href: 'https://ticaret.edu.tr/istatistik/ders-programlari/',
+              },
+              {
+                label: 'Not Hesaplayıcı',
+                href: 'https://hesapla.ticaretistatistik.com/',
               },
             ]
           },
