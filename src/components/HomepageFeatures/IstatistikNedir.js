@@ -23,8 +23,8 @@ export default function IstatistikNedir() {
               modellerin güvenilir, sonuçların tekrarlanabilir olmasını sağlar.
             </p>
             <blockquote className={styles.quote}>
-              “Tüm modeller yanlıştır, fakat bazıları yararlıdır.”
-              <cite className={styles.cite}>— George E. P. Box</cite>
+              “İstatistik, bilimin grameridir.”
+              <cite className={styles.cite}>— Karl Pearson</cite>
             </blockquote>
           </div>
         </div>
