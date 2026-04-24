@@ -47,6 +47,14 @@ const sidebars = {
       items: ["jasp/index", "jasp/kurulum"],
     }
   ],
+
+  tableauSidebar: [
+    {
+      type: "category",
+      label: "Tableau",
+      items: ["tableau/index", "tableau/kurulum", "tableau/temel_kullanim"],
+    }
+  ],
 };
 
 export default sidebars;

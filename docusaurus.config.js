@@ -28,6 +28,7 @@ const config = {
   markdown: {
     hooks: {
       onBrokenMarkdownLinks: 'warn',
+      onBrokenMarkdownImages: 'warn',
     }
   },
 
@@ -160,6 +161,11 @@ const config = {
                 label: 'SPSS',
               },
               {
+                type: 'docSidebar',
+                sidebarId: 'tableauSidebar',
+                label: 'Tableau',
+              },
+              {
                 type: 'html',
                 value: '<div class="dropdown__section-label">Programlama dilleri</div>',
               },
@@ -290,6 +296,10 @@ const config = {
               {
                 label: 'SPSS',
                 to: '/docs/spss/',
+              },
+              {
+                label: 'Tableau',
+                to: '/docs/tableau/',
               },
               {
                 label: 'Python',
