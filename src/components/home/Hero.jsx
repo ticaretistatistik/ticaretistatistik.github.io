@@ -18,7 +18,7 @@ export default function Hero() {
           <span className={styles.accent}>birlikte okuyoruz.</span>
         </h1>
         <p className={styles.subtitle}>
-          {siteConfig.tagline} Açık kaynak ders notlarımız, topluluk etkinliklerimiz ve
+          {siteConfig.tagline} Açık kaynaklarımız, topluluk etkinliklerimiz ve
           podcast serimizle istatistiği günlük hayata bağlıyoruz.
         </p>
         <div className={styles.actions}>
@@ -28,7 +28,7 @@ export default function Hero() {
           <Link
             to="/docs/"
             className={`button button--ghost button--lg ${styles.ghost}`}>
-            Ders notlarına göz at
+            Kaynaklara göz at
             <span aria-hidden="true" className={styles.arrow}>→</span>
           </Link>
         </div>
