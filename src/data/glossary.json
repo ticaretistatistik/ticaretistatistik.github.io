@@ -1,6 +1,7 @@
 {
   "terms": [
     {
+<<<<<<< HEAD
       "term": "Aykırı değer",
       "en": "Outlier",
       "definition": "Veri setindeki genel eğilimden uzakta kalan, dağılımdan belirgin biçimde sapmış gözlem. Ortalamayı ve standart sapmayı ciddi ölçüde etkileyebilir.",
@@ -223,6 +224,17 @@
       "definition": "Bir değerin ortalamadan kaç standart sapma uzaklıkta olduğunu gösteren standartlaştırılmış ölçü. z = (x − μ) / σ.",
       "example": "Ortalaması 75, standart sapması 10 olan bir sınavda 90 puan alan öğrencinin z-skoru (90−75)/10 = 1.5'tir; ortalamanın 1.5 standart sapma üstündedir.",
       "related": ["Standart sapma", "Normal dağılım"]
+=======
+      "term": "Çeyrekler arası aralık",
+      "en": "Interquartile Range (IQR)",
+      "definition": "Veri setinin %25'lik (Q1) ile %75'lik (Q3) yüzdelik dilimleri arasındaki fark. Aykırı değerlerden etkilenmeyen, yayılımı ölçen sağlam bir istatistik.",
+      "example": "10, 20, 30, 40, 50 verisinde Q1 = 15 , Q3 = 45 ise IQR = 45 - 15 = 30'dur. Kutu grafiklerinde iç kutu bu aralığı gösterir.",
+      "related": [
+        "Medyan",
+        "Aykırı değer",
+        "Dağılım"
+      ]
+>>>>>>> f3487f2640f015a3091e171fa79a30c0c387c240
     }
   ]
 }
