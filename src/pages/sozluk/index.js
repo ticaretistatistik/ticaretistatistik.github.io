@@ -3,7 +3,7 @@ import Layout from '@theme/Layout';
 import Link from '@docusaurus/Link';
 import {FiSearch, FiX} from 'react-icons/fi';
 
-import glossary from '@site/src/data/glossary.json';
+import glossaryData from '@site/src/data/glossary.json';
 import styles from './styles.module.css';
 
 const trCollator = new Intl.Collator('tr-TR', {sensitivity: 'base'});
@@ -28,7 +28,7 @@ export default function SozlukPage() {
 
   const sorted = useMemo(
     () =>
-      [...glossary].sort((a, b) => trCollator.compare(a.term, b.term)),
+      [...glossaryData.terms].sort((a, b) => trCollator.compare(a.term, b.term)),
     [],
   );
 
