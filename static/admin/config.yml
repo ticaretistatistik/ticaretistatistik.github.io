@@ -4,7 +4,7 @@ backend:
   branch: main
   # Sveltia CMS PKCE kullanır — OAuth proxy gerekmez.
   # GitHub OAuth App oluşturduktan sonra Client ID'yi buraya yazın:
-  client_id: Iv23ct35XHdNkMoxj64P
+  client_id:  Ov23li1WEHp6EgcsYYKl
 
 # Herkes kendi GitHub fork'u üzerinden PR açabilir (write access gerekmez)
 open_authoring: true
