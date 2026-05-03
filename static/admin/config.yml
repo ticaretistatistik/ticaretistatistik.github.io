@@ -2,7 +2,7 @@ backend:
   name: github
   repo: ticaretistatistik/ticaretistatistik.com
   branch: main
-  auth_type: pkce
+  base_url: https://ticaretistatistikcom.yigit433-devs.workers.dev
   client_id: Ov23li1WEHp6EgcsYYKl
 
 # Herkes kendi GitHub fork'u üzerinden PR açabilir (write access gerekmez)
