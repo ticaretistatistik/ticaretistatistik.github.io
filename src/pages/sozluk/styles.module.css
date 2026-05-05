@@ -357,3 +357,81 @@
     font-size: 1.25rem;
   }
 }
+
+
+/* --- Contributors marquee ------------------------------------------------- */
+
+.contributorsSection {
+  margin-top: var(--space-16);
+  padding: var(--space-10) 0;
+  border-top: 1px solid var(--brand-border);
+  margin-left: calc(50% - 50vw);
+  margin-right: calc(50% - 50vw);
+}
+
+.contributorsTitle {
+  text-align: center;
+  font-family: var(--ifm-heading-font-family);
+  font-size: clamp(1.5rem, 1.1rem + 1.5vw, 2rem);
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  margin: 0 0 var(--space-8);
+  color: var(--brand-ink);
+}
+
+.marqueeRow {
+  overflow: hidden;
+  margin: var(--space-2) 0;
+  -webkit-mask-image: linear-gradient(90deg, transparent, black 8%, black 92%, transparent);
+          mask-image: linear-gradient(90deg, transparent, black 8%, black 92%, transparent);
+}
+
+.marqueeTrack {
+  display: inline-flex;
+  gap: var(--space-3);
+  white-space: nowrap;
+  animation: marqueeScroll var(--marquee-duration, 40s) linear infinite;
+  will-change: transform;
+}
+
+.marqueeReverse .marqueeTrack {
+  animation-direction: reverse;
+}
+
+.marqueeRow:nth-child(2) { --marquee-duration: 55s; }
+.marqueeRow:nth-child(3) { --marquee-duration: 45s; }
+.marqueeRow:nth-child(4) { --marquee-duration: 60s; }
+
+@keyframes marqueeScroll {
+  from { transform: translate3d(0, 0, 0); }
+  to   { transform: translate3d(-50%, 0, 0); }
+}
+
+.contributorChip {
+  display: inline-flex;
+  align-items: center;
+  padding: 8px 18px;
+  background: var(--brand-surface-raised);
+  border: 1px solid var(--brand-border);
+  border-radius: var(--radius-pill);
+  font-size: var(--fs-base);
+  color: var(--brand-ink);
+  flex-shrink: 0;
+}
+
+.marqueeRow:nth-child(odd)  .contributorChip { transform: translateY(-3px); }
+.marqueeRow:nth-child(even) .contributorChip { transform: translateY(3px); }
+
+@media (prefers-reduced-motion: reduce) {
+  .marqueeTrack {
+    animation: none;
+    flex-wrap: wrap;
+    white-space: normal;
+    justify-content: center;
+  }
+  .marqueeRow {
+    overflow: visible;
+    -webkit-mask-image: none;
+            mask-image: none;
+  }
+}

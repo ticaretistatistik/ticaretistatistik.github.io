@@ -31,6 +31,7 @@ const FIELD_MAP = {
   'Tanım':     ['Tanım', 'Definition'],
   'Örnek':     ['Örnek', 'Example'],
   'İlgili':    ['İlgili terimler', 'İlgili', 'Related'],
+  'Katkı':     ['Adın (opsiyonel)', 'Adın', 'Katkı', 'Contributor'],
 };
 
 // --- Trigger ----------------------------------------------------------------

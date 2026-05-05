@@ -23,6 +23,35 @@ function slugify(term) {
     .replace(/^-|-$/g, '');
 }
 
+function splitIntoRows(items, rowCount) {
+  const rows = Array.from({length: Math.min(rowCount, items.length || 1)}, () => []);
+  if (!rows.length) return rows;
+  items.forEach((item, i) => rows[i % rows.length].push(item));
+  return rows;
+}
+
+function ContributorsMarquee({names}) {
+  if (!names.length) return null;
+  const rows = splitIntoRows(names, 3);
+  return (
+    <section className={styles.contributorsSection}>
+      <h2 className={styles.contributorsTitle}>Bu sözlüğü birlikte yapanlar</h2>
+      {rows.map((row, i) => (
+        <div
+          key={i}
+          className={`${styles.marqueeRow} ${i % 2 ? styles.marqueeReverse : ''}`}
+          aria-hidden={i > 0 ? 'true' : undefined}>
+          <div className={styles.marqueeTrack}>
+            {[...row, ...row].map((name, j) => (
+              <span key={j} className={styles.contributorChip}>{name}</span>
+            ))}
+          </div>
+        </div>
+      ))}
+    </section>
+  );
+}
+
 export default function SozlukPage() {
   const [query, setQuery] = useState('');
 
@@ -31,6 +60,20 @@ export default function SozlukPage() {
       [...glossaryData.terms].sort((a, b) => trCollator.compare(a.term, b.term)),
     [],
   );
+
+  const contributors = useMemo(() => {
+    const seen = new Set();
+    const out = [];
+    for (const t of glossaryData.terms) {
+      const c = (t.contributor || '').trim();
+      if (!c) continue;
+      const key = c.toLocaleLowerCase('tr-TR');
+      if (seen.has(key)) continue;
+      seen.add(key);
+      out.push(c);
+    }
+    return out.sort((a, b) => trCollator.compare(a, b));
+  }, []);
 
   const filtered = useMemo(() => {
     const q = query.trim().toLocaleLowerCase('tr-TR');
@@ -187,6 +230,8 @@ export default function SozlukPage() {
             ))
           )}
         </main>
+
+        <ContributorsMarquee names={contributors} />
       </div>
     </Layout>
   );

@@ -4,7 +4,8 @@
       "term": "Ortalama",
       "en": "Mean",
       "definition": "Tüm değerlerin toplamının gözlem sayısına bölünmesi. Merkezî eğilimin en bilinen ölçüsü; ancak aykırı değerlere duyarlıdır.",
-      "example": "{4, 6, 8, 10, 12} setinin ortalaması (4+6+8+10+12)/5 = 8'dir."
+      "example": "{4, 6, 8, 10, 12} setinin ortalaması (4+6+8+10+12)/5 = 8'dir.",
+      "contributor": "Yiğit Efe Avcı"
     },
     {
       "term": "Regresyon",

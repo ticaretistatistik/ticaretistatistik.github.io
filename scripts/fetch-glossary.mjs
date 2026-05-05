@@ -41,6 +41,7 @@ const HEADER_MAP = {
   definition: ['definition', 'tanim', 'tanım'],
   example: ['example', 'ornek', 'örnek'],
   related: ['related', 'ilgili', 'i̇lgili', 'related terms'],
+  contributor: ['contributor', 'katki', 'katkı', 'adin', 'adın'],
 };
 
 function normalizeHeader(h) {
@@ -145,6 +146,8 @@ async function main() {
     if (example) out.example = example;
     const related = splitRelated(get('related'));
     if (related.length) out.related = related;
+    const contributor = get('contributor');
+    if (contributor) out.contributor = contributor;
     return out;
   }).filter(Boolean);
 
