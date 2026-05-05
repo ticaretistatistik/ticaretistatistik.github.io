@@ -1,19 +1,6 @@
 {
   "upcoming": [
     {
-      "uid": "03tgk36a62lnd9kln2e2mqda4s@google.com",
-      "title": "TCMB Finans Merkezi Teknik Gezisi",
-      "summary": "Finans dünyasının kalbini yakından tanımaya hazır mısın? 💙 İstatistik Kulübü olarak, 5 Mayıs 2026 Salı günü Türkiye Cumhuriyet Merkez Bankası (TCMB) Finans Merkezi'ne tanıtım programı kapsamında teknik bir gezi düzenliy",
-      "description": "Finans dünyasının kalbini yakından tanımaya hazır mısın? 💙 İstatistik Kulübü olarak, 5 Mayıs 2026 Salı günü Türkiye Cumhuriyet Merkez Bankası (TCMB) Finans Merkezi'ne tanıtım programı kapsamında teknik bir gezi düzenliyoruz. Bu programda: 🏦 TCMB'nin yapısı ve işleyişi hakkında bilgi edinme 🏦 Merkez bankacılığı süreçlerini yerinde gözlemleme 🏦 Finans ve ekonomi alanındak güncel gelişmeleri dinleme 🏦 Kariyer ve staj olanakları hakkında fikir edinme 🏦 EVDS sistemi hakkında bilgi edinme",
-      "location": "TCMB Ataşehir Ofisi, Küçükbakkalköy, Vedat Günyol Cd. No:20, 34750 Ataşehir/İstanbul, Türkiye",
-      "start": "2026-05-04T21:00:00.000Z",
-      "end": "2026-05-05T21:00:00.000Z",
-      "url": null,
-      "allDay": true,
-      "slug": "tcmb-finans-merkezi-teknik-gezisi-2026-05-04",
-      "detailPath": "/topluluk/etkinlikler/tcmb-finans-merkezi-teknik-gezisi-2026-05-04"
-    },
-    {
       "uid": "5c4drd94n2as804d11bhaspoes@google.com",
       "title": "İstatistik Günü Festivali",
       "summary": "Sayılar tek başına susar; istatistik onlara ses verir. Her yıl 25 Nisan'da kutlanan Türkiye İstatistik Günü'nü, bu yıl İstanbul Ticaret Üniversitesi İstatistik Topluluğu olarak bir festivalle taçlandırıyoruz. Panel, söyl",
@@ -28,6 +15,19 @@
     }
   ],
   "past": [
+    {
+      "uid": "03tgk36a62lnd9kln2e2mqda4s@google.com",
+      "title": "TCMB Finans Merkezi Teknik Gezisi",
+      "summary": "Finans dünyasının kalbini yakından tanımaya hazır mısın? 💙 İstatistik Kulübü olarak, 5 Mayıs 2026 Salı günü Türkiye Cumhuriyet Merkez Bankası (TCMB) Finans Merkezi'ne tanıtım programı kapsamında teknik bir gezi düzenliy",
+      "description": "Finans dünyasının kalbini yakından tanımaya hazır mısın? 💙 İstatistik Kulübü olarak, 5 Mayıs 2026 Salı günü Türkiye Cumhuriyet Merkez Bankası (TCMB) Finans Merkezi'ne tanıtım programı kapsamında teknik bir gezi düzenliyoruz. Bu programda: 🏦 TCMB'nin yapısı ve işleyişi hakkında bilgi edinme 🏦 Merkez bankacılığı süreçlerini yerinde gözlemleme 🏦 Finans ve ekonomi alanındak güncel gelişmeleri dinleme 🏦 Kariyer ve staj olanakları hakkında fikir edinme 🏦 EVDS sistemi hakkında bilgi edinme",
+      "location": "TCMB Ataşehir Ofisi, Küçükbakkalköy, Vedat Günyol Cd. No:20, 34750 Ataşehir/İstanbul, Türkiye",
+      "start": "2026-05-04T21:00:00.000Z",
+      "end": "2026-05-05T21:00:00.000Z",
+      "url": null,
+      "allDay": true,
+      "slug": "tcmb-finans-merkezi-teknik-gezisi-2026-05-04",
+      "detailPath": "/topluluk/etkinlikler/tcmb-finans-merkezi-teknik-gezisi-2026-05-04"
+    },
     {
       "uid": "7n6ajfiutu16l5tqn3sbqaq8il@google.com",
       "title": "Data & Stat Talks'25",
@@ -133,5 +133,5 @@
       "detailPath": "/topluluk/etkinlikler/tanisma-etkinligi-2024-10-14"
     }
   ],
-  "updatedAt": "2026-05-03T09:14:10.817Z"
+  "updatedAt": "2026-05-05T14:30:28.958Z"
 }
