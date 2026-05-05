@@ -1,4 +1,4 @@
-import {useMemo, useState} from 'react';
+import {useEffect, useMemo, useState} from 'react';
 import Layout from '@theme/Layout';
 import Link from '@docusaurus/Link';
 import {FiSearch, FiX} from 'react-icons/fi';
@@ -76,6 +76,26 @@ function ContributorCard({contributor}) {
 // — yeterince katkıcı toplandığında otomatik olarak marquee'ye geçiyor.
 const MARQUEE_THRESHOLD = 9;
 
+// Sözlük sayfada uzayınca pagination devreye giriyor.
+const PAGE_SIZE = 20;
+// Az terim varken pagination göstermek anlamsız; eşik altında tek sayfa.
+const PAGINATION_THRESHOLD = 25;
+
+function buildPageNumbers(current, total) {
+  if (total <= 7) {
+    return Array.from({length: total}, (_, i) => i + 1);
+  }
+  const pages = new Set([1, total, current - 1, current, current + 1]);
+  const out = [];
+  let prev = 0;
+  [...pages].filter((p) => p >= 1 && p <= total).sort((a, b) => a - b).forEach((p) => {
+    if (prev && p - prev > 1) out.push('…');
+    out.push(p);
+    prev = p;
+  });
+  return out;
+}
+
 function ContributorsMarquee({contributors}) {
   if (!contributors.length) return null;
   const isStatic = contributors.length < MARQUEE_THRESHOLD;
@@ -123,6 +143,13 @@ function ContributorsMarquee({contributors}) {
 
 export default function SozlukPage() {
   const [query, setQuery] = useState('');
+  const [page, setPage] = useState(1);
+
+  // Arama her değiştiğinde 1. sayfaya dön — kullanıcı arıyorsa eski
+  // sayfa numarası anlamsızlaşır.
+  useEffect(() => {
+    setPage(1);
+  }, [query]);
 
   const sorted = useMemo(
     () =>
@@ -168,9 +195,20 @@ export default function SozlukPage() {
     });
   }, [sorted, query]);
 
+  // Pagination yalnızca arama yokken ve toplam terim eşiği aşınca devrede.
+  const isPaginated = !query.trim() && filtered.length > PAGINATION_THRESHOLD;
+  const totalPages = isPaginated ? Math.ceil(filtered.length / PAGE_SIZE) : 1;
+  const safePage = Math.min(Math.max(page, 1), totalPages);
+
+  const visible = useMemo(() => {
+    if (!isPaginated) return filtered;
+    const start = (safePage - 1) * PAGE_SIZE;
+    return filtered.slice(start, start + PAGE_SIZE);
+  }, [filtered, isPaginated, safePage]);
+
   const grouped = useMemo(() => {
     const buckets = new Map();
-    for (const item of filtered) {
+    for (const item of visible) {
       const letter = firstLetter(item.term);
       if (!buckets.has(letter)) buckets.set(letter, []);
       buckets.get(letter).push(item);
@@ -178,7 +216,7 @@ export default function SozlukPage() {
     return [...buckets.entries()].sort((a, b) =>
       trCollator.compare(a[0], b[0]),
     );
-  }, [filtered]);
+  }, [visible]);
 
   const allLetters = useMemo(
     () =>
@@ -188,10 +226,50 @@ export default function SozlukPage() {
     [sorted],
   );
 
+  // Hangi harfin hangi sayfaya düştüğünü önceden hesapla — alfabe navı
+  // doğrudan o sayfaya zıplasın.
+  const letterToPage = useMemo(() => {
+    const map = new Map();
+    if (!isPaginated) {
+      // Tek sayfa modunda harfler her zaman 1. sayfada
+      for (const l of allLetters) map.set(l, 1);
+      return map;
+    }
+    filtered.forEach((item, idx) => {
+      const letter = firstLetter(item.term);
+      if (!map.has(letter)) {
+        map.set(letter, Math.floor(idx / PAGE_SIZE) + 1);
+      }
+    });
+    return map;
+  }, [filtered, allLetters, isPaginated]);
+
   const activeLetters = useMemo(
     () => new Set(grouped.map(([l]) => l)),
     [grouped],
   );
+
+  const handleLetterClick = (letter, ev) => {
+    if (!letterToPage.has(letter)) return;
+    const targetPage = letterToPage.get(letter);
+    if (isPaginated && targetPage !== safePage) {
+      ev.preventDefault();
+      setPage(targetPage);
+      // Sayfa değişiminden sonra section'a kaydır
+      requestAnimationFrame(() => {
+        const el = document.getElementById(`harf-${letter}`);
+        if (el) el.scrollIntoView({behavior: 'smooth', block: 'start'});
+      });
+    }
+  };
+
+  const goToPage = (n) => {
+    setPage(n);
+    requestAnimationFrame(() => {
+      const main = document.querySelector(`.${styles.main}`);
+      if (main) main.scrollIntoView({behavior: 'smooth', block: 'start'});
+    });
+  };
 
   return (
     <Layout
@@ -232,13 +310,15 @@ export default function SozlukPage() {
 
           <nav className={styles.alphabet} aria-label="Alfabe navigasyonu">
             {allLetters.map((letter) => {
+              const reachable = letterToPage.has(letter);
               const active = activeLetters.has(letter);
               return (
                 <a
                   key={letter}
-                  href={active ? `#harf-${letter}` : undefined}
-                  className={`${styles.letter} ${active ? '' : styles.letterInactive}`}
-                  aria-disabled={!active}>
+                  href={reachable ? `#harf-${letter}` : undefined}
+                  onClick={(ev) => handleLetterClick(letter, ev)}
+                  className={`${styles.letter} ${reachable ? '' : styles.letterInactive} ${active ? styles.letterCurrent : ''}`}
+                  aria-disabled={!reachable}>
                   {letter}
                 </a>
               );
@@ -303,6 +383,43 @@ export default function SozlukPage() {
                 </dl>
               </section>
             ))
+          )}
+
+          {isPaginated && totalPages > 1 && (
+            <nav className={styles.pagination} aria-label="Sayfalama">
+              <button
+                type="button"
+                className={styles.paginationStep}
+                onClick={() => goToPage(safePage - 1)}
+                disabled={safePage === 1}
+                aria-label="Önceki sayfa">
+                ←
+              </button>
+              {buildPageNumbers(safePage, totalPages).map((p, i) =>
+                p === '…' ? (
+                  <span key={`ellipsis-${i}`} className={styles.paginationEllipsis}>
+                    …
+                  </span>
+                ) : (
+                  <button
+                    key={p}
+                    type="button"
+                    className={`${styles.paginationPage} ${p === safePage ? styles.paginationPageActive : ''}`}
+                    onClick={() => goToPage(p)}
+                    aria-current={p === safePage ? 'page' : undefined}>
+                    {p}
+                  </button>
+                ),
+              )}
+              <button
+                type="button"
+                className={styles.paginationStep}
+                onClick={() => goToPage(safePage + 1)}
+                disabled={safePage === totalPages}
+                aria-label="Sonraki sayfa">
+                →
+              </button>
+            </nav>
           )}
         </main>
 
