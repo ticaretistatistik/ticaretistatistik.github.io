@@ -1,9 +1,22 @@
 {
   "terms": [
     {
-      "term": "Bayes teoremi",
-      "definition": "Yeni bir kanıt elde edildiğinde, bir olaya dair önceki inancı (önsel olasılık) güncelleyerek sonsal olasılığı hesaplayan kural. Koşullu olasılığı tersine çevirmeyi sağlar: P(A | B) bilgisinden P(B | A) bilgisi çıkarılır. Formülü P(A | B) = P(B | A) × P(A) / P(B) biçimindedir. Önemli sonucu, olayın taban oranı (P(A)) düşükse, son derece doğru bir test bile yanıltıcı sonsal olasılıklar üretebilir.",
-      "example": "Bir hastalığın toplumda görülme oranı %1 (P(Hasta) = 0.01) olsun. Test, gerçekten hasta olanları %99 olasılıkla doğru tespit ediyor (P(+ | Hasta) = 0.99) ve sağlıklılarda %5 yanlış pozitif veriyor (P(+ | Sağlıklı) = 0.05). Testi pozitif çıkan birinin gerçekten hasta olma olasılığı sezgisel olarak çok yüksek görünür, ancak Bayes teoremi şunu söyler: P(Hasta | +) = (0.99 × 0.01) / (0.99 × 0.01 + 0.05 × 0.99) ≈ 0.167. Yani pozitif sonuca rağmen kişinin hasta olma olasılığı yalnızca %17'dir. Taban oranı düşükse yanlış pozitiflerin sayısı, gerçek pozitifleri kolayca aşar."
+      "term": "Ortalama",
+      "en": "Mean",
+      "definition": "Tüm değerlerin toplamının gözlem sayısına bölünmesi. Merkezî eğilimin en bilinen ölçüsü; ancak aykırı değerlere duyarlıdır.",
+      "example": "{4, 6, 8, 10, 12} setinin ortalaması (4+6+8+10+12)/5 = 8'dir."
+    },
+    {
+      "term": "Regresyon",
+      "en": "Regression",
+      "definition": "Bir bağımlı değişkenin bir veya daha fazla bağımsız değişkenle ilişkisini modelleyen istatistiksel yöntem. Doğrusal regresyon en basit biçimidir.",
+      "example": "Ev fiyatının metrekareye göre modellenmesi: Fiyat = β₀ + β₁ × Metrekare + ε."
+    },
+    {
+      "term": "Standart sapma",
+      "en": "Standard deviation",
+      "definition": "Verinin ortalama etrafında ne kadar yayıldığını gösteren ölçü. Varyansın kareköküdür, orijinal veriyle aynı birimdedir.",
+      "example": "İki sınıfın ortalama puanı 70 olsun. Birincide standart sapma 5, ikincide 15 ise birinci sınıftaki puanlar ortalamaya çok daha yakındır."
     }
   ]
 }
