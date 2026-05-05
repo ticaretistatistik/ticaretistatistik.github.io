@@ -38,6 +38,11 @@ jobs:
         run: npm ci
       - name: Build website
         run: npm run build
+        env:
+          # Public CSV URL of the glossary Google Sheet. Set this as a repo
+          # Variable (Settings > Secrets and variables > Actions > Variables)
+          # named GLOSSARY_SHEET_CSV_URL. If unset, the committed JSON is used.
+          GLOSSARY_SHEET_CSV_URL: ${{ vars.GLOSSARY_SHEET_CSV_URL }}
 
       - name: Upload Build Artifact
         uses: actions/upload-pages-artifact@v3
