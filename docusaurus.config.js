@@ -139,7 +139,12 @@ const config = {
           alt: 'Ticaret İstatistik Logo',
           src: 'img/logo.png',
         },
-        hideOnScroll: true,
+        // hideOnScroll'u kapattık — true olduğunda Docusaurus navbar'a
+        // transform: translate3d uyguluyor, bu yeni stacking context
+        // yaratıp position:fixed olan mobil sidebar'ın viewport'a değil
+        // navbar'a sabitlenmesine yol açıyor → sayfa içeriği sidebar'ın
+        // önüne geçiyor.
+        hideOnScroll: false,
         items: [
           {
             type: 'dropdown',

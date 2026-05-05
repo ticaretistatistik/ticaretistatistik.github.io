@@ -139,6 +139,13 @@
   background: rgba(255, 255, 255, 0.88);
 }
 
+/* Mobil sidebar açıkken alfabe çubuğunu pasifleştir (görünmez kalsın,
+   tıklamaları yiyip sidebar interaksiyonunu engellemesin). */
+:global(html.navbar-sidebar--show) .alphabet {
+  visibility: hidden;
+  pointer-events: none;
+}
+
 [data-theme='dark'] .alphabet {
   background: rgba(17, 26, 46, 0.88);
 }

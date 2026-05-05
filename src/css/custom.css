@@ -531,3 +531,56 @@ a[class*="tag_"]:hover {
   border-color: var(--brand-ink);
   box-shadow: var(--shadow-sm);
 }
+
+
+/* ---------------------------------------------------------------------------
+   Mobil navbar sidebar açıkken Docusaurus <html> üzerine
+   .navbar-sidebar--show class'ı ekliyor. Sayfa içeriğindeki sticky
+   öğelerin yarattığı stacking context'ler bazı durumlarda sidebar'ı
+   örtebiliyor (özellikle sticky + backdrop-filter kombinasyonunda).
+   Bu öğelerin stacking'ini sidebar açıkken sıfırlıyoruz; her sayfanın
+   kendi z-index'i sayesinde kapandığında normale dönüyor.
+   --------------------------------------------------------------------------- */
+
+/* ---------------------------------------------------------------------------
+   Mobil sidebar düzeltmeleri.
+
+   Asıl sorun: Docusaurus default navbar'da backdrop-filter var. CSS
+   spec'ine göre backdrop-filter (transform/filter/perspective gibi) yeni
+   bir CONTAINING BLOCK yaratır → içindeki position:fixed çocuklar artık
+   viewport'a değil bu elemente sabitlenir. Mobil sidebar navbar'ın
+   içinde olduğu için navbar'ın ~60px alanına hapsolup tüm ekranı
+   kaplayamıyor; altındaki sayfa içeriği bu yüzden görünüyor.
+
+   Çözüm: sidebar açıkken (--show class'ı navbar üzerinde) navbar'ın
+   backdrop-filter'ını iptal et → position:fixed sidebar gerçek
+   viewport-fixed olur → tam ekran kapsar.
+   --------------------------------------------------------------------------- */
+
+.navbar.navbar-sidebar--show {
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+  /* Aynı sebepten transform/filter/will-change da olmamalı */
+  transform: none !important;
+  filter: none !important;
+  will-change: auto !important;
+}
+
+/* Sidebar açıkken sayfa scroll'unu kilitle (--show navbar'da). */
+html:has(.navbar.navbar-sidebar--show) {
+  overflow: hidden;
+}
+
+/* Sidebar her zaman opak arka plana sahip olsun. */
+.navbar-sidebar {
+  z-index: 250;
+  background-color: white;
+}
+
+[data-theme='dark'] .navbar-sidebar {
+  background-color: #14213d;
+}
+
+.navbar-sidebar__backdrop {
+  z-index: 249;
+}
