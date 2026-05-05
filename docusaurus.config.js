@@ -191,6 +191,10 @@ const config = {
                 to: '/sozluk',
                 label: 'Sözlük',
               },
+              {
+                to: '/araclar',
+                label: 'Araçlar',
+              },
             ],
           },
 
