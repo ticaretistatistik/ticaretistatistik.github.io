@@ -1,0 +1,149 @@
+[
+  {
+    "key": "yonetim_baskan",
+    "name": "Burak Kan",
+    "title": "Topluluk Başkanı",
+    "group": "board",
+    "role_rank": 1,
+    "bio": "Topluluğun genel koordinasyonundan ve dış ilişkilerden sorumlu.",
+    "email": "istatistiktoplulugu@ticaret.edu.tr",
+    "url": "https://ticaret.edu.tr/istatistik/",
+    "image_url": "/img/icon-cropped.png"
+  },
+  {
+    "key": "yonetim_baskan_yardimcisi",
+    "name": "Emre Agül",
+    "title": "Başkan Yardımcısı",
+    "group": "board",
+    "role_rank": 2,
+    "bio": "Başkana iç işleyiş ve birimler arası koordinasyonda destek olur; etkinlik ve proje takibini yürütür.",
+    "email": "istatistiktoplulugu@ticaret.edu.tr",
+    "url": "https://ticaret.edu.tr/istatistik/",
+    "image_url": "/img/icon-cropped.png"
+  },
+  {
+    "key": "yigitefeavci",
+    "name": "Yiğit Efe Avcı",
+    "title": "Veri ve Gelişim Birimi Başkanı",
+    "group": "birim",
+    "unit": "Veri ve Gelişim Birimi",
+    "role_rank": 1,
+    "is_board": true,
+    "bio": "Birim çalışmalarını koordine eder; teknik altyapı ve veri projelerini yürütür.",
+    "url": "https://github.com/yigit433",
+    "image_url": "https://github.com/yigit433.png"
+  },
+  {
+    "key": "mertsismanoglu",
+    "name": "Mert Şişmanoğlu",
+    "title": "Veri ve Gelişim Birimi Üyesi",
+    "group": "birim",
+    "unit": "Veri ve Gelişim Birimi",
+    "role_rank": 2,
+    "url": "https://github.com/mertssmnoglu",
+    "image_url": "https://github.com/mertssmnoglu.png"
+  },
+  {
+    "key": "aslisuveybeoz",
+    "name": "Aslı Süveybe Öz",
+    "title": "Veri ve Gelişim Birimi Üyesi",
+    "group": "birim",
+    "unit": "Veri ve Gelişim Birimi",
+    "role_rank": 2,
+    "url": "https://ticaret.edu.tr/istatistik/",
+    "image_url": "/img/icon-cropped.png"
+  },
+  {
+    "key": "ahmetince",
+    "name": "Ahmet İnce",
+    "title": "Veri ve Gelişim Birimi Üyesi",
+    "group": "birim",
+    "unit": "Veri ve Gelişim Birimi",
+    "role_rank": 2,
+    "url": "https://ticaret.edu.tr/istatistik/",
+    "image_url": "/img/icon-cropped.png"
+  },
+  {
+    "key": "sosyal_medya_baskan",
+    "name": "Ad Soyad",
+    "title": "Sosyal Medya ve Tasarım Birimi Başkanı",
+    "group": "birim",
+    "unit": "Sosyal Medya ve Tasarım Birimi",
+    "role_rank": 1,
+    "is_board": true,
+    "bio": "Topluluğun görsel kimliğini ve sosyal medya iletişimini yönetir.",
+    "email": "istatistiktoplulugu@ticaret.edu.tr",
+    "url": "https://ticaret.edu.tr/istatistik/",
+    "image_url": "/img/icon-cropped.png"
+  },
+  {
+    "key": "akademik_baskan",
+    "name": "Ad Soyad",
+    "title": "Akademik Birim Başkanı",
+    "group": "birim",
+    "unit": "Akademik Birim",
+    "role_rank": 1,
+    "is_board": true,
+    "bio": "Akademik içerik üretimi, eğitim ve seminer çalışmalarını koordine eder.",
+    "email": "istatistiktoplulugu@ticaret.edu.tr",
+    "url": "https://ticaret.edu.tr/istatistik/",
+    "image_url": "/img/icon-cropped.png"
+  },
+  {
+    "key": "etkinlik_baskan",
+    "name": "Ad Soyad",
+    "title": "Etkinlik ve Organizasyon Birimi Başkanı",
+    "group": "birim",
+    "unit": "Etkinlik ve Organizasyon Birimi",
+    "role_rank": 1,
+    "is_board": true,
+    "bio": "Topluluk etkinliklerinin planlanması ve sahada yürütülmesinden sorumludur.",
+    "email": "istatistiktoplulugu@ticaret.edu.tr",
+    "url": "https://ticaret.edu.tr/istatistik/",
+    "image_url": "/img/icon-cropped.png"
+  },
+  {
+    "key": "iletisim_baskan",
+    "name": "Ad Soyad",
+    "title": "İletişim Birimi Başkanı",
+    "group": "birim",
+    "unit": "İletişim Birimi",
+    "role_rank": 1,
+    "is_board": true,
+    "bio": "Topluluğun iç ve dış iletişim süreçlerini yürütür; paydaşlarla bağı güçlendirir.",
+    "email": "istatistiktoplulugu@ticaret.edu.tr",
+    "url": "https://ticaret.edu.tr/istatistik/",
+    "image_url": "/img/icon-cropped.png"
+  },
+  {
+    "key": "sponsorluk_baskan",
+    "name": "Ad Soyad",
+    "title": "Sponsorluk Birimi Başkanı",
+    "group": "birim",
+    "unit": "Sponsorluk Birimi",
+    "role_rank": 1,
+    "is_board": true,
+    "bio": "Sponsorluk anlaşmaları ve kurumsal iş birliklerinin geliştirilmesinden sorumludur.",
+    "email": "istatistiktoplulugu@ticaret.edu.tr",
+    "url": "https://ticaret.edu.tr/istatistik/",
+    "image_url": "/img/icon-cropped.png"
+  },
+  {
+    "key": "kubilayerislik",
+    "name": "Kubilay Erişlik",
+    "title": "Arş. Gör. Dr.",
+    "group": "danisman",
+    "role_rank": 1,
+    "url": "https://github.com/kubilayerislik",
+    "image_url": "https://github.com/kubilayerislik.png"
+  },
+  {
+    "key": "denizgerceker",
+    "name": "Deniz Gerçeker",
+    "title": "Arş. Gör.",
+    "group": "danisman",
+    "role_rank": 1,
+    "url": "https://ticaret.edu.tr",
+    "image_url": "/img/icon-cropped.png"
+  }
+]

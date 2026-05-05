@@ -200,6 +200,10 @@ const config = {
             label: 'Topluluk',
             items: [
               {
+                to: '/topluluk/ekibimiz',
+                label: 'Ekibimiz',
+              },
+              {
                 to: '/topluluk/etkinliklerimiz',
                 label: 'Etkinlikler',
               },

@@ -18,9 +18,9 @@ kubilayerislik:
 
 denizgerceker:
   name: Deniz Gerçeker
-  title: Arş. Gör. Dr.
+  title: Arş. Gör.
   url: https://ticaret.edu.tr
-  image_url: https://i.pravatar.cc/150?img=3
+  image_url: /img/icon-cropped.png
 
 yakupvatansever:
   name: Yakup Vatansever
