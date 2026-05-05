@@ -195,6 +195,10 @@ const config = {
                 to: '/araclar',
                 label: 'Araçlar',
               },
+              {
+                to: '/veri-setleri',
+                label: 'Veri Setleri',
+              },
             ],
           },
 
