@@ -5,11 +5,11 @@ on:
     branches:
       - main
 
-  # Daily rebuild at 06:00 UTC (09:00 Europe/Istanbul). Picks up any new
-  # events added to the public Google Calendar since the last build,
-  # which scripts/fetch-events.mjs reads during `npm run prebuild`.
+  # Rebuild every 6 hours (00:00, 06:00, 12:00, 18:00 UTC ≈ 03:00, 09:00,
+  # 15:00, 21:00 Europe/Istanbul). Picks up new entries from the public
+  # Google Calendar and the glossary Sheet since the last build.
   schedule:
-    - cron: '0 6 * * *'
+    - cron: '0 */6 * * *'
 
   # Manual trigger from the Actions tab — handy for pushing calendar
   # updates before the next scheduled run.
