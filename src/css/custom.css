@@ -584,14 +584,16 @@ html:has(.navbar.navbar-sidebar--show) {
   overflow: hidden;
 }
 
-/* Sidebar her zaman opak arka plana sahip olsun. */
+/* Sidebar her zaman opak arka plana sahip olsun. Site temasının
+   raised-surface tokenini kullanıyoruz ki dark/light geçişinde
+   uyumlu kalsın. */
 .navbar-sidebar {
   z-index: 250;
-  background-color: white;
+  background-color: var(--brand-surface);
 }
 
 [data-theme='dark'] .navbar-sidebar {
-  background-color: #14213d;
+  background-color: #0a0f1c;
 }
 
 .navbar-sidebar__backdrop {
