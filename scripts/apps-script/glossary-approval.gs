@@ -21,14 +21,16 @@ const GLOSSARY_SHEET    = 'Sözlük';     // curated tab the site reads
 const APPROVE_COL       = 'Onayla';     // checkbox column in Öneriler
 const STATUS_COL        = 'Durum';      // text column in Öneriler
 
-// Map Öneriler header -> Sözlük header. Add/remove as you like; columns
-// missing on either side are silently skipped.
+// Map a Sözlük header to the list of acceptable Öneriler headers.
+// Matching is whitespace-insensitive, case-insensitive, and TR-aware so
+// "Terim", "Terim (Türkçe)", " terim " all match the same destination.
+// Add aliases freely; the first one found in the source sheet wins.
 const FIELD_MAP = {
-  'Terim (Türkçe)':       'Terim',
-  'İngilizce karşılığı':  'İngilizce',
-  'Tanım':                'Tanım',
-  'Örnek':                'Örnek',
-  'İlgili terimler':      'İlgili',
+  'Terim':     ['Terim (Türkçe)', 'Terim', 'Terim Türkçe'],
+  'İngilizce': ['İngilizce karşılığı', 'İngilizce', 'English', 'EN'],
+  'Tanım':     ['Tanım', 'Definition'],
+  'Örnek':     ['Örnek', 'Example'],
+  'İlgili':    ['İlgili terimler', 'İlgili', 'Related'],
 };
 
 // --- Trigger ----------------------------------------------------------------
@@ -86,6 +88,23 @@ function approveAllChecked() {
 
 // --- Core -------------------------------------------------------------------
 
+// Normalize a header for fuzzy comparison: trim, collapse spaces, lower-case
+// in Turkish locale. Used so "Terim (Türkçe)" matches " terim (türkçe) ".
+function normHeader_(s) {
+  return String(s).replace(/\s+/g, ' ').trim().toLocaleLowerCase('tr-TR');
+}
+
+// Find the index of the first alias that exists in srcHeaders. Returns -1
+// if none of the aliases match.
+function findSrcCol_(srcHeaders, aliases) {
+  const normSrc = srcHeaders.map(normHeader_);
+  for (const alias of aliases) {
+    const idx = normSrc.indexOf(normHeader_(alias));
+    if (idx !== -1) return idx;
+  }
+  return -1;
+}
+
 function approveRow_(srcSheet, srcHeaders, rowNum) {
   const ss = SpreadsheetApp.getActive();
   const dst = ss.getSheetByName(GLOSSARY_SHEET);
@@ -94,19 +113,40 @@ function approveRow_(srcSheet, srcHeaders, rowNum) {
   const dstHeaders = dst.getRange(1, 1, 1, dst.getLastColumn()).getValues()[0];
   const srcRow = srcSheet.getRange(rowNum, 1, 1, srcHeaders.length).getValues()[0];
 
+  // Build a lookup of normalized dst header -> aliases so we can match dst
+  // tabs that don't perfectly match the keys in FIELD_MAP either.
+  const dstToAliases = {};
+  for (const [dstName, aliases] of Object.entries(FIELD_MAP)) {
+    dstToAliases[normHeader_(dstName)] = aliases;
+  }
+
   // Build new row aligned to Sözlük's header order.
+  const missing = [];
   const newRow = dstHeaders.map((h) => {
-    const srcHeader = Object.keys(FIELD_MAP).find((k) => FIELD_MAP[k] === h);
-    if (!srcHeader) return '';
-    const idx = srcHeaders.indexOf(srcHeader);
-    if (idx === -1) return '';
+    const aliases = dstToAliases[normHeader_(h)];
+    if (!aliases) return '';
+    const idx = findSrcCol_(srcHeaders, aliases);
+    if (idx === -1) {
+      missing.push(`"${h}" (aranan: ${aliases.join(' / ')})`);
+      return '';
+    }
     return srcRow[idx];
   });
 
-  // Skip if "Terim" is empty — protects against accidental tick on a blank row.
-  const termIdx = dstHeaders.indexOf('Terim');
-  if (termIdx === -1 || !String(newRow[termIdx]).trim()) {
-    setStatus_(srcSheet, srcHeaders, rowNum, 'Atlandı: terim boş');
+  // Find Terim column in destination via the same fuzzy matching.
+  const termIdx = dstHeaders.findIndex((h) => normHeader_(h) === normHeader_('Terim'));
+  if (termIdx === -1) {
+    setStatus_(srcSheet, srcHeaders, rowNum, 'Atlandı: Sözlük\'te "Terim" başlığı yok');
+    return;
+  }
+
+  // If Terim cell is empty, the most common cause is a header mismatch in
+  // the source sheet — surface that in the status to make debugging easy.
+  if (!String(newRow[termIdx]).trim()) {
+    const detail = missing.length
+      ? `Eşleşmeyen başlık: ${missing.join('; ')}`
+      : 'terim hücresi gerçekten boş';
+    setStatus_(srcSheet, srcHeaders, rowNum, `Atlandı: ${detail}`);
     return;
   }
 
@@ -122,7 +162,7 @@ function approveRow_(srcSheet, srcHeaders, rowNum) {
 }
 
 function termExists_(dstSheet, dstHeaders, term) {
-  const termIdx = dstHeaders.indexOf('Terim');
+  const termIdx = dstHeaders.findIndex((h) => normHeader_(h) === normHeader_('Terim'));
   if (termIdx === -1) return false;
   const last = dstSheet.getLastRow();
   if (last < 2) return false;
