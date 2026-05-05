@@ -12,7 +12,7 @@ import rehypeKatex from 'rehype-katex';
 const config = {
   title: 'Ticaret İstatistik',
   tagline: "İstatistik —  Güçlü akademik kadrosu ile istatistiğe dair her şey sizi geleceğe hazırlıyor.",
-  favicon: 'img/istatistik_ticaret_seffaf_sari_ikon.png',
+  favicon: 'img/favicon.png',
 
   // Set the production url of your site here
   url: 'https://ticaretistatistik.com',
