@@ -433,7 +433,7 @@ export default function SozlukPage() {
             <span className={styles.ctaArrow} aria-hidden="true">→</span>
           </Link>
           <p className={styles.ctaHint}>
-            5 dakika sürer · GitHub hesabı gerekmez · Adın katkıcılar arasında anılır
+            5 dakika sürer · Adın katkıcılar arasında anılır
           </p>
         </div>
       </div>
