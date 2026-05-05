@@ -12,7 +12,7 @@ import rehypeKatex from 'rehype-katex';
 const config = {
   title: 'Ticaret İstatistik',
   tagline: "İstatistik —  Güçlü akademik kadrosu ile istatistiğe dair her şey sizi geleceğe hazırlıyor.",
-  favicon: 'img/logo.png',
+  favicon: 'img/istatistik_ticaret_seffaf_sari_ikon.png',
 
   // Set the production url of your site here
   url: 'https://ticaretistatistik.com',
@@ -134,10 +134,9 @@ const config = {
 
       image: 'img/social-card.jpeg',
       navbar: {
-        title: 'Ticaret İstatistik',
         logo: {
           alt: 'Ticaret İstatistik Logo',
-          src: 'img/logo.png',
+          src: 'img/istatistik_ticaret_seffaf_sari_logo.png',
         },
         // hideOnScroll'u kapattık — true olduğunda Docusaurus navbar'a
         // transform: translate3d uyguluyor, bu yeni stacking context

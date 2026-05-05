@@ -237,7 +237,20 @@ div[class^="announcementBar"] {
 }
 
 .navbar__logo {
-  height: 28px;
+  height: 48px;
+  margin-right: 0;
+}
+
+.navbar__logo img {
+  height: 100%;
+  width: auto;
+  max-width: none;
+}
+
+@media (max-width: 600px) {
+  .navbar__logo {
+    height: 40px;
+  }
 }
 
 .navbar__link {
