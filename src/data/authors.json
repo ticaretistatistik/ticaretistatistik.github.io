@@ -1,0 +1,51 @@
+[
+  {
+    "key": "mertsismanoglu",
+    "name": "Mert Şişmanoğlu",
+    "title": "Veri ve Gelişim Birimi Üyesi",
+    "url": "https://github.com/mertssmnoglu",
+    "image_url": "https://github.com/mertssmnoglu.png"
+  },
+  {
+    "key": "yigitefeavci",
+    "name": "Yiğit Efe Avcı",
+    "title": "Veri ve Gelişim Birimi Başkanı",
+    "url": "https://github.com/yigit433",
+    "image_url": "https://github.com/yigit433.png"
+  },
+  {
+    "key": "kubilayerislik",
+    "name": "Kubilay Erişlik",
+    "title": "Arş. Gör. Dr.",
+    "url": "https://github.com/kubilayerislik",
+    "image_url": "https://github.com/kubilayerislik.png"
+  },
+  {
+    "key": "denizgerceker",
+    "name": "Deniz Gerçeker",
+    "title": "Arş. Gör. Dr.",
+    "url": "https://ticaret.edu.tr",
+    "image_url": "https://i.pravatar.cc/150?img=3"
+  },
+  {
+    "key": "yakupvatansever",
+    "name": "Yakup Vatansever",
+    "title": "Sosyal Medya ve Tasarım Birimi Başkanı",
+    "url": "https://github.com/yakupvatansever",
+    "image_url": "https://github.com/yakupvatansever.png"
+  },
+  {
+    "key": "aslisuveybeoz",
+    "name": "Aslı Süveybe Öz",
+    "title": "Veri ve Gelişim Birimi Üyesi",
+    "url": "https://ticaret.edu.tr/istatistik/",
+    "image_url": "/img/logo.png"
+  },
+  {
+    "key": "ahmetince",
+    "name": "Ahmet İnce",
+    "title": "Veri ve Gelişim Birimi Üyesi",
+    "url": "https://ticaret.edu.tr/istatistik/",
+    "image_url": "/img/logo.png"
+  }
+]

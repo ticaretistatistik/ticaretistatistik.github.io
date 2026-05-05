@@ -4,7 +4,13 @@ import Link from '@docusaurus/Link';
 import {FiSearch, FiX} from 'react-icons/fi';
 
 import glossaryData from '@site/src/data/glossary.json';
+import authorsData from '@site/src/data/authors.json';
 import styles from './styles.module.css';
+
+const normName = (s) => String(s || '').trim().toLocaleLowerCase('tr-TR');
+const AUTHORS_BY_NAME = new Map(
+  authorsData.map((a) => [normName(a.name), a]),
+);
 
 const trCollator = new Intl.Collator('tr-TR', {sensitivity: 'base'});
 
@@ -30,24 +36,87 @@ function splitIntoRows(items, rowCount) {
   return rows;
 }
 
-function ContributorsMarquee({names}) {
-  if (!names.length) return null;
-  const rows = splitIntoRows(names, 3);
+function ContributorCard({contributor}) {
+  const initials = contributor.name
+    .split(/\s+/)
+    .map((p) => p[0])
+    .filter(Boolean)
+    .slice(0, 2)
+    .join('')
+    .toLocaleUpperCase('tr-TR');
+  const avatar = contributor.image_url ? (
+    <img
+      src={contributor.image_url}
+      alt=""
+      className={styles.contributorAvatar}
+      loading="lazy"
+      aria-hidden="true"
+    />
+  ) : (
+    <span className={styles.contributorAvatarFallback} aria-hidden="true">
+      {initials}
+    </span>
+  );
+  return (
+    <article className={styles.contributorCard}>
+      {avatar}
+      <div className={styles.contributorCardText}>
+        <p className={styles.contributorCardName}>{contributor.name}</p>
+        <p className={styles.contributorCardRole}>
+          {contributor.title || 'Sözlük katkıcısı'}
+        </p>
+      </div>
+    </article>
+  );
+}
+
+// Marquee'nin "kesintisiz loop" hilesi her kolonun içeriğini iki kez
+// basmayı gerektiriyor. Az kart olduğunda iki kopya aynı anda görünür ve
+// "duplicate" hissi verir. Bu eşik altında statik bir ızgara gösteriyoruz
+// — yeterince katkıcı toplandığında otomatik olarak marquee'ye geçiyor.
+const MARQUEE_THRESHOLD = 9;
+
+function ContributorsMarquee({contributors}) {
+  if (!contributors.length) return null;
+  const isStatic = contributors.length < MARQUEE_THRESHOLD;
+  const cols = isStatic ? null : splitIntoRows(contributors, 3);
+  const speedFactors = [4, 5.5, 4.5];
+  const minDuration = 12;
   return (
     <section className={styles.contributorsSection}>
       <h2 className={styles.contributorsTitle}>Bu sözlüğü birlikte yapanlar</h2>
-      {rows.map((row, i) => (
-        <div
-          key={i}
-          className={`${styles.marqueeRow} ${i % 2 ? styles.marqueeReverse : ''}`}
-          aria-hidden={i > 0 ? 'true' : undefined}>
-          <div className={styles.marqueeTrack}>
-            {[...row, ...row].map((name, j) => (
-              <span key={j} className={styles.contributorChip}>{name}</span>
-            ))}
-          </div>
+      <p className={styles.contributorsKicker}>
+        {contributors.length === 1
+          ? 'İlk katkıcımız — sıradaki sen olabilirsin'
+          : `${contributors.length} katkıcı, sayı her gün artıyor`}
+      </p>
+      {isStatic ? (
+        <div className={styles.contributorsStaticGrid}>
+          {contributors.map((c, j) => (
+            <ContributorCard key={j} contributor={c} />
+          ))}
         </div>
-      ))}
+      ) : (
+        <div className={styles.marqueeColumns}>
+          {cols.map((col, i) => {
+            const factor = speedFactors[i % speedFactors.length];
+            const duration = Math.max(col.length * factor, minDuration);
+            return (
+              <div
+                key={i}
+                className={`${styles.marqueeColumn} ${i % 2 ? styles.marqueeReverse : ''}`}
+                style={{'--marquee-duration': `${duration}s`}}
+                aria-hidden={i > 0 ? 'true' : undefined}>
+                <div className={styles.marqueeTrack}>
+                  {[...col, ...col].map((c, j) => (
+                    <ContributorCard key={j} contributor={c} />
+                  ))}
+                </div>
+              </div>
+            );
+          })}
+        </div>
+      )}
     </section>
   );
 }
@@ -65,14 +134,20 @@ export default function SozlukPage() {
     const seen = new Set();
     const out = [];
     for (const t of glossaryData.terms) {
-      const c = (t.contributor || '').trim();
-      if (!c) continue;
-      const key = c.toLocaleLowerCase('tr-TR');
+      const raw = (t.contributor || '').trim();
+      if (!raw) continue;
+      const key = normName(raw);
       if (seen.has(key)) continue;
       seen.add(key);
-      out.push(c);
+      const author = AUTHORS_BY_NAME.get(key);
+      out.push({
+        name: author ? author.name : raw,
+        title: author ? author.title : null,
+        image_url: author ? author.image_url : null,
+        url: author ? author.url : null,
+      });
     }
-    return out.sort((a, b) => trCollator.compare(a, b));
+    return out.sort((a, b) => trCollator.compare(a.name, b.name));
   }, []);
 
   const filtered = useMemo(() => {
@@ -231,7 +306,19 @@ export default function SozlukPage() {
           )}
         </main>
 
-        <ContributorsMarquee names={contributors} />
+        <ContributorsMarquee contributors={contributors} />
+
+        <div className={styles.ctaWrap}>
+          <Link
+            to="https://forms.gle/s5jreyNxNUiMzDkX7"
+            className={styles.ctaButton}>
+            Sen de bir terim öner
+            <span className={styles.ctaArrow} aria-hidden="true">→</span>
+          </Link>
+          <p className={styles.ctaHint}>
+            5 dakika sürer · GitHub hesabı gerekmez · Adın katkıcılar arasında anılır
+          </p>
+        </div>
       </div>
     </Layout>
   );
