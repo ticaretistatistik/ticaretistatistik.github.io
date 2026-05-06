@@ -224,7 +224,7 @@
 }
 
 .body a,
-.steps a {
+.steps a:not(.primaryBtn) {
   color: var(--brand-ink);
   text-decoration: underline;
   text-decoration-color: var(--brand-yellow);
@@ -233,7 +233,7 @@
 }
 
 .body a:hover,
-.steps a:hover {
+.steps a:not(.primaryBtn):hover {
   color: var(--brand-ink);
   text-decoration-color: var(--brand-ink);
 }
@@ -386,24 +386,27 @@
   border-radius: var(--radius-pill);
   font-size: var(--fs-sm);
   font-weight: 600;
-  text-decoration: none;
+  text-decoration: none !important;
   transition: opacity var(--dur-fast) var(--ease-out);
 }
 
-.primaryBtn:hover {
+.primaryBtn,
+.primaryBtn:hover,
+.primaryBtn:focus {
   color: var(--brand-surface);
-  text-decoration: none;
+  text-decoration: none !important;
+}
+
+.primaryBtn:hover {
   opacity: 0.88;
 }
 
-[data-theme='dark'] .primaryBtn {
+[data-theme='dark'] .primaryBtn,
+[data-theme='dark'] .primaryBtn:hover,
+[data-theme='dark'] .primaryBtn:focus {
   background: var(--brand-yellow);
   color: var(--brand-ink);
   border-color: var(--brand-yellow);
-}
-
-[data-theme='dark'] .primaryBtn:hover {
-  color: var(--brand-ink);
 }
 
 /* --- Callout --- */
